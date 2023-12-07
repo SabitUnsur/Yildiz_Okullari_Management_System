@@ -23,3 +23,8 @@ C:\Users\sabit\source\repos\Yildiz_Okullari\Core\obj\Debug\net7.0\Core.dll
 C:\Users\sabit\source\repos\Yildiz_Okullari\Core\obj\Debug\net7.0\refint\Core.dll
 C:\Users\sabit\source\repos\Yildiz_Okullari\Core\obj\Debug\net7.0\Core.pdb
 C:\Users\sabit\source\repos\Yildiz_Okullari\Core\obj\Debug\net7.0\ref\Core.dll
+C:\Users\sabit\source\repos\Yildiz_Okullari\Core\bin\Debug\net7.0\DataAccess.dll
+C:\Users\sabit\source\repos\Yildiz_Okullari\Core\bin\Debug\net7.0\Entities.dll
+C:\Users\sabit\source\repos\Yildiz_Okullari\Core\bin\Debug\net7.0\DataAccess.pdb
+C:\Users\sabit\source\repos\Yildiz_Okullari\Core\bin\Debug\net7.0\Entities.pdb
+C:\Users\sabit\source\repos\Yildiz_Okullari\Core\obj\Debug\net7.0\Core.csproj.CopyComplete

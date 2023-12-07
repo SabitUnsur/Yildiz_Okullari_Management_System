@@ -22,11 +22,7 @@ C:\Users\sabit\source\repos\Yildiz_Okullari\DataAccess\bin\Debug\net7.0\DataAcce
 C:\Users\sabit\source\repos\Yildiz_Okullari\DataAccess\bin\Debug\net7.0\DataAccess.runtimeconfig.json
 C:\Users\sabit\source\repos\Yildiz_Okullari\DataAccess\bin\Debug\net7.0\DataAccess.dll
 C:\Users\sabit\source\repos\Yildiz_Okullari\DataAccess\bin\Debug\net7.0\DataAccess.pdb
-C:\Users\sabit\source\repos\Yildiz_Okullari\DataAccess\bin\Debug\net7.0\Business.dll
-C:\Users\sabit\source\repos\Yildiz_Okullari\DataAccess\bin\Debug\net7.0\Core.dll
 C:\Users\sabit\source\repos\Yildiz_Okullari\DataAccess\bin\Debug\net7.0\Entities.dll
-C:\Users\sabit\source\repos\Yildiz_Okullari\DataAccess\bin\Debug\net7.0\Business.pdb
-C:\Users\sabit\source\repos\Yildiz_Okullari\DataAccess\bin\Debug\net7.0\Core.pdb
 C:\Users\sabit\source\repos\Yildiz_Okullari\DataAccess\bin\Debug\net7.0\Entities.pdb
 C:\Users\sabit\source\repos\Yildiz_Okullari\DataAccess\obj\Debug\net7.0\DataAccess.csproj.AssemblyReference.cache
 C:\Users\sabit\source\repos\Yildiz_Okullari\DataAccess\obj\Debug\net7.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig

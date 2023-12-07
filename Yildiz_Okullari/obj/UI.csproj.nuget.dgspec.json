@@ -30,6 +30,12 @@
             "projectReferences": {
               "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Core\\Core.csproj": {
                 "projectPath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Core\\Core.csproj"
+              },
+              "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\DataAccess\\DataAccess.csproj"
+              },
+              "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Entities\\Entities.csproj"
               }
             }
           }
@@ -96,7 +102,11 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\DataAccess\\DataAccess.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -158,12 +168,6 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Business\\Business.csproj": {
-                "projectPath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Business\\Business.csproj"
-              },
-              "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Core\\Core.csproj"
-              },
               "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Entities\\Entities.csproj": {
                 "projectPath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Entities\\Entities.csproj"
               }

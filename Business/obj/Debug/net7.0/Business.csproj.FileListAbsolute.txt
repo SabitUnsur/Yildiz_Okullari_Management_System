@@ -29,3 +29,7 @@ C:\Users\sabit\source\repos\Yildiz_Okullari\Business\obj\Debug\net7.0\Business.d
 C:\Users\sabit\source\repos\Yildiz_Okullari\Business\obj\Debug\net7.0\refint\Business.dll
 C:\Users\sabit\source\repos\Yildiz_Okullari\Business\obj\Debug\net7.0\Business.pdb
 C:\Users\sabit\source\repos\Yildiz_Okullari\Business\obj\Debug\net7.0\ref\Business.dll
+C:\Users\sabit\source\repos\Yildiz_Okullari\Business\bin\Debug\net7.0\DataAccess.dll
+C:\Users\sabit\source\repos\Yildiz_Okullari\Business\bin\Debug\net7.0\Entities.dll
+C:\Users\sabit\source\repos\Yildiz_Okullari\Business\bin\Debug\net7.0\DataAccess.pdb
+C:\Users\sabit\source\repos\Yildiz_Okullari\Business\bin\Debug\net7.0\Entities.pdb

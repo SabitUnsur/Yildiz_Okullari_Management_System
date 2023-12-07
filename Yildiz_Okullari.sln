@@ -3,15 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "Yildiz_Okullari\UI.csproj", "{2CC22203-F095-441F-961E-2F151217CA63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI", "Yildiz_Okullari\UI.csproj", "{2CC22203-F095-441F-961E-2F151217CA63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{A58470DA-4DCD-4C36-88D2-D20AA47658BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{A58470DA-4DCD-4C36-88D2-D20AA47658BA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{50DA1E82-6F6B-4078-AF94-3DFD614A6713} = {50DA1E82-6F6B-4078-AF94-3DFD614A6713}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{50DA1E82-6F6B-4078-AF94-3DFD614A6713}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{50DA1E82-6F6B-4078-AF94-3DFD614A6713}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{8AE07954-34FD-40C0-A634-8C27C18678BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{8AE07954-34FD-40C0-A634-8C27C18678BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{B3F2E456-4AE6-4526-8818-FC1392C1AF65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{B3F2E456-4AE6-4526-8818-FC1392C1AF65}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

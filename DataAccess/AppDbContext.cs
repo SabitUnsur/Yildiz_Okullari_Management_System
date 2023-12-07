@@ -33,5 +33,7 @@ namespace DataAccess
 			}
 		}
 		public DbSet<Person> Persons { get; set;}
+		public DbSet<Attendance> Attendances { get; set;}
+		public DbSet<Term> Terms { get; set;}
     }
 }

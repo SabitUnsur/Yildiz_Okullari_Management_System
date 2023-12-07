@@ -14,6 +14,9 @@ namespace Entities
         public int ?StudentNumber { get; set; }
         public DateTime BirthDate { get; set; }
         public Gender Gender { get; set; }
+		public ICollection<Attendance> ?Attendances { get; set; }
+        public int TermId { get; set; }
+        public required Term Term { get; set; }
         
     }
 }
