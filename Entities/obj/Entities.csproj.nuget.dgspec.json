@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Entities\\Entities.csproj": {}
+    "C:\\Users\\cagat\\OneDrive\\Masaüstü\\kodlar\\Yildiz_Okullari_Management_System\\Entities\\Entities.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Entities\\Entities.csproj": {
+    "C:\\Users\\cagat\\OneDrive\\Masaüstü\\kodlar\\Yildiz_Okullari_Management_System\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\cagat\\OneDrive\\Masaüstü\\kodlar\\Yildiz_Okullari_Management_System\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Entities\\Entities.csproj",
-        "packagesPath": "C:\\Users\\sabit\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Entities\\obj\\",
+        "projectPath": "C:\\Users\\cagat\\OneDrive\\Masaüstü\\kodlar\\Yildiz_Okullari_Management_System\\Entities\\Entities.csproj",
+        "packagesPath": "C:\\Users\\cagat\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cagat\\OneDrive\\Masaüstü\\kodlar\\Yildiz_Okullari_Management_System\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\sabit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\cagat\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +39,16 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.14, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -55,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
