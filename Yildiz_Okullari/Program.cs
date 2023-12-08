@@ -1,5 +1,6 @@
 using Business.Abstract;
 using Business.Concrete;
+using Core.Utils.Helpers.TwilioSmsHelper;
 using DataAccess;
 using Entities;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +19,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 });
 
 builder.Services.AddIdentity<Person,AppRole>().AddEntityFrameworkStores<AppDbContext>();
+
+builder.Services.Configure<TwilioSettings>(builder.Configuration.GetSection("Twilio"));
+builder.Services.AddTransient<ISmsService, SmsService>();
 
 var app = builder.Build();
 

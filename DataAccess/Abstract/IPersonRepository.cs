@@ -9,5 +9,8 @@ namespace DataAccess.Abstract
 {
 	public interface IPersonRepository:IGenericRepository<Person>
 	{
+		Task<List<Person>> GetAbsencesByDateRange(DateTime startDate, DateTime endDate);
+		public int TotalAbsencesDayCountByStudentNumber(int studentNumber);
+		Task<List<Attendance>> TotalAbsencesDayListByStudentNumber(int studentNumber);
 	}
 }

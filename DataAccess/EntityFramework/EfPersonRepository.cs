@@ -1,5 +1,6 @@
 ﻿using DataAccess.Abstract;
 using DataAccess.Concrete;
+using DataAccess;
 using Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityFramework
 {
-	public class EfPersonRepository : GenericRepository<Person>, IPersonRepository
+    public class EfPersonRepository : GenericRepository<Person>, IPersonRepository
 	{
 		public EfPersonRepository(AppDbContext appDbContext) : base(appDbContext)
 		{

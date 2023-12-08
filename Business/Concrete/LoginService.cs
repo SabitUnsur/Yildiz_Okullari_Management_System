@@ -38,8 +38,6 @@ namespace Business.Concrete
         {
             var user = await _userManager.FindByIdAsync(userid.ToString());
             return await _userManager.GeneratePasswordResetTokenAsync(user!);
-        }
-
-        
+        }   
     }
 }

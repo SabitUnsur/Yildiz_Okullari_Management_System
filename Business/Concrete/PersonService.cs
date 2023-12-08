@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Exceptions;
 using Core.UnitOfWorks;
 using DataAccess.Abstract;
 using Entities;
@@ -10,59 +12,78 @@ namespace Business.Concrete
 	{
 		private readonly IPersonRepository _personDal;
 		private readonly IUnitOfWork _unitOfWork;
+		private readonly IScheduledTaskService _taskManager;
 
-		public PersonService(IPersonRepository personDal,IUnitOfWork unitOfWork)
+		public PersonService(IPersonRepository personDal,IUnitOfWork unitOfWork,IScheduledTaskService taskManager) 
 		{
 			_personDal = personDal;
 			_unitOfWork = unitOfWork;
+			_taskManager = taskManager;
 		}
 
-		public Task Add(Person entity)
+		public async Task Add(Person entity)
 		{
-			_personDal.Add(entity);
-			_unitOfWork.CommitAsync();
-			return Task.CompletedTask;
-
+			await _personDal.Add(entity);
+			await _unitOfWork.CommitAsync();
 		}
 
 		public void Delete(Person entity)
 		{
-			throw new NotImplementedException();
+			_personDal.Delete(entity);
+			_unitOfWork.CommitAsync();
 		}
 
-		public Task<List<Person>> GetAbsencesByDateRange(DateTime startDate, DateTime endDate)
+		public async Task<List<Person>> GetAbsencesByDateRange(DateTime startDate, DateTime endDate)
 		{
-			throw new NotImplementedException();
+			var absences =  await _personDal.GetAbsencesByDateRange(startDate,endDate);
+
+			if(absences.Count == 0)
+			{
+				return (List<Person>)Enumerable.Empty<Person>();
+			}
+
+			return absences;
 		}
 
 		public IEnumerable<Person> GetAll()
 		{
-			throw new NotImplementedException();
+			return _personDal.GetAll();
 		}
 
 		public IEnumerable<Person> GetAll(Expression<Func<Person, bool>> filter)
 		{
-			throw new NotImplementedException();
+			return _personDal.GetAll(filter);
 		}
 
 		public Person GetById(int id)
 		{
-			throw new NotImplementedException();
+			var person = _personDal.GetById(id);
+			if(person == null)
+			{
+				throw new NotFoundException(Messages.NotFound); 
+			}
+			return person;
 		}
 
 		public int TotalAbsencesDayCountByStudentNumber(int studentNumber)
 		{
-			throw new NotImplementedException();
+			return _personDal.TotalAbsencesDayCountByStudentNumber(studentNumber);
 		}
 
-		public Task<List<Attendance>> TotalAbsencesDayListByStudentNumber(int studentNumber)
+		public async Task<List<Attendance>>  TotalAbsencesDayListByStudentNumber(int studentNumber)
 		{
-			throw new NotImplementedException();
+			var DayList = await _personDal.TotalAbsencesDayListByStudentNumber(studentNumber) ;
+			if(DayList.Count == 0)
+			{
+				return (List<Attendance>)Enumerable.Empty<Attendance>();
+			}
+			return DayList;
 		}
 
 		public void Update(Person entity)
 		{
-			throw new NotImplementedException();
+			_personDal.Update(entity);
+			_unitOfWork.Commit();
 		}
 	}
 }

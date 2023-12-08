@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.14" />
+    <PackageReference Include="Twilio" Version="6.15.2" />
+    <PackageReference Include="Twilio.AspNet.Mvc" Version="8.0.2" />
   </ItemGroup>
 
   <ItemGroup>
