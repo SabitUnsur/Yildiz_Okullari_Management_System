@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "IQ7olMbJwWG+u+MPwjKMj/pc2Gn21yCCFHc0taXr+L3yb0k33c8sTYoVcWtWrBr5t1vXe5+b7ZUV8NhZQIH0AQ==",
+  "dgSpecHash": "rAS9ZCWSpePdr/DLkMZjNXfTuvQD8zVswfjNXIQh9d+aHR+C0VSgHs+s/EBDmklzdwFcU1NXcYSh7Utk7sIFDQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\cagat\\OneDrive\\Masaüstü\\kodlar\\Yildiz_Okullari_Management_System\\Core\\Core.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\cagat\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
+    "C:\\Users\\cagat\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\cagat\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\cagat\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.14\\microsoft.aspnetcore.cryptography.internal.7.0.14.nupkg.sha512",
     "C:\\Users\\cagat\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.14\\microsoft.aspnetcore.cryptography.keyderivation.7.0.14.nupkg.sha512",
     "C:\\Users\\cagat\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\7.0.14\\microsoft.aspnetcore.identity.entityframeworkcore.7.0.14.nupkg.sha512",

@@ -1,7 +1,9 @@
 using Business.Abstract;
 using Business.Concrete;
+using Core.Extensions;
 using DataAccess;
 using Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IRegisterService,RegisterService>();
 builder.Services.AddScoped<ILoginService,LoginService>();
+builder.Services.AddScoped<IRoleService,RoleService>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
@@ -18,6 +21,12 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 });
 
 builder.Services.AddIdentity<Person,AppRole>().AddEntityFrameworkStores<AppDbContext>();
+
+builder.Services.AddIdentityWithExtension();// bu metot Core katmanýndaki Extensions klasöründeki StartupExtensions.cs dosyasýnda tanýmlýdýr
+builder.Services.Configure<SecurityStampValidatorOptions>(options => //validation interval özelliði þu iþe yarar : kullanýcý þifresini deðiþtirdiðinde kullanýcýnýn diðer oturumlarýný kapatýr
+{
+    options.ValidationInterval = TimeSpan.FromMinutes(30);
+});
 
 var app = builder.Build();
 
@@ -34,6 +43,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

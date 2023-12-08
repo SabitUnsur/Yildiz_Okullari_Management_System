@@ -302,3 +302,9 @@ C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yild
 C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\Entities.dll
 C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\DataAccess.pdb
 C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\Entities.pdb
+C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\AutoMapper.dll
+C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\FluentValidation.dll
+C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\FluentValidation.AspNetCore.dll
+C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari\obj\Debug\net7.0\UI.MvcApplicationPartsAssemblyInfo.cs
