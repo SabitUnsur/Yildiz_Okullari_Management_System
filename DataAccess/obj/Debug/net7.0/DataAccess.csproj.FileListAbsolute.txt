@@ -2,10 +2,6 @@ C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Data
 C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\DataAccess\bin\Debug\net7.0\DataAccess.runtimeconfig.json
 C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\DataAccess\bin\Debug\net7.0\DataAccess.dll
 C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\DataAccess\bin\Debug\net7.0\DataAccess.pdb
-C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\DataAccess\bin\Debug\net7.0\Business.dll
-C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\DataAccess\bin\Debug\net7.0\Core.dll
-C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\DataAccess\bin\Debug\net7.0\Business.pdb
-C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\DataAccess\bin\Debug\net7.0\Core.pdb
 C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\DataAccess\obj\Debug\net7.0\DataAccess.csproj.AssemblyReference.cache
 C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\DataAccess\obj\Debug\net7.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\DataAccess\obj\Debug\net7.0\DataAccess.AssemblyInfoInputs.cache
@@ -35,3 +31,5 @@ C:\Users\sabit\source\repos\Yildiz_Okullari\DataAccess\obj\Debug\net7.0\refint\D
 C:\Users\sabit\source\repos\Yildiz_Okullari\DataAccess\obj\Debug\net7.0\DataAccess.pdb
 C:\Users\sabit\source\repos\Yildiz_Okullari\DataAccess\obj\Debug\net7.0\DataAccess.genruntimeconfig.cache
 C:\Users\sabit\source\repos\Yildiz_Okullari\DataAccess\obj\Debug\net7.0\ref\DataAccess.dll
+C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\DataAccess\bin\Debug\net7.0\Entities.dll
+C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\DataAccess\bin\Debug\net7.0\Entities.pdb

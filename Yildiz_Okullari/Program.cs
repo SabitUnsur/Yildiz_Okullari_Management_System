@@ -1,3 +1,5 @@
+using Business.Abstract;
+using Business.Concrete;
 using DataAccess;
 using Entities;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IRegisterService,RegisterService>();
+builder.Services.AddScoped<ILoginService,LoginService>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {

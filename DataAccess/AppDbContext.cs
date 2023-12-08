@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    public class AppDbContext:IdentityDbContext<Person,AppRole,string>
+    public class AppDbContext : IdentityDbContext<Person, AppRole, Guid>
     {
         public AppDbContext() : base()
         {

@@ -28,3 +28,8 @@ C:\Users\sabit\source\repos\Yildiz_Okullari\Core\bin\Debug\net7.0\Entities.dll
 C:\Users\sabit\source\repos\Yildiz_Okullari\Core\bin\Debug\net7.0\DataAccess.pdb
 C:\Users\sabit\source\repos\Yildiz_Okullari\Core\bin\Debug\net7.0\Entities.pdb
 C:\Users\sabit\source\repos\Yildiz_Okullari\Core\obj\Debug\net7.0\Core.csproj.CopyComplete
+C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Core\bin\Debug\net7.0\DataAccess.dll
+C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Core\bin\Debug\net7.0\Entities.dll
+C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Core\bin\Debug\net7.0\DataAccess.pdb
+C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Core\bin\Debug\net7.0\Entities.pdb
+C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Core\obj\Debug\net7.0\Core.csproj.CopyComplete
