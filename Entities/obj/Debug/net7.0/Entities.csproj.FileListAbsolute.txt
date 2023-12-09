@@ -23,3 +23,15 @@ C:\Users\sabit\source\repos\Yildiz_Okullari\Entities\obj\Debug\net7.0\Entities.d
 C:\Users\sabit\source\repos\Yildiz_Okullari\Entities\obj\Debug\net7.0\refint\Entities.dll
 C:\Users\sabit\source\repos\Yildiz_Okullari\Entities\obj\Debug\net7.0\Entities.pdb
 C:\Users\sabit\source\repos\Yildiz_Okullari\Entities\obj\Debug\net7.0\ref\Entities.dll
+C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Entities\bin\Debug\net7.0\Entities.deps.json
+C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Entities\bin\Debug\net7.0\Entities.dll
+C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Entities\bin\Debug\net7.0\Entities.pdb
+C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Entities\obj\Debug\net7.0\Entities.csproj.AssemblyReference.cache
+C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Entities\obj\Debug\net7.0\Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Entities\obj\Debug\net7.0\Entities.AssemblyInfoInputs.cache
+C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Entities\obj\Debug\net7.0\Entities.AssemblyInfo.cs
+C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Entities\obj\Debug\net7.0\Entities.csproj.CoreCompileInputs.cache
+C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Entities\obj\Debug\net7.0\Entities.dll
+C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Entities\obj\Debug\net7.0\refint\Entities.dll
+C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Entities\obj\Debug\net7.0\Entities.pdb
+C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Entities\obj\Debug\net7.0\ref\Entities.dll
