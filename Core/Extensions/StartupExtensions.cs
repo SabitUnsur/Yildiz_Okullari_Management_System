@@ -14,6 +14,7 @@ namespace Core.Extensions
     public  static class StartupExtensions
     {
         // AddIdentityWithExtension methodunu program.cs de yazmak yerine burada yazdık.
+        //AddIdentity methodu ile Identity servislerini ekledik.
         public static void AddIdentityWithExtension(this IServiceCollection services)
         {
             services.Configure<DataProtectionTokenProviderOptions>(options =>

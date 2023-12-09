@@ -26,8 +26,6 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 	options.UseNpgsql(builder.Configuration.GetConnectionString("SqlConnection"));
 });
 
-builder.Services.AddIdentity<Person,AppRole>().AddEntityFrameworkStores<AppDbContext>();
-
 builder.Services.AddIdentityWithExtension();// bu metot Core katmanýndaki Extensions klasöründeki StartupExtensions.cs dosyasýnda tanýmlýdýr
 builder.Services.Configure<SecurityStampValidatorOptions>(options => //validation interval özelliði þu iþe yarar : kullanýcý þifresini deðiþtirdiðinde kullanýcýnýn diðer oturumlarýný kapatýr
 {
