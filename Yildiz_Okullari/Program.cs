@@ -1,6 +1,7 @@
 using Business.Abstract;
 using Business.Concrete;
 using Core.Extensions;
+using Core.OptionsModel;
 using DataAccess;
 using Entities;
 using Microsoft.AspNetCore.Identity;
@@ -14,6 +15,11 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IRegisterService,RegisterService>();
 builder.Services.AddScoped<ILoginService,LoginService>();
 builder.Services.AddScoped<IRoleService,RoleService>();
+builder.Services.AddScoped<IEmailService,EmailService>();
+
+
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings")); //IOptionsEmailSettings eðer bir constructor içerisinde kullanýlacaksa bu þekilde tanýmlanýr
+
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
