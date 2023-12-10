@@ -10,6 +10,7 @@ namespace Business.Constants
 	{
 		public static string UserNotFound = "Kullanıcı bulunamadı";
 		public static string AttendanceNotFound = "Devamsızlık bilgisi bulunamadı";
-		public static string AttendanceInformation = "Öğrenci devamsızlık yapmıştır.";
+		public static string AttendanceInformation = "Öğrenci devamsızlık yapmıştır";
+		public static string SmsSendingFailed= "SMS gönderilemedi";
 	}
 }

@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Exceptions;
 using Core.Utils.Helpers.TwilioSmsHelper;
 using System;
 using System.Collections.Generic;
@@ -28,6 +30,11 @@ namespace Business.Concrete
 				from : new Twilio.Types.PhoneNumber(_twilio.TwilioPhoneNumber),
 				to : mobileNumber
 				);
+
+			if(!string.IsNullOrEmpty(result.ErrorMessage)) 
+			{
+				throw new SmsSendFailedException(Messages.SmsSendingFailed);
+			}
 
 			return result;
 		}

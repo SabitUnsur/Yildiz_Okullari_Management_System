@@ -8,7 +8,7 @@ namespace Business.Abstract
 {
 	public interface IScheduledTaskService
 	{
-		void StartScheduledTask();
+		void StartScheduledTask(int studentId);
 		void StopScheduledTask();
 	}
 }

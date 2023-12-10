@@ -9,6 +9,6 @@ namespace Business.Abstract
 {
 	public interface ISmsService
 	{	
-		MessageResource Send(string mobileNumber, string body);
+		 MessageResource Send(string mobileNumber, string body);
 	}
 }

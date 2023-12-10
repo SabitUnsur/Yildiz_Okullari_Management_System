@@ -42,6 +42,7 @@ namespace Business.Concrete
 			TimeSpan timeToGo = scheduledTime - now;
 
 			_timer = new Timer(x => SendDailyAttendanceSmsViaTwilio(studentId), null, timeToGo, TimeSpan.FromHours(24));
+
 		}
 
 		public void StopScheduledTask()
@@ -56,7 +57,5 @@ namespace Business.Concrete
 			string phoneNumber= personToGetSms.PhoneNumber;
 			_smsService.Send(phoneNumber, Messages.AttendanceInformation);
 		}
-
-
 	}
 }
