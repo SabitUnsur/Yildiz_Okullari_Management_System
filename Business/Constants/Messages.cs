@@ -8,6 +8,8 @@ namespace Business.Constants
 {
 	public static class Messages
 	{
-		public static string NotFound = "Kullanıcı bulunamadı";
+		public static string UserNotFound = "Kullanıcı bulunamadı";
+		public static string AttendanceNotFound = "Devamsızlık bilgisi bulunamadı";
+		public static string AttendanceInformation = "Öğrenci devamsızlık yapmıştır.";
 	}
 }
