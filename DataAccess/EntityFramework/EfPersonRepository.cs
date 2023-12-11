@@ -33,15 +33,14 @@ namespace DataAccess.EntityFramework
 
         public async Task<DateTime?> GetTodaysAbsenceDateForStudent(Guid studentId)
         {
-            var person = _appDbContext.Persons
-                .Include(p => p.Attendances)
-                .FirstOrDefault(x => x.Id == studentId);
+                var person = await _appDbContext.Attendances.FindAsync(studentId);
 
-            var attendanceDate = person?.Attendances
-                .Where(x => x.Date.Day == DateTime.Now.Day)
-                .FirstOrDefault()?.Date;
-
-            return attendanceDate;
+                var attendance = await _appDbContext.Attendances
+                    .Where(x => x.PersonId == studentId)
+                    .Where(x => x.Date == DateTime.Today)
+                    .FirstOrDefaultAsync();
+                return attendance?.Date;
+            
         }
 
 
@@ -60,9 +59,5 @@ namespace DataAccess.EntityFramework
 				.SelectMany(p => p.Attendances.Select(a => new Attendance { Date = a.Date, Person = p }))
 				.ToListAsync();
 		}
-
-
-
-
 	}
 }

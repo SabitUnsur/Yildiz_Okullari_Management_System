@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -15,5 +16,6 @@ namespace DataAccess.Abstract
 		void Update(T entity);
 		void Delete(T entity);
 		T GetById(Guid id);
-	}
+ 
+    }
 }

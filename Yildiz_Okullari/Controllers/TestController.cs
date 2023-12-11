@@ -15,16 +15,18 @@ namespace UI.Controllers
             this.scheduledTaskService = scheduledTaskService;
         }
 
-        public IActionResult Index()
+        public  IActionResult Index()
 		{
-			var person = personService.GetById(Guid.Parse("fd575ebe-a1a2-4c1c-84df-ff695766f819"));
-			var task  = scheduledTaskService.ScheduleSms(person.Id);
+            Guid personId = Guid.Parse("fd575ebe-a1a2-4c1c-84df-ff695766f819");
+            var person =  personService.GetById(personId);
+            var task = scheduledTaskService.ScheduleSms(person.Id);
 
-			if (task.IsCompletedSuccessfully)
-			{
+            if (task.IsCompletedSuccessfully)
+            {
                 return RedirectToAction("Index", "Home");
             }
-			return View();
-		}
+
+            return View();
+        }
 	}
 }

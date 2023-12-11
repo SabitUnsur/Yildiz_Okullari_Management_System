@@ -13,7 +13,7 @@ namespace DataAccess.Concrete
     public class GenericRepository<T> : IGenericRepository<T> where T : class
 		 
 	{
-		protected readonly AppDbContext _appDbContext;
+		protected AppDbContext _appDbContext;
 
 		private readonly DbSet<T> _dbSet;
 
@@ -44,12 +44,12 @@ namespace DataAccess.Concrete
 			return _dbSet.AsNoTracking().Where(filter).ToList();
 		}
 
-		public T GetById(Guid id)
-		{
-			return _dbSet.Find(id);
-		}
+        public T GetById(Guid id)
+        {
+            return  _dbSet.Find(id);
+        }
 
-		public void Update(T entity)
+        public void Update(T entity)
 		{
 			_dbSet.Update(entity);
 		}

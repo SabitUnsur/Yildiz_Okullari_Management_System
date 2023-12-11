@@ -60,7 +60,7 @@ namespace Business.Concrete
 
 		public Person GetById(Guid id)
 		{
-			var person = _personDal.GetById(id);
+			var person =  _personDal.GetById(id);
 			if(person == null)
 			{
 				throw new NotFoundException(Messages.UserNotFound); 
