@@ -44,7 +44,7 @@ namespace DataAccess.Concrete
 			return _dbSet.AsNoTracking().Where(filter).ToList();
 		}
 
-		public T GetById(int id)
+		public T GetById(Guid id)
 		{
 			return _dbSet.Find(id);
 		}

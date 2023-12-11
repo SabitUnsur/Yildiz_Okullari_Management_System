@@ -1,61 +1,81 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Core.Exceptions;
+using Entities;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Twilio.TwiML.Messaging;
+using Twilio.Types;
 
 namespace Business.Concrete
 {
-	public class ScheduledTaskService : IScheduledTaskService
-	{
-		private Timer _timer;
-		private readonly ISmsService _smsService;
-		private readonly IPersonService _personService;
+    public class ScheduledTaskService : IScheduledTaskService
+    {
+        private readonly ITimer _timer;
+        private readonly IPersonService _personService;
+        private readonly IServiceScopeFactory _serviceScopeFactory;
+        private readonly ISmsService _smsService;
 
-		public ScheduledTaskService(Timer timer, ISmsService smsService, IPersonService personService)
-		{
-			_timer = timer;
-			_smsService = smsService;
-			_personService = personService;
-		}
+        public ScheduledTaskService(ITimer timer, IPersonService personService, ISmsService smsService, IServiceScopeFactory serviceScopeFactory)
+        {
+            _timer = timer;
+            _personService = personService;
+            _smsService = smsService;
+            _serviceScopeFactory = serviceScopeFactory;
+        }
 
-		public void StartScheduledTask(int studentId)
-		{
-			DateTime now = DateTime.Now;
+        public async Task ScheduleSms(Guid studentId)
+        {
+            var now = DateTime.Now;
+            var targetTime = new DateTime(now.Year, now.Month, now.Day, 17, 30, 30);
 
-			// Hedef saat ve dakikayı belirle
-			int targetHour = 16;
-			int targetMinute = 0;
+            if (now > targetTime)
+            {
+                targetTime = targetTime.AddDays(1);
+            }
 
-			// Zamanı ayarla
-			DateTime scheduledTime = new DateTime(now.Year, now.Month, now.Day, targetHour, targetMinute, 0);
+            var delay = targetTime - now;
 
-			// Eğer bugün hedef saatten sonraysa, bir sonraki gün için ayarla
-			if (now > scheduledTime)
-			{
-				scheduledTime = scheduledTime.AddDays(1);
-			}
+            await Task.Delay(delay);
 
-			// Zamanlayıcıyı ayarla
-			TimeSpan timeToGo = scheduledTime - now;
+            // Örnek bir TimerCallback oluşturun
+            Action<object> callback = x => SendDailyAttendanceSmsViaTwilio(studentId);
 
-			_timer = new Timer(x => SendDailyAttendanceSmsViaTwilio(studentId), null, timeToGo, TimeSpan.FromHours(24));
+                // TimerWrapper'ı kullanarak TimerCallback'i başlatın
+                _timer.Start(callback, null, delay, TimeSpan.FromDays(1));
+                //await Task.Delay(TimeSpan.FromDays(1));
+        }
 
-		}
+        private void SendDailyAttendanceSmsViaTwilio(Guid studentId)
+        {
+            using (var scope = _serviceScopeFactory.CreateScope())
+            {
+                var personService = scope.ServiceProvider.GetRequiredService<IPersonService>();
+                var personToGetSms = personService.GetById(studentId);
+                string phoneNumber = personToGetSms.PhoneNumber;
+                var attendanceDate = _personService.GetTodaysAbsenceDateForStudent(studentId);
+  
+                try
+                {
+                    _smsService.Send(phoneNumber, $"{personToGetSms.Name + " " 
+                        + personToGetSms.Surname + " "
+                        + "öğrencimiz" + " "
+                        + $"{attendanceDate.Result.Value.Day + attendanceDate.Result.Value.Month + attendanceDate.Result.Value.Year}" + " "
+                        + "tarihinde" + " " }" 
+                        + Messages.AttendanceInformation);
 
-		public void StopScheduledTask()
-		{
-			// Zamanlanmış görevi durdur
-			_timer?.Dispose();
-		}
+                    _timer.Stop();
+                }
+                catch (SmsSendFailedException ex)
+                {
+                    throw new SmsSendFailedException(ex.Message);
+                }
+            }
+        }
 
-		private void SendDailyAttendanceSmsViaTwilio(int studentId)
-		{
-			var personToGetSms = _personService.GetById(studentId);
-			string phoneNumber= personToGetSms.PhoneNumber;
-			_smsService.Send(phoneNumber, Messages.AttendanceInformation);
-		}
-	}
+    }
 }

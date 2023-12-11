@@ -2,6 +2,7 @@
 using Business.Constants;
 using Core.Exceptions;
 using Core.Utils.Helpers.TwilioSmsHelper;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,9 +17,9 @@ namespace Business.Concrete
 	{
 		private readonly TwilioSettings _twilio;
 
-		public SmsService(TwilioSettings twilio)
+		public SmsService(IOptions<TwilioSettings> twilio)
 		{
-			_twilio = twilio;
+			_twilio = twilio.Value;
 		}
 
 		public MessageResource Send(string mobileNumber, string body)

@@ -24,8 +24,9 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("Entities.AppRole", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("text");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -50,38 +51,38 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("Entities.Attendance", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("PersonId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("PersonId1")
-                        .HasColumnType("text");
+                    b.Property<Guid>("PersonId")
+                        .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PersonId1");
+                    b.HasIndex("PersonId");
 
                     b.ToTable("Attendances", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Person", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("text");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("BirthDate")
+                    b.Property<DateTime?>("BirthDate")
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Branch")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -94,7 +95,10 @@ namespace DataAccess.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("boolean");
 
-                    b.Property<int>("Gender")
+                    b.Property<int?>("Gender")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Grade")
                         .HasColumnType("integer");
 
                     b.Property<bool>("LockoutEnabled")
@@ -132,7 +136,7 @@ namespace DataAccess.Migrations
                     b.Property<string>("Surname")
                         .HasColumnType("text");
 
-                    b.Property<int>("TermId")
+                    b.Property<int?>("TermId")
                         .HasColumnType("integer");
 
                     b.Property<bool>("TwoFactorEnabled")
@@ -154,6 +158,33 @@ namespace DataAccess.Migrations
                     b.HasIndex("TermId");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("fd575ebe-a1a2-4c1c-84df-ff695766f819"),
+                            AccessFailedCount = 0,
+                            BirthDate = new DateTime(2023, 12, 11, 13, 14, 43, 774, DateTimeKind.Utc).AddTicks(1851),
+                            Branch = "B",
+                            ConcurrencyStamp = "1b8ed708-100f-42d0-b26f-27a4e42fb6bb",
+                            Email = "example@example.com",
+                            EmailConfirmed = true,
+                            Grade = 12,
+                            LockoutEnabled = false,
+                            LockoutEnd = new DateTimeOffset(new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), new TimeSpan(0, 3, 0, 0, 0)),
+                            Name = "Sabit",
+                            NormalizedEmail = "EXAMPLE@EXAMPLE.COM",
+                            NormalizedUserName = "EXAMPLE@EXAMPLE.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAELOhzI3XhxBkgrN9PioKAtHgVCf3PGufmVy6ODx0wNEn9jWbTOX3HR0ZJEfOdvUkmw==",
+                            PhoneNumber = "+905423849022",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = "03bc40d7-ad72-41ae-a02b-ce16c5e0ac58",
+                            StudentNumber = 653,
+                            Surname = "Ünsür",
+                            TermId = 1,
+                            TwoFactorEnabled = false,
+                            UserName = "example@example.com"
+                        });
                 });
 
             modelBuilder.Entity("Entities.Term", b =>
@@ -173,9 +204,17 @@ namespace DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Terms", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            EndDate = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
+                            StartDate = new DateTime(2023, 12, 11, 13, 14, 43, 824, DateTimeKind.Utc).AddTicks(8290)
+                        });
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -189,9 +228,8 @@ namespace DataAccess.Migrations
                     b.Property<string>("ClaimValue")
                         .HasColumnType("text");
 
-                    b.Property<string>("RoleId")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
@@ -200,7 +238,7 @@ namespace DataAccess.Migrations
                     b.ToTable("AspNetRoleClaims", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -214,9 +252,8 @@ namespace DataAccess.Migrations
                     b.Property<string>("ClaimValue")
                         .HasColumnType("text");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
@@ -225,7 +262,7 @@ namespace DataAccess.Migrations
                     b.ToTable("AspNetUserClaims", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
                 {
                     b.Property<string>("LoginProvider")
                         .HasColumnType("text");
@@ -236,9 +273,8 @@ namespace DataAccess.Migrations
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("text");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
@@ -247,13 +283,13 @@ namespace DataAccess.Migrations
                     b.ToTable("AspNetUserLogins", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
                 {
-                    b.Property<string>("UserId")
-                        .HasColumnType("text");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
 
-                    b.Property<string>("RoleId")
-                        .HasColumnType("text");
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uuid");
 
                     b.HasKey("UserId", "RoleId");
 
@@ -262,10 +298,10 @@ namespace DataAccess.Migrations
                     b.ToTable("AspNetUserRoles", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
                 {
-                    b.Property<string>("UserId")
-                        .HasColumnType("text");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
 
                     b.Property<string>("LoginProvider")
                         .HasColumnType("text");
@@ -285,7 +321,9 @@ namespace DataAccess.Migrations
                 {
                     b.HasOne("Entities.Person", "Person")
                         .WithMany("Attendances")
-                        .HasForeignKey("PersonId1");
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Person");
                 });
@@ -294,14 +332,12 @@ namespace DataAccess.Migrations
                 {
                     b.HasOne("Entities.Term", "Term")
                         .WithMany("TermPeople")
-                        .HasForeignKey("TermId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TermId");
 
                     b.Navigation("Term");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
                     b.HasOne("Entities.AppRole", null)
                         .WithMany()
@@ -310,7 +346,7 @@ namespace DataAccess.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
                 {
                     b.HasOne("Entities.Person", null)
                         .WithMany()
@@ -319,7 +355,7 @@ namespace DataAccess.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
                 {
                     b.HasOne("Entities.Person", null)
                         .WithMany()
@@ -328,7 +364,7 @@ namespace DataAccess.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
                 {
                     b.HasOne("Entities.AppRole", null)
                         .WithMany()
@@ -343,7 +379,7 @@ namespace DataAccess.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
                 {
                     b.HasOne("Entities.Person", null)
                         .WithMany()

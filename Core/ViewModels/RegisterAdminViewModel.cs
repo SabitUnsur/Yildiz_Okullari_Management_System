@@ -13,11 +13,12 @@ namespace Core.ViewModels
             
         }
 
-        public RegisterAdminViewModel(string? name, string? surname, string? username, string? email, string? password, string? passwordConfirm, string? phoneNumber)
+        public RegisterAdminViewModel(string? name, string? surname, string? username, int grade , string branch ,string? email, string? password, string? passwordConfirm, string? phoneNumber)
         {
             Name=name;
             Surname=surname;
             Username=username;
+            
             Email=email;
             Password=password;
             PasswordConfirm=passwordConfirm;

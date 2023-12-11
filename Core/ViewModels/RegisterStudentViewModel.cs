@@ -14,12 +14,14 @@ namespace Core.ViewModels
 
         }
 
-        public RegisterStudentViewModel(string? name, string? surname, string? username, string? email, string? password, string? passwordConfirm, string? phoneNumber, DateTime birthDate, Gender gender, int studentNumber)
+        public RegisterStudentViewModel(string? name, string? surname, string? username, string? email, int grade, string branch,string? password, string? passwordConfirm, string? phoneNumber, DateTime birthDate, Gender gender, int studentNumber)
         {
             Name=name;
             Surname=surname;
             Username=username;
             Email=email;
+            Grade = grade;
+            Branch = branch; 
             Password=password;
             PasswordConfirm=passwordConfirm;
             PhoneNumber=phoneNumber;
@@ -38,5 +40,7 @@ namespace Core.ViewModels
         public DateTime BirthDate { get; set; }
         public Gender  Gender { get; set; }
         public int StudentNumber { get; set; }
+        public required string Branch { get; set; }
+        public required int Grade { get; set; }
     }
 }

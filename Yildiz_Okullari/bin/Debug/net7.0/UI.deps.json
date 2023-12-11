@@ -558,6 +558,50 @@
           }
         }
       },
+      "Microsoft.AspNet.Mvc/5.2.9": {
+        "dependencies": {
+          "Microsoft.AspNet.Razor": "3.2.9",
+          "Microsoft.AspNet.WebPages": "3.2.9"
+        },
+        "runtime": {
+          "lib/net45/System.Web.Mvc.dll": {
+            "assemblyVersion": "5.2.9.0",
+            "fileVersion": "5.2.61129.10"
+          }
+        }
+      },
+      "Microsoft.AspNet.Razor/3.2.9": {
+        "runtime": {
+          "lib/net45/System.Web.Razor.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.61129.10"
+          }
+        }
+      },
+      "Microsoft.AspNet.WebPages/3.2.9": {
+        "dependencies": {
+          "Microsoft.AspNet.Razor": "3.2.9",
+          "Microsoft.Web.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "lib/net45/System.Web.Helpers.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.61129.10"
+          },
+          "lib/net45/System.Web.WebPages.Deployment.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.61129.10"
+          },
+          "lib/net45/System.Web.WebPages.Razor.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.61129.10"
+          },
+          "lib/net45/System.Web.WebPages.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.61129.10"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Authentication/2.1.1": {
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.Core": "2.1.1",
@@ -1158,6 +1202,7 @@
           }
         }
       },
+      "Microsoft.CSharp/4.5.0": {},
       "Microsoft.DiaSymReader/1.4.0": {
         "dependencies": {
           "NETStandard.Library": "1.6.1"
@@ -1376,6 +1421,49 @@
           "System.Text.Encodings.Web": "7.0.0"
         }
       },
+      "Microsoft.IdentityModel.Abstractions/6.19.0": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.IdentityModel.Abstractions.dll": {
+            "assemblyVersion": "6.19.0.0",
+            "fileVersion": "6.19.0.30603"
+          }
+        }
+      },
+      "Microsoft.IdentityModel.JsonWebTokens/6.19.0": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Tokens": "6.19.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.IdentityModel.JsonWebTokens.dll": {
+            "assemblyVersion": "6.19.0.0",
+            "fileVersion": "6.19.0.30603"
+          }
+        }
+      },
+      "Microsoft.IdentityModel.Logging/6.19.0": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Abstractions": "6.19.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.IdentityModel.Logging.dll": {
+            "assemblyVersion": "6.19.0.0",
+            "fileVersion": "6.19.0.30603"
+          }
+        }
+      },
+      "Microsoft.IdentityModel.Tokens/6.19.0": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.5.0",
+          "Microsoft.IdentityModel.Logging": "6.19.0",
+          "System.Security.Cryptography.Cng": "5.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.IdentityModel.Tokens.dll": {
+            "assemblyVersion": "6.19.0.0",
+            "fileVersion": "6.19.0.30603"
+          }
+        }
+      },
       "Microsoft.Net.Http.Headers/2.1.1": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "7.0.0",
@@ -1482,6 +1570,14 @@
           "lib/net7.0/Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll": {
             "assemblyVersion": "7.0.11.0",
             "fileVersion": "7.0.1123.52402"
+          }
+        }
+      },
+      "Microsoft.Web.Infrastructure/1.0.0": {
+        "runtime": {
+          "lib/net40/Microsoft.Web.Infrastructure.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.20105.407"
           }
         }
       },
@@ -1795,6 +1891,27 @@
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
         }
       },
+      "System.Collections.NonGeneric/4.3.0": {
+        "dependencies": {
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Threading": "4.3.0"
+        }
+      },
+      "System.Collections.Specialized/4.3.0": {
+        "dependencies": {
+          "System.Collections.NonGeneric": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.Globalization.Extensions": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Threading": "4.3.0"
+        }
+      },
       "System.Composition/6.0.0": {
         "dependencies": {
           "System.Composition.AttributedModel": "6.0.0",
@@ -1956,6 +2073,18 @@
           "System.Runtime": "4.3.0",
           "System.Runtime.Extensions": "4.3.0",
           "System.Runtime.InteropServices": "4.3.0"
+        }
+      },
+      "System.IdentityModel.Tokens.Jwt/6.19.0": {
+        "dependencies": {
+          "Microsoft.IdentityModel.JsonWebTokens": "6.19.0",
+          "Microsoft.IdentityModel.Tokens": "6.19.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.dll": {
+            "assemblyVersion": "6.19.0.0",
+            "fileVersion": "6.19.0.30603"
+          }
         }
       },
       "System.IO/4.3.0": {
@@ -2497,6 +2626,41 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
+      "Twilio/6.15.2": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Tokens": "6.19.0",
+          "Newtonsoft.Json": "13.0.1",
+          "System.Collections.Specialized": "4.3.0",
+          "System.IdentityModel.Tokens.Jwt": "6.19.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Twilio.dll": {
+            "assemblyVersion": "6.15.2.0",
+            "fileVersion": "6.15.2.0"
+          }
+        }
+      },
+      "Twilio.AspNet.Common/8.0.2": {
+        "runtime": {
+          "lib/netstandard2.0/Twilio.AspNet.Common.dll": {
+            "assemblyVersion": "8.0.2.0",
+            "fileVersion": "8.0.2.0"
+          }
+        }
+      },
+      "Twilio.AspNet.Mvc/8.0.2": {
+        "dependencies": {
+          "Microsoft.AspNet.Mvc": "5.2.9",
+          "Twilio": "6.15.2",
+          "Twilio.AspNet.Common": "8.0.2"
+        },
+        "runtime": {
+          "lib/net462/Twilio.AspNet.Mvc.dll": {
+            "assemblyVersion": "8.0.2.0",
+            "fileVersion": "8.0.2.0"
+          }
+        }
+      },
       "Business/1.0.0": {
         "dependencies": {
           "Core": "1.0.0",
@@ -2512,7 +2676,9 @@
       "Core/1.0.0": {
         "dependencies": {
           "DataAccess": "1.0.0",
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.14"
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.14",
+          "Twilio": "6.15.2",
+          "Twilio.AspNet.Mvc": "8.0.2"
         },
         "runtime": {
           "Core.dll": {}
@@ -2898,6 +3064,27 @@
       "path": "humanizer.core.zh-hant/2.14.1",
       "hashPath": "humanizer.core.zh-hant.2.14.1.nupkg.sha512"
     },
+    "Microsoft.AspNet.Mvc/5.2.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bcekKshCAh7kTWSMZPavQStSZQF/QmjEjO2gVWGITEd0/t5eRlb+ZLDE+az2qY1bZ8L6Hz0OCNeS0uzXtJcK5w==",
+      "path": "microsoft.aspnet.mvc/5.2.9",
+      "hashPath": "microsoft.aspnet.mvc.5.2.9.nupkg.sha512"
+    },
+    "Microsoft.AspNet.Razor/3.2.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QOJEnEw3xp+t5lMvYR5nGCF4CfZpHqr2p8uZOBEgDZoB6r2txtSj6581YNr+/dOHjI3YRlo1QAKGQoSohbQ/KA==",
+      "path": "microsoft.aspnet.razor/3.2.9",
+      "hashPath": "microsoft.aspnet.razor.3.2.9.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebPages/3.2.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yByb721lwv8YFsx1oKA5CLKXa89XVbVMkPafS4bg/bPelBEgChq/coFBQEkA4kwcabG7AR56w3vapnoZUfr2Cw==",
+      "path": "microsoft.aspnet.webpages/3.2.9",
+      "hashPath": "microsoft.aspnet.webpages.3.2.9.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Authentication/2.1.1": {
       "type": "package",
       "serviceable": true,
@@ -3122,6 +3309,13 @@
       "path": "microsoft.codeanalysis.workspaces.common/4.4.0",
       "hashPath": "microsoft.codeanalysis.workspaces.common.4.4.0.nupkg.sha512"
     },
+    "Microsoft.CSharp/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kaj6Wb4qoMuH3HySFJhxwQfe8R/sJsNJnANrvv8WdFPMoNbKY5htfNscv+LHCu5ipz+49m2e+WQXpLXr9XYemQ==",
+      "path": "microsoft.csharp/4.5.0",
+      "hashPath": "microsoft.csharp.4.5.0.nupkg.sha512"
+    },
     "Microsoft.DiaSymReader/1.4.0": {
       "type": "package",
       "serviceable": true,
@@ -3325,6 +3519,34 @@
       "path": "microsoft.extensions.webencoders/2.1.1",
       "hashPath": "microsoft.extensions.webencoders.2.1.1.nupkg.sha512"
     },
+    "Microsoft.IdentityModel.Abstractions/6.19.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SNDIcIdXeclk8lcwUtZMijCxBZ44krYG9at6kQMuds6I7zkiVvfYwOp394zI8tXFFDXu49Q6XFFTS59Exgw6xA==",
+      "path": "microsoft.identitymodel.abstractions/6.19.0",
+      "hashPath": "microsoft.identitymodel.abstractions.6.19.0.nupkg.sha512"
+    },
+    "Microsoft.IdentityModel.JsonWebTokens/6.19.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-PMk1mP88y/dv6n1j9Xa6Go6Kl1bNsV4Z5+fmnd4FAOKtYFIGJOSN2VadCPqvm7h7FEPBlpqtbRr4yccefnBSoQ==",
+      "path": "microsoft.identitymodel.jsonwebtokens/6.19.0",
+      "hashPath": "microsoft.identitymodel.jsonwebtokens.6.19.0.nupkg.sha512"
+    },
+    "Microsoft.IdentityModel.Logging/6.19.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-773vzDzuwg+v+Jvsa+HOSPAZmMl1KztszdBErBPlXvNxZCvL52FrYlQblI6m1f3Pr9DtQt8jCI0RG6b1MajLgg==",
+      "path": "microsoft.identitymodel.logging/6.19.0",
+      "hashPath": "microsoft.identitymodel.logging.6.19.0.nupkg.sha512"
+    },
+    "Microsoft.IdentityModel.Tokens/6.19.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kmEuZo1+Q4CJIprBVOcZQ18to3WUbPaYE9HRAoK0hEhoh8cH0uA8oOOjff4N2gQ/gk79QrAJTbh0RI7vIZU7vA==",
+      "path": "microsoft.identitymodel.tokens/6.19.0",
+      "hashPath": "microsoft.identitymodel.tokens.6.19.0.nupkg.sha512"
+    },
     "Microsoft.Net.Http.Headers/2.1.1": {
       "type": "package",
       "serviceable": true,
@@ -3401,6 +3623,13 @@
       "sha512": "sha512-OrMjbQk0sqUoLLJ8SQ392skBN6X52TgR7cm6+J8s0aUTGYJM7rm8O+P21ys3OceUR7ZZ8wwwvAm/5puTWR8Q+w==",
       "path": "microsoft.visualstudio.web.codegenerators.mvc/7.0.11",
       "hashPath": "microsoft.visualstudio.web.codegenerators.mvc.7.0.11.nupkg.sha512"
+    },
+    "Microsoft.Web.Infrastructure/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FNmvLn5m2LTU/Rs2KWVo0SIIh9Ek+U0ojex7xeDaSHw/zgEP77A8vY5cVWgUtBGS8MJfDGNn8rpXJWEIQaPwTg==",
+      "path": "microsoft.web.infrastructure/1.0.0",
+      "hashPath": "microsoft.web.infrastructure.1.0.0.nupkg.sha512"
     },
     "Microsoft.Win32.Primitives/4.3.0": {
       "type": "package",
@@ -3675,6 +3904,20 @@
       "path": "system.collections.immutable/6.0.0",
       "hashPath": "system.collections.immutable.6.0.0.nupkg.sha512"
     },
+    "System.Collections.NonGeneric/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-prtjIEMhGUnQq6RnPEYLpFt8AtLbp9yq2zxOSrY7KJJZrw25Fi97IzBqY7iqssbM61Ek5b8f3MG/sG1N2sN5KA==",
+      "path": "system.collections.nongeneric/4.3.0",
+      "hashPath": "system.collections.nongeneric.4.3.0.nupkg.sha512"
+    },
+    "System.Collections.Specialized/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Epx8PoVZR0iuOnJJDzp7pWvdfMMOAvpUo95pC4ScH2mJuXkKA2Y4aR3cG9qt2klHgSons1WFh4kcGW7cSXvrxg==",
+      "path": "system.collections.specialized/4.3.0",
+      "hashPath": "system.collections.specialized.4.3.0.nupkg.sha512"
+    },
     "System.Composition/6.0.0": {
       "type": "package",
       "serviceable": true,
@@ -3800,6 +4043,13 @@
       "sha512": "sha512-FhKmdR6MPG+pxow6wGtNAWdZh7noIOpdD5TwQ3CprzgIE1bBBoim0vbR1+AWsWjQmU7zXHgQo4TWSP6lCeiWcQ==",
       "path": "system.globalization.extensions/4.3.0",
       "hashPath": "system.globalization.extensions.4.3.0.nupkg.sha512"
+    },
+    "System.IdentityModel.Tokens.Jwt/6.19.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iQwoziWm2ilFGlBnImQmB5RFwAoIEIp2QbQi2Wm0PJLhQfo80VhFzsPEiuhCkDvVkN1/D5Y++/GjBck27qP30w==",
+      "path": "system.identitymodel.tokens.jwt/6.19.0",
+      "hashPath": "system.identitymodel.tokens.jwt.6.19.0.nupkg.sha512"
     },
     "System.IO/4.3.0": {
       "type": "package",
@@ -4199,6 +4449,27 @@
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ==",
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
+    },
+    "Twilio/6.15.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5z0e8Pgf9ADegG1OQhVk5rwUyCJy+7msEK3ypmkCI2rfr/oQ8EFLkJeP1kEj4Hr1DQWimVxC+SiI1Fn/gGZs5w==",
+      "path": "twilio/6.15.2",
+      "hashPath": "twilio.6.15.2.nupkg.sha512"
+    },
+    "Twilio.AspNet.Common/8.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-264FmpwK/0efs6Y5x86Am+KTvhnWNjfyLbuQKm3kB1AwfJMVMrUIrUZWGmu+qINsC6VFS1EU4xKl4OwZsnG+sQ==",
+      "path": "twilio.aspnet.common/8.0.2",
+      "hashPath": "twilio.aspnet.common.8.0.2.nupkg.sha512"
+    },
+    "Twilio.AspNet.Mvc/8.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zN7XpbVJ4PSc5o0yONmSQxvBoBDgvIJ38qew3TAjWTvFjW6AO/A6EguqD29siWLOPvnx7nx4A9WGPPaCIYmv6w==",
+      "path": "twilio.aspnet.mvc/8.0.2",
+      "hashPath": "twilio.aspnet.mvc.8.0.2.nupkg.sha512"
     },
     "Business/1.0.0": {
       "type": "project",

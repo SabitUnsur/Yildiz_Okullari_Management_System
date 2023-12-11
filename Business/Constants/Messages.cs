@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Business.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,9 @@ namespace Business.Constants
 {
 	public static class Messages
 	{
-		public static string UserNotFound = "Kullanıcı bulunamadı";
+        public static string UserNotFound = "Kullanıcı bulunamadı";
 		public static string AttendanceNotFound = "Devamsızlık bilgisi bulunamadı";
-		public static string AttendanceInformation = "Öğrenci devamsızlık yapmıştır";
+		public static string AttendanceInformation = "devamsızlık yapmıştır";
 		public static string SmsSendingFailed= "SMS gönderilemedi";
 	}
 }

@@ -16,7 +16,9 @@ namespace Entities
         public Gender ?Gender { get; set; }
         public ICollection<Attendance>? Attendances { get; set; }
         public int ?TermId { get; set; }
-        public required  Term Term { get; set; }
+        public Term Term { get; set; }
+        public  int Grade { get; set; }
+        public  string Branch { get; set; }
 
     }
 }

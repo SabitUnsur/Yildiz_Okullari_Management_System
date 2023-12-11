@@ -17,16 +17,36 @@ namespace DataAccess.EntityFramework
 		{
 		}
 
-		// Girilen dd.mm.yy bilgisine gore devamsiz ogrenci listesini getirir.
-		public async Task<List<Person>> GetAbsencesByDateRange(DateTime startDate, DateTime endDate)
+        public DateTime? GetAbsenceDateForStudent(Person student, DateTime targetDate)
+        {
+            var absence = student.Attendances.FirstOrDefault(a => a.Date.Date == targetDate.Date);
+            return absence?.Date;
+        }
+
+        // Girilen dd.mm.yy bilgisine gore devamsiz ogrenci listesini getirir.
+        public async Task<List<Person>> GetAbsencesByDateRange(DateTime startDate, DateTime endDate)
 		{
 			return await _appDbContext.Persons.Include(x => x.Attendances)
 			.Where(p => p.Attendances.Any(a => a.Date >= startDate && a.Date <= endDate))
 			.ToListAsync();
 		}
 
-		// Girilen ogrenci numarasina gore toplam devamsizlik sayisini getirir.
-		public int TotalAbsencesDayCountByStudentNumber(int studentNumber)
+        public async Task<DateTime?> GetTodaysAbsenceDateForStudent(Guid studentId)
+        {
+            var person = _appDbContext.Persons
+                .Include(p => p.Attendances)
+                .FirstOrDefault(x => x.Id == studentId);
+
+            var attendanceDate = person?.Attendances
+                .Where(x => x.Date.Day == DateTime.Now.Day)
+                .FirstOrDefault()?.Date;
+
+            return attendanceDate;
+        }
+
+
+        // Girilen ogrenci numarasina gore toplam devamsizlik sayisini getirir.
+        public int TotalAbsencesDayCountByStudentNumber(int studentNumber)
 		{
 			return _appDbContext.Attendances.Include(x => x.Person).Where(p => p.Equals(studentNumber)).Count();
 		}
@@ -40,6 +60,9 @@ namespace DataAccess.EntityFramework
 				.SelectMany(p => p.Attendances.Select(a => new Attendance { Date = a.Date, Person = p }))
 				.ToListAsync();
 		}
+
+
+
 
 	}
 }

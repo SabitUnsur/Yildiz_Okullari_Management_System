@@ -8,7 +8,6 @@ namespace Business.Abstract
 {
 	public interface IScheduledTaskService
 	{
-		void StartScheduledTask(int studentId);
-		void StopScheduledTask();
-	}
+      Task ScheduleSms(Guid studentId);
+    }
 }

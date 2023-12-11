@@ -12,13 +12,11 @@ namespace Business.Concrete
 	{
 		private readonly IPersonRepository _personDal;
 		private readonly IUnitOfWork _unitOfWork;
-		private readonly IScheduledTaskService _taskManager;
 
-		public PersonService(IPersonRepository personDal,IUnitOfWork unitOfWork,IScheduledTaskService taskManager) 
+		public PersonService(IPersonRepository personDal,IUnitOfWork unitOfWork) 
 		{
 			_personDal = personDal;
 			_unitOfWork = unitOfWork;
-			_taskManager = taskManager;
 		}
 
 		public async Task Add(Person entity)
@@ -33,7 +31,12 @@ namespace Business.Concrete
 			_unitOfWork.CommitAsync();
 		}
 
-		public async Task<List<Person>> GetAbsencesByDateRange(DateTime startDate, DateTime endDate)
+        public DateTime? GetAbsenceDateForStudent(Person student, DateTime targetDate)
+        {
+			return _personDal.GetAbsenceDateForStudent(student,targetDate);
+        }
+
+        public async Task<List<Person>> GetAbsencesByDateRange(DateTime startDate, DateTime endDate)
 		{
 			var absences =  await _personDal.GetAbsencesByDateRange(startDate,endDate);
 
@@ -55,7 +58,7 @@ namespace Business.Concrete
 			return _personDal.GetAll(filter);
 		}
 
-		public Person GetById(int id)
+		public Person GetById(Guid id)
 		{
 			var person = _personDal.GetById(id);
 			if(person == null)
@@ -65,7 +68,13 @@ namespace Business.Concrete
 			return person;
 		}
 
-		public int TotalAbsencesDayCountByStudentNumber(int studentNumber)
+        public async Task<DateTime?> GetTodaysAbsenceDateForStudent(Guid studentId)
+        {
+			var date = await _personDal.GetTodaysAbsenceDateForStudent(studentId);
+			return date;
+        }
+
+        public int TotalAbsencesDayCountByStudentNumber(int studentNumber)
 		{
 			return _personDal.TotalAbsencesDayCountByStudentNumber(studentNumber);
 		}

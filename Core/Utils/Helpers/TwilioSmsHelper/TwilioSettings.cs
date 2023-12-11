@@ -8,8 +8,8 @@ namespace Core.Utils.Helpers.TwilioSmsHelper
 {
 	public class TwilioSettings
 	{
-		public string AccountSID { get; set; }
-		public string AuthToken { get; set; }
-		public string TwilioPhoneNumber { get; set; }
+		public required string AccountSID { get; set; }
+		public required string AuthToken { get; set; }
+		public required string TwilioPhoneNumber { get; set; }
 	}
 }

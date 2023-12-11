@@ -8,9 +8,9 @@ namespace Entities
 {
 	public class Attendance
 	{
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 		public DateTime Date { get; set; }
-		public int PersonId { get; set; }
+		public Guid PersonId { get; set; }
 		public Person Person { get; set; }
     }
 }

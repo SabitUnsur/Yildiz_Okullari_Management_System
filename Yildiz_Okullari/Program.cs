@@ -1,7 +1,10 @@
 using Business.Abstract;
 using Business.Concrete;
+using Core.UnitOfWorks;
 using Core.Utils.Helpers.TwilioSmsHelper;
 using DataAccess;
+using DataAccess.Abstract;
+using DataAccess.EntityFramework;
 using Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,7 +24,14 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddIdentity<Person,AppRole>().AddEntityFrameworkStores<AppDbContext>();
 
 builder.Services.Configure<TwilioSettings>(builder.Configuration.GetSection("Twilio"));
-builder.Services.AddTransient<ISmsService, SmsService>();
+builder.Services.AddScoped<ISmsService, SmsService>();
+builder.Services.AddScoped<ITimer, TimerWrapper>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IScheduledTaskService, ScheduledTaskService>();
+builder.Services.AddScoped<IAttendanceService, AttendanceService>();
+builder.Services.AddScoped<IPersonRepository, EfPersonRepository>();
+builder.Services.AddScoped<IAttendanceRepository, EfAttendanceRepository>();
+builder.Services.AddScoped<IPersonService, PersonService>();
 
 var app = builder.Build();
 

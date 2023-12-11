@@ -13,6 +13,7 @@ namespace Business.Abstract
 		Task<List<Person>> GetAbsencesByDateRange(DateTime startDate, DateTime endDate);
 		int TotalAbsencesDayCountByStudentNumber(int studentNumber);
 		Task<List<Attendance>> TotalAbsencesDayListByStudentNumber(int studentNumber);
-
-	}
+		DateTime? GetAbsenceDateForStudent(Person student, DateTime targetDate);
+		Task<DateTime?> GetTodaysAbsenceDateForStudent(Guid studentId);
+    }
 }
