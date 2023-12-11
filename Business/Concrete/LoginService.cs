@@ -27,7 +27,7 @@ namespace Business.Concrete
         }
         public async Task<bool> LoginAsync(LoginViewModel request, Person user)
         {
-            var result = await _signInManager.PasswordSignInAsync(user, request.Password, request.RememberMe, true);
+            var result = await _signInManager.PasswordSignInAsync(user, request.Password!, request.RememberMe, true);
             if(result.Succeeded)
             {
                 return true;

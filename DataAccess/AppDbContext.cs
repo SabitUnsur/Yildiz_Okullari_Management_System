@@ -32,7 +32,13 @@ namespace DataAccess
 				optionsBuilder.UseNpgsql(connectionString);
 			}
 		}
-		public DbSet<Person> Persons { get; set;}
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            builder.Entity<Person>().HasOne(p => p.FamilyInfo).WithMany(f => f.Persons).HasForeignKey(p => p.FamilyId);// person ile family info arasında one to many ilişki kurduk.
+        }
+        public DbSet<Person> Persons { get; set;}
 		public DbSet<Attendance> Attendances { get; set;}
 		public DbSet<Term> Terms { get; set;}
     }

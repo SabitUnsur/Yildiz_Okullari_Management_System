@@ -17,5 +17,7 @@ namespace Entities
         public ICollection<Attendance>? Attendances { get; set; }
         public int ?TermId { get; set; }
         public required  Term Term { get; set; }
+        public int FamilyId { get; set; }
+        public virtual FamilyInfo ?FamilyInfo { get; set; }
     }
 }
