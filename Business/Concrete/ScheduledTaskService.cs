@@ -31,7 +31,7 @@ namespace Business.Concrete
         public async Task ScheduleSms(Guid studentId)
         {
             var now = DateTime.Now;
-            var targetTime = new DateTime(now.Year, now.Month, now.Day, 17, 30, 30);
+            var targetTime = new DateTime(now.Year, now.Month, now.Day, 16, 0, 0);
 
             if (now > targetTime)
             {
@@ -64,7 +64,7 @@ namespace Business.Concrete
                     _smsService.Send(phoneNumber, $"{personToGetSms.Name + " " 
                         + personToGetSms.Surname + " "
                         + "öğrencimiz" + " "
-                        + $"{attendanceDate.Result.Value.Day + attendanceDate.Result.Value.Month + attendanceDate.Result.Value.Year}" + " "
+                        + $"{attendanceDate.Value.ToShortDateString()}" + " "
                         + "tarihinde" + " " }" 
                         + Messages.AttendanceInformation);
 

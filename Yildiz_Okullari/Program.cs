@@ -21,6 +21,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 	options.UseNpgsql(builder.Configuration.GetConnectionString("SqlConnection"));
 });
 
+AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 builder.Services.AddIdentity<Person,AppRole>().AddEntityFrameworkStores<AppDbContext>();
 
 builder.Services.Configure<TwilioSettings>(builder.Configuration.GetSection("Twilio"));

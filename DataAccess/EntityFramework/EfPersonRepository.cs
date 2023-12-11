@@ -19,7 +19,7 @@ namespace DataAccess.EntityFramework
 
         public DateTime? GetAbsenceDateForStudent(Person student, DateTime targetDate)
         {
-            var absence = student.Attendances.FirstOrDefault(a => a.Date.Date == targetDate.Date);
+            var absence = _appDbContext.Attendances.FirstOrDefault(a => a.Date.Day == targetDate.Date.Day && a.PersonId == student.Id);
             return absence?.Date;
         }
 
@@ -31,15 +31,16 @@ namespace DataAccess.EntityFramework
 			.ToListAsync();
 		}
 
-        public async Task<DateTime?> GetTodaysAbsenceDateForStudent(Guid studentId)
+        public DateTime? GetTodaysAbsenceDateForStudent(Guid studentId)
         {
-                var person = await _appDbContext.Attendances.FindAsync(studentId);
+				AppDbContext appDbContext = new AppDbContext();
+                var person = appDbContext.Persons.Find(studentId);
 
-                var attendance = await _appDbContext.Attendances
+                var attendance = appDbContext.Attendances
                     .Where(x => x.PersonId == studentId)
-                    .Where(x => x.Date == DateTime.Today)
-                    .FirstOrDefaultAsync();
-                return attendance?.Date;
+                    .Where(x => x.Date.Day == DateTime.Today.Day)
+                    .FirstOrDefault();
+                return attendance.Date;
             
         }
 
