@@ -28,9 +28,9 @@ namespace Business.Concrete
             {
                 if (role.Exist)
                 {
-                    await _userManager.AddToRoleAsync(user, role.Name);
+                    await _userManager.AddToRoleAsync(user!, role.Name!);
                 }
-                else await _userManager.RemoveFromRoleAsync(user, role.Name);
+                else await _userManager.RemoveFromRoleAsync(user!, role.Name!);
             }
         }
 
@@ -49,7 +49,7 @@ namespace Business.Concrete
         {
             var role = await _roleManager.FindByIdAsync(id.ToString());
 
-            var result = await _roleManager.DeleteAsync(role);
+            var result = await _roleManager.DeleteAsync(role!);
             if (!result.Succeeded)
             {
                 return (false, result.Errors);
@@ -77,12 +77,12 @@ namespace Business.Concrete
 
             var roleViewModel = new List<AssignToRoleViewModel>();
 
-            var userRoles = await _userManager.GetRolesAsync(user);
+            var userRoles = await _userManager.GetRolesAsync(user!);
 
             foreach (var role in roles)
             {
                 var assignToRoleViewModel = new AssignToRoleViewModel() { Id=role.Id, Name=role.Name };
-                if (userRoles.Contains(role.Name))
+                if (userRoles.Contains(role.Name!))
                 {
                     assignToRoleViewModel.Exist = true;
                 }

@@ -741,6 +741,7 @@
       "DataAccess/1.0.0": {
         "dependencies": {
           "Entities": "1.0.0",
+          "FluentValidation.AspNetCore": "11.3.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.14",
           "Microsoft.EntityFrameworkCore": "7.0.14",
           "Microsoft.Extensions.Configuration.FileExtensions": "7.0.0",

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+y9NiJt3BRFQfcRIP1iaA+wJdErQqZfW4kMg7db1mdjjd3gpl/4U6uhsLmTe8fBLmWmfExMl7bbPqB9j7G028Q==",
+  "dgSpecHash": "4DTdFcExW7CSOjKHa2p1G1EZy8M3uAlT2pQaTbuUvk8AeE+KatoqZEwFtUHSRDHpoMjpRZMonNOQ/te2SqESwA==",
   "success": true,
   "projectFilePath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Core\\Core.csproj",
   "expectedPackageFiles": [
@@ -70,6 +70,12 @@
     "C:\\Users\\sabit\\.nuget\\packages\\twilio.aspnet.mvc\\8.0.2\\twilio.aspnet.mvc.8.0.2.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Core\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
     {
       "code": "NU1701",
       "level": "Warning",
