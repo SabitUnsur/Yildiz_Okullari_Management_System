@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "u9P31IJC7gW7xWd4H0wOvroPM7XvcmaxIDa0WMamSa4=",
+  "Hash": "6fclYwvNn7eVrj4O6XsHoLTUAuQnNwS4XzbUIQdoEF0=",
   "Source": "UI",
   "BasePath": "_content/UI",
   "Mode": "Default",
@@ -117,6 +117,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\Yildiz_Okullari\\wwwroot\\img\\images_transparent.png",
+      "SourceId": "UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\Yildiz_Okullari\\wwwroot\\",
+      "BasePath": "_content/UI",
+      "RelativePath": "img/images_transparent.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\images_transparent.png"
+    },
+    {
+      "Identity": "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\Yildiz_Okullari\\wwwroot\\img\\yildiz_okullari_logo.png",
+      "SourceId": "UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\Yildiz_Okullari\\wwwroot\\",
+      "BasePath": "_content/UI",
+      "RelativePath": "img/yildiz_okullari_logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\yildiz_okullari_logo.png"
     },
     {
       "Identity": "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\Yildiz_Okullari\\wwwroot\\js\\site.js",

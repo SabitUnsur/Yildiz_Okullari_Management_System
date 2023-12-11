@@ -21,6 +21,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\Yildiz_Okullari\\wwwroot\\img\\images_transparent.png",
+      "PackagePath": "staticwebassets\\img\\images_transparent.png"
+    },
+    {
+      "Id": "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\Yildiz_Okullari\\wwwroot\\img\\yildiz_okullari_logo.png",
+      "PackagePath": "staticwebassets\\img\\yildiz_okullari_logo.png"
+    },
+    {
       "Id": "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\Yildiz_Okullari\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

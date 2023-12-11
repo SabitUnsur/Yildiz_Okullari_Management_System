@@ -1,8 +1,25 @@
-﻿
+﻿@using Entities
+@model List<Person>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_StudentPanelLayout.cshtml";
 }
-
-<h1>Index</h1>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Öğrenci No</th>
+        <th>Öğrenci Adı</th>
+        <th>Öğrenci Soyadı</th>
+        <th>Öğrenci Email</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.StudentNumber</td>
+            <td>@x.Name</td>
+            <td>@x.Surname</td>
+            <td>@x.Email</td>
+        </tr>
+    }
+</table>
 

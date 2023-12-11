@@ -2,7 +2,10 @@ using Business.Abstract;
 using Business.Concrete;
 using Core.Extensions;
 using Core.OptionsModel;
+using Core.UnitOfWorks;
 using DataAccess;
+using DataAccess.Abstract;
+using DataAccess.EntityFramework;
 using Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +19,10 @@ builder.Services.AddScoped<IRegisterService,RegisterService>();
 builder.Services.AddScoped<ILoginService,LoginService>();
 builder.Services.AddScoped<IRoleService,RoleService>();
 builder.Services.AddScoped<IEmailService,EmailService>();
+builder.Services.AddScoped<IPersonService,PersonService>();
+builder.Services.AddScoped<IPersonRepository,EfPersonRepository>();
+builder.Services.AddScoped<IUnitOfWork,UnitOfWork>();
+
 
 
 builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings")); //IOptionsEmailSettings eðer bir constructor içerisinde kullanýlacaksa bu þekilde tanýmlanýr
