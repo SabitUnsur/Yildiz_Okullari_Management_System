@@ -506,3 +506,9 @@ C:\Users\sabit\source\repos\Yildiz_Okullari\Yildiz_Okullari\bin\Debug\net7.0\run
 C:\Users\sabit\source\repos\Yildiz_Okullari\Yildiz_Okullari\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\sabit\source\repos\Yildiz_Okullari\Yildiz_Okullari\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\sabit\source\repos\Yildiz_Okullari\Yildiz_Okullari\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\sabit\source\repos\Yildiz_Okullari\Yildiz_Okullari\bin\Debug\net7.0\AutoMapper.dll
+C:\Users\sabit\source\repos\Yildiz_Okullari\Yildiz_Okullari\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\sabit\source\repos\Yildiz_Okullari\Yildiz_Okullari\bin\Debug\net7.0\FluentValidation.dll
+C:\Users\sabit\source\repos\Yildiz_Okullari\Yildiz_Okullari\bin\Debug\net7.0\FluentValidation.AspNetCore.dll
+C:\Users\sabit\source\repos\Yildiz_Okullari\Yildiz_Okullari\bin\Debug\net7.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\sabit\source\repos\Yildiz_Okullari\Yildiz_Okullari\obj\Debug\net7.0\UI.MvcApplicationPartsAssemblyInfo.cs

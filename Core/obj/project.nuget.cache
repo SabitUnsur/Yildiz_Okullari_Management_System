@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "dp31sSyKxdeq0SrsibqSQkTjSKwquuPyVahlIpD0hayJEpYk9pniL4TR3wcaa9zAfKYSZL9CMsIv884PTj3GKA==",
+  "dgSpecHash": "+y9NiJt3BRFQfcRIP1iaA+wJdErQqZfW4kMg7db1mdjjd3gpl/4U6uhsLmTe8fBLmWmfExMl7bbPqB9j7G028Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Core\\Core.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\sabit\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
+    "C:\\Users\\sabit\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\sabit\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\sabit\\.nuget\\packages\\microsoft.aspnet.mvc\\5.2.9\\microsoft.aspnet.mvc.5.2.9.nupkg.sha512",
     "C:\\Users\\sabit\\.nuget\\packages\\microsoft.aspnet.razor\\3.2.9\\microsoft.aspnet.razor.3.2.9.nupkg.sha512",
     "C:\\Users\\sabit\\.nuget\\packages\\microsoft.aspnet.webpages\\3.2.9\\microsoft.aspnet.webpages.3.2.9.nupkg.sha512",
