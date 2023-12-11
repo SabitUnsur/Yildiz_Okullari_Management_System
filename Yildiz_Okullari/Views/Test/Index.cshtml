@@ -1,29 +1,30 @@
-﻿@model List<Entities.Person>
+﻿@model List<Entities.Attendance>
 
-<h1>Absences By Date Range</h1>
+@{
+    ViewData["Title"] = "Index";
+}
 
-@if (Model.Count > 0)
+<h1>Student Absences</h1>
+
+@if (Model != null && Model.Count > 0)
 {
-    <table>
+    <table class="table">
         <thead>
             <tr>
-                <th>Date</th>
-                <th>Person</th>
+                <th>Student Name</th>
+                <th>Grade</th>
+                <th>Branch</th>
+                <th>Absence Date</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var person in Model)
+            @foreach (var attendance in Model)
             {
                 <tr>
-                    <td>@person.Name</td>
-                    <td>
-
-                            @foreach (var absence in person.Attendances)
-                            {
-                                @absence.Date.ToShortDateString()
-                            }
-               
-                    </td>
+                    <td>@attendance.Person.Name @attendance.Person.Surname</td>
+                    <td>@attendance.Person.Grade</td>
+                    <td>@attendance.Person.Branch</td>
+                    <td>@attendance.Date.ToShortDateString()</td>
                 </tr>
             }
         </tbody>
@@ -31,5 +32,5 @@
 }
 else
 {
-    <p>No absences found for the date range.</p>
+    <p>No absences found for this student.</p>
 }

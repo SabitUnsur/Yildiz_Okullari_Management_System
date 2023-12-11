@@ -18,7 +18,7 @@ namespace Entities
         public int ?TermId { get; set; }
         public Term Term { get; set; }
         public  int Grade { get; set; }
-        public  string Branch { get; set; }
+        public string Branch { get; set; }
 
     }
 }

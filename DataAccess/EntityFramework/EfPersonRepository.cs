@@ -17,21 +17,21 @@ namespace DataAccess.EntityFramework
 		{
 		}
 
-        public DateTime? GetAbsenceDateForStudent(Person student, DateTime targetDate)
+        public DateTime? GetAbsenceDateForStudent(Person student, DateTime targetDate) //SUCCESSFUL
         {
             var absence = _appDbContext.Attendances.FirstOrDefault(a => a.Date.Day == targetDate.Date.Day && a.PersonId == student.Id);
             return absence?.Date;
         }
 
         // Girilen dd.mm.yy bilgisine gore devamsiz ogrenci listesini getirir.
-        public async Task<List<Person>> GetAbsencesByDateRange(DateTime startDate, DateTime endDate)
-		{
+        public async Task<List<Person>> GetAbsencesByDateRange(DateTime startDate, DateTime endDate) //SUCCESSFUL
+        {
 			return await _appDbContext.Persons.Include(x => x.Attendances)
 			.Where(p => p.Attendances.Any(a => a.Date >= startDate && a.Date <= endDate))
 			.ToListAsync();
 		}
 
-        public DateTime? GetTodaysAbsenceDateForStudent(Guid studentId)
+        public DateTime? GetTodaysAbsenceDateForStudent(Guid studentId) //SUCCESSFUL
         {
 				AppDbContext appDbContext = new AppDbContext();
                 var person = appDbContext.Persons.Find(studentId);
@@ -41,20 +41,19 @@ namespace DataAccess.EntityFramework
                     .Where(x => x.Date.Day == DateTime.Today.Day)
                     .FirstOrDefault();
                 return attendance.Date;
-            
         }
 
 
         // Girilen ogrenci numarasina gore toplam devamsizlik sayisini getirir.
-        public int TotalAbsencesDayCountByStudentNumber(int studentNumber)
-		{
+        public int TotalAbsencesDayCountByStudentNumber(int studentNumber) //SUCCESSFUL
+        {
 			return _appDbContext.Attendances.Include(x => x.Person).Where(p => p.Equals(studentNumber)).Count();
 		}
 
 
 		//Ogrenciye ait tum devamsizliklari tarih ile birlikte getirir.
-		public async Task<List<Attendance>> TotalAbsencesDayListByStudentNumber(int studentNumber)
-		{
+		public async Task<List<Attendance>> TotalAbsencesDayListByStudentNumber(int studentNumber) //SUCCESSFUL
+        {
 			return await _appDbContext.Persons
 				.Where(p => p.StudentNumber == studentNumber)
 				.SelectMany(p => p.Attendances.Select(a => new Attendance { Date = a.Date, Person = p }))
