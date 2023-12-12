@@ -158,16 +158,6 @@ namespace DataAccess
                 }
             );
 
-            modelBuilder.Entity<Attendance>().HasData(
-              new Attendance
-              {
-                  Id = Guid.NewGuid(),
-                  AttendanceLectureHour = 5,
-                  Date = DateTime.UtcNow,
-                  PersonId = Guid.Parse("b4e45e99-c32a-4b84-b194-5495bf5582cc")
-              }
-          );
-
             modelBuilder.Entity<AppRole>().HasData(
                 new AppRole
                 {

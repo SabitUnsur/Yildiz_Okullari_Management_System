@@ -48,10 +48,11 @@ namespace DataAccess.EntityFramework
         public int TotalAbsencesDayCountByStudentNumber(int? studentNumber) //SUCCESSFUL
         {
             var uniqueAbsentDatesCount = _appDbContext.Persons
-            .Where(p => p.StudentNumber == studentNumber)
-            .SelectMany(p => p.Attendances.Select(a => a.Date).Distinct())
-            .Count();
-
+                .Where(p => p.StudentNumber == studentNumber)
+                .SelectMany(p => p.Attendances.Select(a => a.Date))
+                .GroupBy(date => date.Date) 
+                .Select(group => group.Key) 
+                .Count(); 
             return uniqueAbsentDatesCount;
         }
 
@@ -61,8 +62,14 @@ namespace DataAccess.EntityFramework
         {
             return await _appDbContext.Persons
                 .Where(p => p.StudentNumber == studentNumber)
-                .SelectMany(p => p.Attendances.Select(a => new Attendance { Date = a.Date, Person = p , 
-                    AttendanceType = a.AttendanceType , AttendanceLectureHour = a.AttendanceLectureHour}))
+                .SelectMany(p => p.Attendances.Select(a => new Attendance
+                {
+                    Date = a.Date,
+                    Person = p,
+                    AttendanceType = a.AttendanceType,
+                    AttendanceLectureHour = a.AttendanceLectureHour,
+                    ExcuseType = a.ExcuseType,
+                }))
                 .ToListAsync();
         }
 

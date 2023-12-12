@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public enum AttendanceType
+    public enum ExcuseType
     {
-        TamGün = 0,
-        YarımGün = 1
+        Özürlü = 2,
+        Özürsüz = 3
     }
 }

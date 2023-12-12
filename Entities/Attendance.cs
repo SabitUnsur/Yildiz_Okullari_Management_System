@@ -14,5 +14,6 @@ namespace Entities
 		public Guid PersonId { get; set; }
 		public Person Person { get; set; }
 		public AttendanceType ?AttendanceType { get; set; }
+		public ExcuseType ?ExcuseType { get; set; }
     }
 }
