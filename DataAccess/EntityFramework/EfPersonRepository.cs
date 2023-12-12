@@ -61,7 +61,8 @@ namespace DataAccess.EntityFramework
         {
             return await _appDbContext.Persons
                 .Where(p => p.StudentNumber == studentNumber)
-                .SelectMany(p => p.Attendances.Select(a => new Attendance { Date = a.Date, Person = p }))
+                .SelectMany(p => p.Attendances.Select(a => new Attendance { Date = a.Date, Person = p , 
+                    AttendanceType = a.AttendanceType , AttendanceLectureHour = a.AttendanceLectureHour}))
                 .ToListAsync();
         }
 
