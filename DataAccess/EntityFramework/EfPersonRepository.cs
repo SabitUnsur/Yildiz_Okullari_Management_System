@@ -40,7 +40,7 @@ namespace DataAccess.EntityFramework
                     .Where(x => x.PersonId == studentId)
                     .Where(x => x.Date.Day == DateTime.Today.Day)
                     .FirstOrDefault();
-                return attendance.Date;
+                return attendance?.Date;
         }
 
 
@@ -63,6 +63,11 @@ namespace DataAccess.EntityFramework
         public List<Person> GetPersonsWithAttendances()
         {
             return _appDbContext.Persons.Include(p => p.Attendances).ToList();
+        }
+
+        public Person GetPersonWithFamilyInfoById(Guid studentId)
+        {
+            return _appDbContext.Persons.Include(p => p.FamilyInfo).FirstOrDefault(p => p.Id == studentId);
         }
     }
 }

@@ -31,7 +31,7 @@ namespace Business.Concrete
         public async Task ScheduleSms(Guid studentId)
         {
             var now = DateTime.Now;
-            var targetTime = new DateTime(now.Year, now.Month, now.Day, 16, 0, 0);
+            var targetTime = new DateTime(now.Year, now.Month, now.Day, 11, 57,20 );
 
             if (now > targetTime)
             {
@@ -55,16 +55,18 @@ namespace Business.Concrete
             using (var scope = _serviceScopeFactory.CreateScope())
             {
                 var personService = scope.ServiceProvider.GetRequiredService<IPersonService>();
-                var personToGetSms = personService.GetById(studentId);
+                var personToGetSms = personService.GetPersonWithFamilyInfoById(personService.GetById(studentId).Id);
+                
                 string phoneNumber;
 
-                if (personToGetSms?.FamilyInfo?.FatherPhoneNumber != null)
+                if (personToGetSms.FamilyInfoId != null)
                 {
+
                     phoneNumber = personToGetSms.FamilyInfo.FatherPhoneNumber;
                 }
                 else
                 {
-                    phoneNumber = personToGetSms?.FamilyInfo?.MotherPhoneNumber;
+                    phoneNumber = personToGetSms.FamilyInfo.MotherPhoneNumber;
                 }
 
                 var attendanceDate = _personService.GetTodaysAbsenceDateForStudent(studentId);

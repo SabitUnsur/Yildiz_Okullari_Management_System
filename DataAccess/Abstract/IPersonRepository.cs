@@ -15,5 +15,6 @@ namespace DataAccess.Abstract
 		public DateTime? GetAbsenceDateForStudent(Person student, DateTime targetDate);
 		DateTime? GetTodaysAbsenceDateForStudent(Guid studentId);
 		List<Person> GetPersonsWithAttendances();
+		Person GetPersonWithFamilyInfoById(Guid studentId);
     }
 }

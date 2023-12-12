@@ -128,6 +128,11 @@ namespace Business.Concrete
             return _personDal.GetPersonsWithAttendances();
         }
 
+        public Person GetPersonWithFamilyInfoById(Guid studentId)
+        {
+            return _personDal.GetPersonWithFamilyInfoById(studentId);
+        }
+
         public DateTime? GetTodaysAbsenceDateForStudent(Guid studentId)
         {
             string cacheKey = $"absence_student_{studentId}_{DateTime.Today}";

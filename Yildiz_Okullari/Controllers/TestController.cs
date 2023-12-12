@@ -16,7 +16,7 @@ namespace UI.Controllers
             this.scheduledTaskService = scheduledTaskService;
         }
 
-        public async Task<IActionResult> Index()
+        public  IActionResult Index()
         {
             var students = personService.GetAll(); // Tüm öğrencileri al
 
@@ -26,7 +26,7 @@ namespace UI.Controllers
                 if (absenceDates.HasValue && absenceDates.Value.Date == DateTime.Today)
                 {
                     // Eğer öğrencinin bugünkü devamsızlık tarihi varsa ve bugünün tarihiyle eşleşiyorsa, SMS gönderme işlemini yap
-                    await scheduledTaskService.ScheduleSms(student.Id);
+                     scheduledTaskService.ScheduleSms(student.Id);
                 }
             }
 
