@@ -17,15 +17,24 @@
         <th>Devamsızlık Sebebi</th>
     </tr>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Date.ToShortDateString() </td>
-                <td>@item.AttendanceLectureHour . Ders Saati </td>
-                <td>@item.AttendanceType </td>
-                <td>@item.ExcuseType </td>
-            </tr>
-        }
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Date.ToShortDateString()</td>
+            <td>
+                @if (item.AttendanceLectureHour == null)
+                {
+                    @:Öğrenci tam gün devamsızlık yapmıştır.
+                }
+                else
+                {
+                    <text>@item.AttendanceLectureHour.ToString() .Ders Saati</text>
+                }
+            </td>
+            <td>@item.AttendanceType</td>
+            <td>@item.ExcuseType</td>
+        </tr>
+    }
   
 </table>
 
@@ -33,11 +42,21 @@
     <tr>
         <th>Toplam Devamsızlık Gün Sayısı</th>
     </tr>
-
     <tr>
         <td>@TempData["AttendancesCount"]</td>
     </tr>
-
+    <tr>
+        <th>Özürlü Devamsızlık Gün Sayısı</th>
+    </tr>
+    <tr>
+        <td>@TempData["ExcusedAttendancesCount"]</td>
+    </tr>
+    <tr>
+        <th>Özürsüz Devamsızlık Gün Sayısı</th>
+    </tr>
+    <tr>
+        <td>@TempData["NonExcusedAttendancesCount"]</td>
+    </tr>
 </table>
 
 

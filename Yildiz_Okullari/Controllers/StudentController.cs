@@ -31,6 +31,8 @@ namespace UI.Controllers
         {
             var user = await GetUser();
             TempData["AttendancesCount"] = _personService.TotalAbsencesDayCountByStudentNumber(user.StudentNumber).ToString();
+            TempData["ExcusedAttendancesCount"] = _personService.GetExcusedAbsencesCount(user.StudentNumber).ToString();
+            TempData["NonExcusedAttendancesCount"] = _personService.GetNonExcusedAbsencesCount(user.StudentNumber).ToString();
             var values = await _personService.TotalAbsencesDayListByStudentNumber(user.StudentNumber);
             return View(values);
         }

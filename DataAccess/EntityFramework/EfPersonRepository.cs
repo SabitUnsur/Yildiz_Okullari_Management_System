@@ -50,9 +50,9 @@ namespace DataAccess.EntityFramework
             var uniqueAbsentDatesCount = _appDbContext.Persons
                 .Where(p => p.StudentNumber == studentNumber)
                 .SelectMany(p => p.Attendances.Select(a => a.Date))
-                .GroupBy(date => date.Date) 
-                .Select(group => group.Key) 
-                .Count(); 
+                .GroupBy(date => date.Date)
+                .Select(group => group.Key)
+                .Count();
             return uniqueAbsentDatesCount;
         }
 
@@ -60,17 +60,18 @@ namespace DataAccess.EntityFramework
         //Ogrenciye ait tum devamsizliklari tarih ile birlikte getirir.
         public async Task<List<Attendance>> TotalAbsencesDayListByStudentNumber(int? studentNumber) //SUCCESSFUL
         {
-            return await _appDbContext.Persons
+            var attendances = await _appDbContext.Persons
                 .Where(p => p.StudentNumber == studentNumber)
                 .SelectMany(p => p.Attendances.Select(a => new Attendance
                 {
                     Date = a.Date,
                     Person = p,
                     AttendanceType = a.AttendanceType,
-                    AttendanceLectureHour = a.AttendanceLectureHour,
+                    AttendanceLectureHour = a.AttendanceType == AttendanceType.TamGün ? null : a.AttendanceLectureHour,
                     ExcuseType = a.ExcuseType,
-                }))
-                .ToListAsync();
+                })).ToListAsync();
+
+            return attendances;
         }
 
         public List<Person> GetPersonsWithAttendances()
@@ -81,6 +82,30 @@ namespace DataAccess.EntityFramework
         public Person GetPersonWithFamilyInfoById(Guid studentId)
         {
             return _appDbContext.Persons.Include(p => p.FamilyInfo).FirstOrDefault(p => p.Id == studentId);
+        }
+
+        public int GetExcusedAbsencesCount(int? studentNumber)
+        {
+            var excusedAbsencesCount = _appDbContext.Persons
+                .Where(p => p.StudentNumber == studentNumber)
+                .SelectMany(p => p.Attendances.Where(a => a.ExcuseType == ExcuseType.Özürlü))
+                .Select(a => a.Date)
+                .GroupBy(date => date.Date)
+                .Select(group => group.Key)
+                .Count();
+            return excusedAbsencesCount;
+        }
+
+        public int GetNonExcusedAbsencesCount(int? studentNumber)
+        {
+            var excusedAbsencesCount = _appDbContext.Persons
+               .Where(p => p.StudentNumber == studentNumber)
+               .SelectMany(p => p.Attendances.Where(a => a.ExcuseType == ExcuseType.Özürsüz))
+               .Select(a => a.Date)
+               .GroupBy(date => date.Date)
+               .Select(group => group.Key)
+               .Count();
+            return excusedAbsencesCount;
         }
 
     }

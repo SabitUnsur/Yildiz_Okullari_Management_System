@@ -123,6 +123,16 @@ namespace Business.Concrete
             return person;
         }
 
+        public int GetExcusedAbsencesCount(int? studentNumber)
+        {
+            return _personDal.GetExcusedAbsencesCount(studentNumber);
+        }
+
+        public int GetNonExcusedAbsencesCount(int? studentNumber)
+        {
+            return _personDal.GetNonExcusedAbsencesCount(studentNumber);
+        }
+
         public List<Person> GetPersonsWithAttendances()
         {
             return _personDal.GetPersonsWithAttendances();
