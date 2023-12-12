@@ -1,5 +1,66 @@
-﻿
+﻿@model LoginViewModel
 @{
     ViewData["Title"] = "Login";
-    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+    Layout = null;
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yildiz Okullari Login Page</title>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'>
+    <link rel="stylesheet" href="~/css/LoginPageStyle.css">
+</head>
+<body>
+    <div align="center">
+        <img src="~/img/yildizokullarilogo.png" alt="Ortalanmış Resim" />
+    </div>
+
+    <div class="container">
+
+        <div class="screen">
+
+            <div class="screen__content">
+
+                <form asp-controller="Login" asp-action="Login" asp-route-returnUrl="@Context.Request.Query["returnUrl"]" method="post">
+
+                    <div class="login__field">
+                        <i class="login__icon fas fa-user"></i>
+                        <br />
+                        <label class="form-label" asp-for="Email" for="Email">Email</label>
+                        <input asp-for="Email"  class="login__input" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="login__field">
+                        <label class="form-label" for="Password" asp-for="Password">Şifre</label>
+                        <i class="login__icon fas fa-lock"></i>
+                        <input asp-for="Password"  class="login__input" >
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="login__field">
+                        <input asp-for="RememberMe" style="margin-top:10px;" class="form-control-input" type="checkbox" />
+                        <label class="form-check-label" for="RememberMe" asp-for="RememberMe"></label>
+                    </div>
+                    <br />
+                    <button class="button login__submit" type="submit">
+                        <span class="button__text">Giriş Yap</span>
+                        <i class="button__icon fas fa-chevron-right"></i>
+                    </button>
+                    <br />
+                    <div class="login__field">
+                        <a asp-controller="Login" asp-action="ForgetPassword" class="forgot-password-link">Şifremi Unuttum?</a>
+                    </div>
+                </form>
+
+            </div>
+            <div class="screen__background">
+                <span class="screen__background__shape screen__background__shape4"></span>
+                <span class="screen__background__shape screen__background__shape3"></span>
+                <span class="screen__background__shape screen__background__shape2"></span>
+                <span class="screen__background__shape screen__background__shape1"></span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

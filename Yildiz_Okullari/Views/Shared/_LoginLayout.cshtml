@@ -22,27 +22,8 @@
 
             <div class="screen__content">
 
-                <form class="login" action="@Url.Action("Login", "Login")" method="post">
-
-                    <div class="login__field">
-                        <i class="login__icon fas fa-user"></i>
-                        <input type="text" class="login__input" name="Email" placeholder="Kullanıcı Adı / Email">
-                    </div>
-                    <div class="login__field">
-                        <i class="login__icon fas fa-lock"></i>
-                        <input type="password" class="login__input" name="Password" placeholder="Şifre">
-                    </div>
-                    <br />
-                    <button class="button login__submit" type="submit">
-                        <span class="button__text">Giriş Yap</span>
-                        <i class="button__icon fas fa-chevron-right"></i>
-                    </button>
-                    <br />
-                    <div class="login__field">
-                        <a href="~/Login/ForgetPassword" class="forgot-password-link">Şifremi Unuttum?</a>
-                    </div>
-                </form>
-
+                @RenderBody()
+               
             </div>
             <div class="screen__background">
                 <span class="screen__background__shape screen__background__shape4"></span>
@@ -51,7 +32,7 @@
                 <span class="screen__background__shape screen__background__shape1"></span>
             </div>
         </div>
-        @RenderBody()
+        
     </div>
 </body>
 </html>

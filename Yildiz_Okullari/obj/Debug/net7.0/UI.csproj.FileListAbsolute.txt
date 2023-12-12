@@ -785,3 +785,18 @@ C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Manage
 C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\Twilio.dll
 C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\Twilio.AspNet.Common.dll
 C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\Twilio.AspNet.Mvc.dll
+C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\System.Web.Mvc.dll
+C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\System.Web.Razor.dll
+C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\System.Web.Helpers.dll
+C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\System.Web.WebPages.Deployment.dll
+C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\System.Web.WebPages.Razor.dll
+C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\System.Web.WebPages.dll
+C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\Microsoft.Web.Infrastructure.dll
+C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\Twilio.dll
+C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\Twilio.AspNet.Common.dll
+C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\Twilio.AspNet.Mvc.dll
