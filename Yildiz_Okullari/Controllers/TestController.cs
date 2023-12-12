@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Mail;
 
 namespace UI.Controllers
 {
@@ -16,17 +17,20 @@ namespace UI.Controllers
         }
 
         public  IActionResult Index()
-		{
-            Guid personId = Guid.Parse("fd575ebe-a1a2-4c1c-84df-ff695766f819");
-            var person =  personService.GetById(personId);
-            var task = scheduledTaskService.ScheduleSms(person.Id);
+        {
+            var students = personService.GetAll(); // Tüm öğrencileri al
 
-            if (task.IsCompletedSuccessfully)
+            foreach (var student in students)
             {
-                return RedirectToAction("Index", "Home");
+                var absenceDates = personService.GetTodaysAbsenceDateForStudent(student.Id); // Öğrencinin bugünkü devamsızlık tarihlerini al
+                if (absenceDates.HasValue && absenceDates.Value.Date == DateTime.Today)
+                {
+                    // Eğer öğrencinin bugünkü devamsızlık tarihi varsa ve bugünün tarihiyle eşleşiyorsa, SMS gönderme işlemini yap
+                     scheduledTaskService.ScheduleSms(student.Id);
+                }
             }
 
             return View();
         }
-	}
+    }
 }

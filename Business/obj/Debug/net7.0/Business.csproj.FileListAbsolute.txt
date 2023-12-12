@@ -1,24 +1,12 @@
-C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Business\bin\Debug\net7.0\Business.deps.json
-C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Business\bin\Debug\net7.0\Business.dll
-C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Business\bin\Debug\net7.0\Business.pdb
-C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Business\bin\Debug\net7.0\Core.dll
-C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Business\bin\Debug\net7.0\Core.pdb
-C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Business\obj\Debug\net7.0\Business.csproj.AssemblyReference.cache
-C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Business\obj\Debug\net7.0\Business.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Business\obj\Debug\net7.0\Business.AssemblyInfoInputs.cache
-C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Business\obj\Debug\net7.0\Business.AssemblyInfo.cs
-C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Business\obj\Debug\net7.0\Business.csproj.CoreCompileInputs.cache
-C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Business\obj\Debug\net7.0\Business.sourcelink.json
-C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Business\obj\Debug\net7.0\Business.csproj.CopyComplete
-C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Business\obj\Debug\net7.0\Business.dll
-C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Business\obj\Debug\net7.0\refint\Business.dll
-C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Business\obj\Debug\net7.0\Business.pdb
-C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Business\obj\Debug\net7.0\ref\Business.dll
 C:\Users\sabit\source\repos\Yildiz_Okullari\Business\bin\Debug\net7.0\Business.deps.json
 C:\Users\sabit\source\repos\Yildiz_Okullari\Business\bin\Debug\net7.0\Business.dll
 C:\Users\sabit\source\repos\Yildiz_Okullari\Business\bin\Debug\net7.0\Business.pdb
 C:\Users\sabit\source\repos\Yildiz_Okullari\Business\bin\Debug\net7.0\Core.dll
+C:\Users\sabit\source\repos\Yildiz_Okullari\Business\bin\Debug\net7.0\DataAccess.dll
+C:\Users\sabit\source\repos\Yildiz_Okullari\Business\bin\Debug\net7.0\Entities.dll
 C:\Users\sabit\source\repos\Yildiz_Okullari\Business\bin\Debug\net7.0\Core.pdb
+C:\Users\sabit\source\repos\Yildiz_Okullari\Business\bin\Debug\net7.0\DataAccess.pdb
+C:\Users\sabit\source\repos\Yildiz_Okullari\Business\bin\Debug\net7.0\Entities.pdb
 C:\Users\sabit\source\repos\Yildiz_Okullari\Business\obj\Debug\net7.0\Business.csproj.AssemblyReference.cache
 C:\Users\sabit\source\repos\Yildiz_Okullari\Business\obj\Debug\net7.0\Business.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\sabit\source\repos\Yildiz_Okullari\Business\obj\Debug\net7.0\Business.AssemblyInfoInputs.cache
@@ -29,30 +17,3 @@ C:\Users\sabit\source\repos\Yildiz_Okullari\Business\obj\Debug\net7.0\Business.d
 C:\Users\sabit\source\repos\Yildiz_Okullari\Business\obj\Debug\net7.0\refint\Business.dll
 C:\Users\sabit\source\repos\Yildiz_Okullari\Business\obj\Debug\net7.0\Business.pdb
 C:\Users\sabit\source\repos\Yildiz_Okullari\Business\obj\Debug\net7.0\ref\Business.dll
-C:\Users\sabit\source\repos\Yildiz_Okullari\Business\bin\Debug\net7.0\DataAccess.dll
-C:\Users\sabit\source\repos\Yildiz_Okullari\Business\bin\Debug\net7.0\Entities.dll
-C:\Users\sabit\source\repos\Yildiz_Okullari\Business\bin\Debug\net7.0\DataAccess.pdb
-C:\Users\sabit\source\repos\Yildiz_Okullari\Business\bin\Debug\net7.0\Entities.pdb
-C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Business\bin\Debug\net7.0\DataAccess.dll
-C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Business\bin\Debug\net7.0\Entities.dll
-C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Business\bin\Debug\net7.0\DataAccess.pdb
-C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Business\bin\Debug\net7.0\Entities.pdb
-C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Business\bin\Debug\net7.0\Business.deps.json
-C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Business\bin\Debug\net7.0\Business.dll
-C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Business\bin\Debug\net7.0\Business.pdb
-C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Business\bin\Debug\net7.0\Core.dll
-C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Business\bin\Debug\net7.0\DataAccess.dll
-C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Business\bin\Debug\net7.0\Entities.dll
-C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Business\bin\Debug\net7.0\Core.pdb
-C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Business\bin\Debug\net7.0\DataAccess.pdb
-C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Business\bin\Debug\net7.0\Entities.pdb
-C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Business\obj\Debug\net7.0\Business.csproj.AssemblyReference.cache
-C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Business\obj\Debug\net7.0\Business.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Business\obj\Debug\net7.0\Business.AssemblyInfoInputs.cache
-C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Business\obj\Debug\net7.0\Business.AssemblyInfo.cs
-C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Business\obj\Debug\net7.0\Business.csproj.CoreCompileInputs.cache
-C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Business\obj\Debug\net7.0\Business.csproj.CopyComplete
-C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Business\obj\Debug\net7.0\Business.dll
-C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Business\obj\Debug\net7.0\refint\Business.dll
-C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Business\obj\Debug\net7.0\Business.pdb
-C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Business\obj\Debug\net7.0\ref\Business.dll

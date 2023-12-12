@@ -1,9 +1,9 @@
 ﻿@{
-    ViewData["Title"] = "SMS Gönderme";
+    ViewData["Title"] = "SMS Gönder";
 }
 
-<h1>SMS Gönderme</h1>
+<h1>SMS Gönder</h1>
 
-<form method="post" asp-action="SendSms">
+<form asp-controller="Test" asp-action="Index" method="post">
     <button type="submit">SMS Gönder</button>
 </form>

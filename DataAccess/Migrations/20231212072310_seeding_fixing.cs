@@ -4,10 +4,12 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class @fixed : Migration
+    public partial class seeding_fixing : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -27,13 +29,28 @@ namespace DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "FamilyInfos",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    FatherFullName = table.Column<string>(type: "text", nullable: true),
+                    MotherFullName = table.Column<string>(type: "text", nullable: true),
+                    FatherPhoneNumber = table.Column<string>(type: "text", nullable: true),
+                    MotherPhoneNumber = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FamilyInfos", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Terms",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    StartDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    EndDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    StartDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    EndDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -69,11 +86,13 @@ namespace DataAccess.Migrations
                     Name = table.Column<string>(type: "text", nullable: true),
                     Surname = table.Column<string>(type: "text", nullable: true),
                     StudentNumber = table.Column<int>(type: "integer", nullable: true),
-                    BirthDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    BirthDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
                     Gender = table.Column<int>(type: "integer", nullable: true),
-                    TermId = table.Column<int>(type: "integer", nullable: true),
-                    Grade = table.Column<int>(type: "integer", nullable: false),
-                    Branch = table.Column<string>(type: "text", nullable: false),
+                    TermId = table.Column<Guid>(type: "uuid", nullable: true),
+                    TermId1 = table.Column<int>(type: "integer", nullable: true),
+                    Grade = table.Column<int>(type: "integer", nullable: true),
+                    Branch = table.Column<string>(type: "text", nullable: true),
+                    FamilyInfoId = table.Column<Guid>(type: "uuid", nullable: true),
                     UserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
@@ -93,8 +112,13 @@ namespace DataAccess.Migrations
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AspNetUsers_Terms_TermId",
-                        column: x => x.TermId,
+                        name: "FK_AspNetUsers_FamilyInfos_FamilyInfoId",
+                        column: x => x.FamilyInfoId,
+                        principalTable: "FamilyInfos",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_AspNetUsers_Terms_TermId1",
+                        column: x => x.TermId1,
                         principalTable: "Terms",
                         principalColumn: "Id");
                 });
@@ -189,7 +213,8 @@ namespace DataAccess.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Date = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Date = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    AttendanceLectureHour = table.Column<int>(type: "integer", nullable: false),
                     PersonId = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
@@ -204,14 +229,25 @@ namespace DataAccess.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Terms",
-                columns: new[] { "Id", "EndDate", "StartDate" },
-                values: new object[] { 1, new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), new DateTime(2023, 12, 11, 13, 14, 43, 824, DateTimeKind.Utc).AddTicks(8290) });
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { new Guid("dde365a5-0054-463c-a5eb-d56d754adf10"), "60e54890-20ed-4f39-96bf-4f190c1a551f", "admin", "ADMIN" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "BirthDate", "Branch", "ConcurrencyStamp", "Email", "EmailConfirmed", "Gender", "Grade", "LockoutEnabled", "LockoutEnd", "Name", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "StudentNumber", "Surname", "TermId", "TwoFactorEnabled", "UserName" },
-                values: new object[] { new Guid("fd575ebe-a1a2-4c1c-84df-ff695766f819"), 0, new DateTime(2023, 12, 11, 13, 14, 43, 774, DateTimeKind.Utc).AddTicks(1851), "B", "1b8ed708-100f-42d0-b26f-27a4e42fb6bb", "example@example.com", true, null, 12, false, new DateTimeOffset(new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), new TimeSpan(0, 3, 0, 0, 0)), "Sabit", "EXAMPLE@EXAMPLE.COM", "EXAMPLE@EXAMPLE.COM", "AQAAAAIAAYagAAAAELOhzI3XhxBkgrN9PioKAtHgVCf3PGufmVy6ODx0wNEn9jWbTOX3HR0ZJEfOdvUkmw==", "+905423849022", true, "03bc40d7-ad72-41ae-a02b-ce16c5e0ac58", 653, "Ünsür", 1, false, "example@example.com" });
+                columns: new[] { "Id", "AccessFailedCount", "BirthDate", "Branch", "ConcurrencyStamp", "Email", "EmailConfirmed", "FamilyInfoId", "Gender", "Grade", "LockoutEnabled", "LockoutEnd", "Name", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "StudentNumber", "Surname", "TermId", "TermId1", "TwoFactorEnabled", "UserName" },
+                values: new object[,]
+                {
+                    { new Guid("36262f2c-da5d-46a3-bb0f-8cd67879b3a8"), 0, new DateTime(2023, 12, 12, 7, 23, 10, 357, DateTimeKind.Utc).AddTicks(7328), "C", "9dd51211-24d5-4340-beb0-375949d6743b", "mikdat@simsek.com", true, null, null, 12, false, new DateTimeOffset(new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), new TimeSpan(0, 3, 0, 0, 0)), "Mikdat Can", "MIKDAT@MIKDAT.COM", "MIKDAT@MIKDAT.COM", "AQAAAAIAAYagAAAAELF3R7H/HdYr7a5gpITXWMooKEewSr0EW3VJiJNPsjGNOqv3B8+ncnMzyBxzRctnZg==", "+905397159877", true, "a0ae6571-ae33-4a5a-9a78-8f5ee5e18e28", 16, "Şimşek", new Guid("b2d796df-1460-4a3a-86bd-13e9db3c3f8b"), null, false, "mikdat@simsek.com" },
+                    { new Guid("b4e45e99-c32a-4b84-b194-5495bf5582cc"), 0, new DateTime(2023, 12, 12, 7, 23, 10, 224, DateTimeKind.Utc).AddTicks(115), "B", "8b80e4b1-71e3-413d-9ff1-9a759c699f01", "example@example.com", true, null, null, 12, false, new DateTimeOffset(new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), new TimeSpan(0, 3, 0, 0, 0)), "Sabit", "EXAMPLE@EXAMPLE.COM", "EXAMPLE@EXAMPLE.COM", "AQAAAAIAAYagAAAAEJbTPOtXd5Fn4wYRUhryzTdkKTE+Rwjys7BUsqpFBMHZeRyGZ8vINyjWzT/BJTq1Xg==", "+905423849022", true, "4569dfee-dbc4-45d5-9929-1d7880ba068b", 653, "Ünsür", new Guid("3001ec3f-f507-459e-9c90-2861910a76b6"), null, false, "example@example.com" },
+                    { new Guid("e5bf58dc-f4b3-4346-a3bf-2d4f4f83ccb6"), 0, new DateTime(2023, 12, 12, 7, 23, 10, 268, DateTimeKind.Utc).AddTicks(6617), null, "6d9cbd56-ded1-40e9-8462-a79a6c276dcb", "admin@admin.com", true, null, null, null, false, new DateTimeOffset(new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), new TimeSpan(0, 3, 0, 0, 0)), "Admin", "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAIAAYagAAAAEI6DrJ0J7TIo+6FCKxADnAA21y6ECihqI7rrIVDnwTL60oSkTDCRHKxuGmXv/hQRtA==", null, false, "cd8cba7d-301d-4359-a70d-f7f420901443", null, null, null, null, false, "admin@admin.com" },
+                    { new Guid("e81ecf36-17d9-4e3f-ad1b-00e15f67c40a"), 0, new DateTime(2023, 12, 12, 7, 23, 10, 312, DateTimeKind.Utc).AddTicks(8861), "A", "37abb1a9-3c32-4974-bda1-bc1b0fe5db34", "sabit@sabit.com", true, null, null, 11, false, new DateTimeOffset(new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), new TimeSpan(0, 3, 0, 0, 0)), "Egemen", "SABIT@SABIT.COM", "SABIT@SABIT.COM", "AQAAAAIAAYagAAAAEMBduTlN+z2AQ9QhM6ShhHmDhxVYXfkttPTHXa7ylCA3u3SGEI6RHRVcb8gcAixUTQ==", "+905423849022", true, "7b3cee32-a831-4e49-b144-2d186dd89b0a", 1532, "Ünsür", new Guid("0207b83f-241c-4677-92cb-2bc7cd72e3e2"), null, false, "sabit@sabit.com" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Terms",
+                columns: new[] { "Id", "EndDate", "StartDate" },
+                values: new object[] { 1, new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), new DateTime(2023, 12, 12, 7, 23, 10, 402, DateTimeKind.Utc).AddTicks(6844) });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -245,9 +281,14 @@ namespace DataAccess.Migrations
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspNetUsers_TermId",
+                name: "IX_AspNetUsers_FamilyInfoId",
                 table: "AspNetUsers",
-                column: "TermId");
+                column: "FamilyInfoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUsers_TermId1",
+                table: "AspNetUsers",
+                column: "TermId1");
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
@@ -287,6 +328,9 @@ namespace DataAccess.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "FamilyInfos");
 
             migrationBuilder.DropTable(
                 name: "Terms");

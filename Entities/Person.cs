@@ -15,10 +15,12 @@ namespace Entities
         public DateTime? BirthDate { get; set; }
         public Gender ?Gender { get; set; }
         public ICollection<Attendance>? Attendances { get; set; }
-        public int ?TermId { get; set; }
-        public Term Term { get; set; }
-        public  int Grade { get; set; }
-        public  string Branch { get; set; }
+        public Guid ?TermId { get; set; }
+        public Term ?Term { get; set; }
+        public  int? Grade { get; set; }
+        public string? Branch { get; set; }
+        public Guid ?FamilyInfoId {  get; set; }
+        public FamilyInfo ?FamilyInfo { get; set; }
 
     }
 }
