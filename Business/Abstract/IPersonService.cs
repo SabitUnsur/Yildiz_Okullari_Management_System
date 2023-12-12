@@ -15,5 +15,6 @@ namespace Business.Abstract
 		Task<List<Attendance>> TotalAbsencesDayListByStudentNumber(int studentNumber);
 		DateTime? GetAbsenceDateForStudent(Person student, DateTime targetDate);
 		DateTime? GetTodaysAbsenceDateForStudent(Guid studentId);
+		List<Person> GetPersonsWithAttendances();
     }
 }

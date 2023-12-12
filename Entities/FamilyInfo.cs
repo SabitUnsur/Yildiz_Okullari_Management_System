@@ -10,7 +10,7 @@ namespace Entities
     public class FamilyInfo
     {
         [Key]
-        public int FamilyId { get; set; }
+        public Guid Id { get; set; }
         public string ?FatherFullName { get; set; }
         public string ?MotherFullName { get; set; }
         public string ?FatherPhoneNumber { get; set; }

@@ -14,5 +14,6 @@ namespace DataAccess.Abstract
 		Task<List<Attendance>> TotalAbsencesDayListByStudentNumber(int studentNumber);
 		public DateTime? GetAbsenceDateForStudent(Person student, DateTime targetDate);
 		DateTime? GetTodaysAbsenceDateForStudent(Guid studentId);
+		List<Person> GetPersonsWithAttendances();
     }
 }

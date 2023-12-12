@@ -56,7 +56,17 @@ namespace Business.Concrete
             {
                 var personService = scope.ServiceProvider.GetRequiredService<IPersonService>();
                 var personToGetSms = personService.GetById(studentId);
-                string phoneNumber = personToGetSms.PhoneNumber;
+                string phoneNumber;
+
+                if (personToGetSms?.FamilyInfo?.FatherPhoneNumber != null)
+                {
+                    phoneNumber = personToGetSms.FamilyInfo.FatherPhoneNumber;
+                }
+                else
+                {
+                    phoneNumber = personToGetSms?.FamilyInfo?.MotherPhoneNumber;
+                }
+
                 var attendanceDate = _personService.GetTodaysAbsenceDateForStudent(studentId);
   
                 try

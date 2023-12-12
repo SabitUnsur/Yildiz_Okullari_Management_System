@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Mail;
 
 namespace UI.Controllers
 {
@@ -17,8 +18,19 @@ namespace UI.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var attendanceList = await personService.TotalAbsencesDayListByStudentNumber(653);
-            return View(attendanceList);
+            var students = personService.GetAll(); // Tüm öğrencileri al
+
+            foreach (var student in students)
+            {
+                var absenceDates = personService.GetTodaysAbsenceDateForStudent(student.Id); // Öğrencinin bugünkü devamsızlık tarihlerini al
+                if (absenceDates.HasValue && absenceDates.Value.Date == DateTime.Today)
+                {
+                    // Eğer öğrencinin bugünkü devamsızlık tarihi varsa ve bugünün tarihiyle eşleşiyorsa, SMS gönderme işlemini yap
+                    await scheduledTaskService.ScheduleSms(student.Id);
+                }
+            }
+
+            return View();
         }
     }
 }

@@ -59,5 +59,11 @@ namespace DataAccess.EntityFramework
 				.SelectMany(p => p.Attendances.Select(a => new Attendance { Date = a.Date, Person = p }))
 				.ToListAsync();
 		}
-	}
+
+        public List<Person> GetPersonsWithAttendances()
+        {
+            return _appDbContext.Persons.Include(p => p.Attendances).ToList();
+        }
+    }
 }
+

@@ -1,36 +1,6 @@
-﻿@model List<Entities.Attendance>
-
-@{
-    ViewData["Title"] = "Index";
+﻿@{
+    ViewData["Title"] = "SMS Gönder";
 }
 
-<h1>Student Absences</h1>
+<h1>SMS Gönder</h1>
 
-@if (Model != null && Model.Count > 0)
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Student Name</th>
-                <th>Grade</th>
-                <th>Branch</th>
-                <th>Absence Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var attendance in Model)
-            {
-                <tr>
-                    <td>@attendance.Person.Name @attendance.Person.Surname</td>
-                    <td>@attendance.Person.Grade</td>
-                    <td>@attendance.Person.Branch</td>
-                    <td>@attendance.Date.ToShortDateString()</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
-else
-{
-    <p>No absences found for this student.</p>
-}

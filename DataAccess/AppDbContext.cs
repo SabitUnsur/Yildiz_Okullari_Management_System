@@ -68,7 +68,7 @@ namespace DataAccess
                     PhoneNumber = "+905423849022",
                     PhoneNumberConfirmed = true,
                     StudentNumber = 653,
-                    TermId = 1,
+                    TermId = Guid.NewGuid(),
                 }
             );
 
@@ -91,7 +91,63 @@ namespace DataAccess
                     TwoFactorEnabled = false,
                     Name = "Admin",
                 }
-    );
+            );
+
+            modelBuilder.Entity<Person>().HasData(
+                           new Person
+                           {
+                               Id = Guid.NewGuid(),
+                               AccessFailedCount = 0,
+                               BirthDate = DateTime.UtcNow,
+                               ConcurrencyStamp = Guid.NewGuid().ToString(),
+                               UserName = "sabit@sabit.com",
+                               Grade = 11,
+                               Branch = "A",
+                               NormalizedUserName = "SABIT@SABIT.COM",
+                               Email = "sabit@sabit.com",
+                               NormalizedEmail = "SABIT@SABIT.COM",
+                               EmailConfirmed = true,
+                               PasswordHash = new PasswordHasher<Person>().HashPassword(null, "147852369"),
+                               LockoutEnd = DateTime.MaxValue,
+                               LockoutEnabled = false,
+                               SecurityStamp = Guid.NewGuid().ToString(),
+                               TwoFactorEnabled = false,
+                               Name = "Egemen",
+                               Surname = "Ünsür",
+                               PhoneNumber = "+905423849022",
+                               PhoneNumberConfirmed = true,
+                               StudentNumber = 1532,
+                               TermId = Guid.NewGuid(),
+                           }
+                       );
+
+            modelBuilder.Entity<Person>().HasData(
+                          new Person
+                          {
+                              Id = Guid.NewGuid(),
+                              AccessFailedCount = 0,
+                              BirthDate = DateTime.UtcNow,
+                              ConcurrencyStamp = Guid.NewGuid().ToString(),
+                              UserName = "mikdat@simsek.com",
+                              Grade = 12,
+                              Branch = "C",
+                              NormalizedUserName = "MIKDAT@MIKDAT.COM",
+                              Email = "mikdat@simsek.com",
+                              NormalizedEmail = "MIKDAT@MIKDAT.COM",
+                              EmailConfirmed = true,
+                              PasswordHash = new PasswordHasher<Person>().HashPassword(null, "mikdat123"),
+                              LockoutEnd = DateTime.MaxValue,
+                              LockoutEnabled = false,
+                              SecurityStamp = Guid.NewGuid().ToString(),
+                              TwoFactorEnabled = false,
+                              Name = "Mikdat Can",
+                              Surname = "Şimşek",
+                              PhoneNumber = "+905397159877",
+                              PhoneNumberConfirmed = true,
+                              StudentNumber = 16,
+                              TermId = Guid.NewGuid(),
+                          }
+                      );
 
             modelBuilder.Entity<Term>().HasData(
                 new Term
@@ -117,5 +173,6 @@ namespace DataAccess
         public DbSet<Person> Persons { get; set; }
         public DbSet<Attendance> Attendances { get; set; }
         public DbSet<Term> Terms { get; set; }
+        public DbSet<FamilyInfo> FamilyInfos { get; set; }
     }
 }
