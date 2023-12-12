@@ -9,6 +9,26 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 
+<style>
+    .w3-container.w3-teal {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+        .w3-container.w3-teal img {
+            max-width: 100px;
+            max-height: 100px;
+            margin-left: auto; /* İstenilen aralığı ayarlayabilirsiniz */
+        }
+
+        .w3-container.w3-teal h1 {
+            margin: 0; /* H1 etiketinin varsayılan margin'ini sıfırlayın */
+            display: flex;
+            align-items: center;
+        }
+</style>
+
 <body>
 
     <!-- Sidebar -->
@@ -16,17 +36,16 @@
         <h3 class="w3-bar-item">Ögrenci Paneli</h3>
         <a href="#" class="w3-bar-item w3-button">Dersler</a>
         <a href="#" class="w3-bar-item w3-button">Sınıf</a>
-        <a href="#" class="w3-bar-item w3-button">Hakkımızda</a>
-        <a href="~/Login/Index" class="w3-bar-item w3-button">Çıkış</a>
+        <a href="~/Student/UserInformation" class="w3-bar-item w3-button">Bilgilerim</a>
+        <a href="~/Login/Login" class="w3-bar-item w3-button">Çıkış</a>
     </div>
     <!-- Page Content -->
     <div style="margin-left:15%">
         <div class="w3-container w3-teal">
-
             <h1>
-                <img src="~/img/yildiz_okullari_logo.png" align="right" />
-                Yıldız Okulları
+                @RenderSection("CustomHeader", required: false)
             </h1>
+            <img src="~/img/yildiz_okulları_logo.png" align="right" />
         </div>
         <div class="w3-container">
             @RenderBody()

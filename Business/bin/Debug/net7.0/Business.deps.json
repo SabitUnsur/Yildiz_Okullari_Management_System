@@ -730,7 +730,6 @@
         "dependencies": {
           "DataAccess": "1.0.0",
           "FluentValidation.AspNetCore": "11.3.0",
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.14",
           "Twilio": "6.15.2",
           "Twilio.AspNet.Mvc": "8.0.2"
         },

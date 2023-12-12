@@ -9,61 +9,77 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = UI
 build_property.RootNamespace = UI
-build_property.ProjectDir = C:\Users\sabit\source\repos\Yildiz_Okullari\Yildiz_Okullari\
+build_property.ProjectDir = C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Yildiz_Okullari\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\sabit\source\repos\Yildiz_Okullari\Yildiz_Okullari
+build_property.MSBuildProjectDirectory = C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Yildiz_Okullari
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Views/Home/Index.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Views/Home/Privacy.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Views/Register/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0ZXJcSW5kZXguY3NodG1s
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Login/ForgetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cRm9yZ2V0UGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Views/Shared/Error.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Login/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Views/Shared/_AdminLayout.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Views/Shared/_LoginLayout.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Shared/_ForgetPasswordLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Gb3JnZXRQYXNzd29yZExheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Shared/_LoginLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Views/Shared/_RegisterLayout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9SZWdpc3RlckxheW91dC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Views/Shared/_StudentPanelLayout.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Shared/_StudentPanelLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TdHVkZW50UGFuZWxMYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Views/Test/Index.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Student/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Student/UserInformation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxVc2VySW5mb3JtYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Test/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Views/_ViewImports.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Views/_ViewStart.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Views/Shared/_Layout.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-k1t0mrplc2

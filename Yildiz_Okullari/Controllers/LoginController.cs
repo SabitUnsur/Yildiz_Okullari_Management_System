@@ -31,7 +31,7 @@ namespace UI.Controllers
                 return View();
             }
 
-            returnUrl=returnUrl ?? Url.Action("Index", "Person");// bu kısım değişebilir random yazdım.
+            returnUrl=returnUrl ?? Url.Action("Index", "Student");// bu kısım değişebilir random yazdım.
 
             var user= await _loginService.FindByEmailAsync(request.Email!);
 

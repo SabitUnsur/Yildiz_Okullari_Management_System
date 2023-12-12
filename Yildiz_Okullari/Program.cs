@@ -31,6 +31,7 @@ builder.Services.AddScoped<IScheduledTaskService, ScheduledTaskService>();
 builder.Services.AddScoped<IAttendanceService, AttendanceService>();
 builder.Services.AddScoped<IPersonRepository, EfPersonRepository>();
 builder.Services.AddScoped<IAttendanceRepository, EfAttendanceRepository>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<IPersonService, PersonService>();
 
 var app = builder.Build();
@@ -52,6 +53,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
 	name: "default",
-	pattern: "{controller=Home}/{action=Index}/{id?}");
+	pattern: "{controller=Login}/{action=Login}/{id?}");
 
 app.Run();

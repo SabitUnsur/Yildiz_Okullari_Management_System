@@ -16,7 +16,12 @@ namespace UI.Controllers
 
         public IActionResult Index()
 		{
-			var degerler = service.GetAll();
+            var degerler = service.GetAll();
+            return View(degerler);
+		}
+		public IActionResult UserInformation()
+		{
+            var degerler = service.GetAll();
             return View(degerler);
 		}
 

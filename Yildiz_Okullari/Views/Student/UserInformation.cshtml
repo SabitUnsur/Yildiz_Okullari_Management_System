@@ -1,0 +1,29 @@
+﻿@using Business.Concrete
+@model IEnumerable<Entities.Person>
+@{
+    ViewData["Title"] = "UserInformation";
+    Layout = "~/Views/Shared/_StudentPanelLayout.cshtml";
+}
+@section CustomHeader{
+    <style>
+        .student-info {
+            font-size: 20px; /* Dilediğiniz boyuta ayarlayabilirsiniz */
+            line-height: 1.4; /* İstenilen satır yüksekliği */
+        }
+    </style>
+
+    <h1>
+        <div class="student-info">
+            @foreach (var x in Model)
+            {
+                <div>
+                    <span>@x.Name @x.Surname</span><br />
+                    <span>@x.StudentNumber</span><br />
+                    <span>@x.Grade</span>
+                    <span>@x.Branch</span>
+                </div>
+            }
+        </div>
+    </h1>
+}
+
