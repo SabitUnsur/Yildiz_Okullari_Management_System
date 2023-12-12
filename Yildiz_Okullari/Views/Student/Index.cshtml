@@ -1,5 +1,5 @@
 ﻿@using Business.Concrete
-@model IEnumerable<Entities.Person>
+@model Entities.Person
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_StudentPanelLayout.cshtml";
@@ -15,15 +15,13 @@
 
     <h1>
         <div class="student-info">
-            @foreach (var x in Model)
-            {
-                <div>
-                    <span>@x.Name @x.Surname</span><br />
-                    <span>@x.StudentNumber</span><br />
-                    <span>@x.Grade</span>
-                    <span>@x.Branch</span>
-                </div>
-            }
+            <div>
+                <span>@Model.Name @Model.Surname</span><br />
+                <span>@Model.StudentNumber</span><br />
+                <span>@Model.Grade</span>
+                <span>@Model.Branch</span>
+            </div>
+
         </div>
     </h1>
 }

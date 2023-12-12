@@ -1,29 +1,59 @@
 ﻿@using Business.Concrete
-@model IEnumerable<Entities.Person>
+@model Entities.Person
 @{
     ViewData["Title"] = "UserInformation";
     Layout = "~/Views/Shared/_StudentPanelLayout.cshtml";
 }
-@section CustomHeader{
-    <style>
-        .student-info {
-            font-size: 20px; /* Dilediğiniz boyuta ayarlayabilirsiniz */
-            line-height: 1.4; /* İstenilen satır yüksekliği */
-        }
-    </style>
 
-    <h1>
-        <div class="student-info">
-            @foreach (var x in Model)
-            {
-                <div>
-                    <span>@x.Name @x.Surname</span><br />
-                    <span>@x.StudentNumber</span><br />
-                    <span>@x.Grade</span>
-                    <span>@x.Branch</span>
-                </div>
-            }
-        </div>
-    </h1>
-}
+
+<h2>Öğrenci Bilgileri</h2>
+
+<table class="table table-bordered">
+    <tr>
+
+        <th>Öğrenci Adı</th>
+        <th>Öğrenci Soyadı</th>
+        <th>Öğrenci Numarası</th>
+        <th> Sınıfı </th>
+        <th> Şubesi </th>
+        <th> Cinsiyet </th>
+        <th>Doğum Tarihi</th>
+        <th>Email</th>
+    </tr>
+
+    <tr>
+        <td>@Model.Name </td>
+        <td>@Model.Surname</td>
+        <td>@Model.StudentNumber</td>
+        <td>@Model.Grade</td>
+        <td>@Model.Branch</td>
+        <td>@Model.Gender</td>
+        <td>@Model.BirthDate</td>
+        <td>@Model.Email</td>
+
+    </tr>
+
+</table>
+
+<br />
+
+<h2>Öğrenci Aile Bilgileri</h2>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>Anne Adı</th>
+        <th>Anne Telefon Numarası</th>
+        <th>Baba Adı</th>
+        <th>Baba Telefon Numarası</th>
+    </tr>
+
+    <tr>
+        <td>@Model.FamilyInfo.MotherFullName</td>
+        <td>@Model.FamilyInfo.MotherPhoneNumber</td>
+        <td>@Model.FamilyInfo.FatherFullName</td>
+        <td>@Model.FamilyInfo.FatherPhoneNumber</td>
+    </tr>
+
+</table>
 

@@ -1,0 +1,40 @@
+﻿@using Business.Concrete
+@model List<Entities.Attendance>
+
+@{
+    ViewData["Title"] = "TotalAbsencesDayList";
+    Layout = "~/Views/Shared/_StudentPanelLayout.cshtml";
+}
+
+<h1>Öğrenciye Ait Devamsızlık Bilgileri</h1>
+
+<table class="table table-bordered">
+    <tr>
+
+        <th>Devamsızlık Tarihi</th>
+        <th>Devamsızlık Ders Saati</th>
+        <th>Devamsızlık Türü</th>
+    </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Date.ToShortDateString() </td>
+            </tr>
+        }
+  
+</table>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Toplam Devamsızlık Gün Sayısı</th>
+    </tr>
+
+    <tr>
+        <td>@TempData["AttendancesCount"]</td>
+    </tr>
+
+</table>
+
+
+

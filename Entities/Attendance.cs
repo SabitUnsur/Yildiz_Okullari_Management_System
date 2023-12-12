@@ -13,5 +13,6 @@ namespace Entities
 		public int AttendanceLectureHour { get; set; }
 		public Guid PersonId { get; set; }
 		public Person Person { get; set; }
+		public AttendanceType ?AttendanceType { get; set; }
     }
 }

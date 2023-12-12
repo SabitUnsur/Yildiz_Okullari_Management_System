@@ -148,7 +148,7 @@ namespace Business.Concrete
             return absenceDate;
         }
 
-        public int TotalAbsencesDayCountByStudentNumber(int studentNumber)
+        public int TotalAbsencesDayCountByStudentNumber(int ?studentNumber)
         {
             string cacheKey = $"total_absences_{studentNumber}";
 
@@ -166,7 +166,7 @@ namespace Business.Concrete
             return totalAbsenceCount;
         }
 
-        public async Task<List<Attendance>> TotalAbsencesDayListByStudentNumber(int studentNumber)
+        public async Task<List<Attendance>> TotalAbsencesDayListByStudentNumber(int ?studentNumber)
         {
             // Cache key oluştur
             string cacheKey = $"absences_list_{studentNumber}";
