@@ -56,36 +56,39 @@ namespace Business.Concrete
             {
                 var personService = scope.ServiceProvider.GetRequiredService<IPersonService>();
                 var personToGetSms = personService.GetPersonWithFamilyInfoById(personService.GetById(studentId).Id);
-                
-                string phoneNumber;
+
+                string parentPhoneNumber;
+                string studentPhoneNumber;
 
                 if (personToGetSms.FamilyInfoId != null)
                 {
-
-                    phoneNumber = personToGetSms.FamilyInfo.FatherPhoneNumber;
+                    parentPhoneNumber = personToGetSms.FamilyInfo.FatherPhoneNumber;
+                    studentPhoneNumber = personToGetSms.PhoneNumber; 
                 }
                 else
                 {
-                    phoneNumber = personToGetSms.FamilyInfo.MotherPhoneNumber;
+                    parentPhoneNumber = personToGetSms.FamilyInfo.MotherPhoneNumber;
+                    studentPhoneNumber = personToGetSms.PhoneNumber; 
                 }
 
                 var attendanceDate = _personService.GetTodaysAbsenceDateForStudent(studentId);
-  
-                try
-                {
-                    _smsService.Send(phoneNumber, $"{personToGetSms.Name + " " 
-                        + personToGetSms.Surname + " "
-                        + "öğrencimiz" + " "
-                        + $"{attendanceDate.Value.ToShortDateString()}" + " "
-                        + "tarihinde" + " " }" 
-                        + Messages.AttendanceInformation);
+   
+                SmsSenderHelper(personToGetSms, parentPhoneNumber, attendanceDate);
+                SmsSenderHelper(personToGetSms, studentPhoneNumber, attendanceDate);
+            }
+        }
 
-                    _timer.Stop();
-                }
-                catch (SmsSendFailedException ex)
-                {
-                    throw new SmsSendFailedException(ex.Message);
-                }
+        private void SmsSenderHelper(Person person, string phoneNumber, DateTime? attendanceDate)
+        {
+            try
+            {
+                _smsService.Send(phoneNumber, $"{person.Name} {person.Surname} öğrencimiz {attendanceDate.Value.ToShortDateString()} tarihinde {Messages.AttendanceInformation}");
+
+                _timer.Stop();
+            }
+            catch (SmsSendFailedException ex)
+            {
+                throw new SmsSendFailedException(ex.Message);
             }
         }
 

@@ -1,9 +1,18 @@
-﻿@{
-    ViewData["Title"] = "SMS Gönder";
+﻿@using Entities.Enums;
+@model List<LectureHours>
+@{
+    Layout = null;
 }
 
-<h1>SMS Gönder</h1>
 
-<form asp-controller="Test" asp-action="Index" method="post">
-    <button type="submit">SMS Gönder</button>
+
+<h2>Devamsızlık Ekle</h2>
+
+<form asp-action="AddAttendance">
+    @for (int i = 0; i < ViewBag.Lectures.Length; i++)
+    {
+        <input type="checkbox" name="selectedLectures" value="@ViewBag.Lectures[i]" />
+        <label>@ViewBag.Lectures[i].ToString()</label>
+    }
+    <input type="submit" value="Devamsızlık Ekle" />
 </form>

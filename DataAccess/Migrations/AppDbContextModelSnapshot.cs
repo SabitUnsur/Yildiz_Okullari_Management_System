@@ -51,8 +51,8 @@ namespace DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("6fdd35d5-a48a-42c5-ace3-13acbbcb040d"),
-                            ConcurrencyStamp = "ef36e4c3-a881-4e82-a872-69a767824721",
+                            Id = new Guid("984ff100-d19e-4ce3-9958-0750253e7486"),
+                            ConcurrencyStamp = "611a12fc-da14-480b-ace7-de08a73e6d7c",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -64,7 +64,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<int>("AttendanceLectureHour")
+                    b.Property<int?>("AttendanceTotalLectureHour")
                         .HasColumnType("integer");
 
                     b.Property<int?>("AttendanceType")
@@ -210,11 +210,11 @@ namespace DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("a551377f-85a1-4de9-a697-11e1114c307e"),
+                            Id = new Guid("6f8a7653-fad0-4fbc-82ad-7fbf39a3c279"),
                             AccessFailedCount = 0,
-                            BirthDate = new DateTime(2023, 12, 12, 19, 54, 13, 344, DateTimeKind.Utc).AddTicks(5134),
+                            BirthDate = new DateTime(2023, 12, 13, 8, 11, 20, 992, DateTimeKind.Utc).AddTicks(2555),
                             Branch = "B",
-                            ConcurrencyStamp = "e8a5e257-a367-4b3e-95bb-2aa13b78dc4b",
+                            ConcurrencyStamp = "0405b97a-a215-425d-8521-d5fa9c3311be",
                             Email = "example@example.com",
                             EmailConfirmed = true,
                             Grade = 12,
@@ -223,22 +223,22 @@ namespace DataAccess.Migrations
                             Name = "Sabit",
                             NormalizedEmail = "EXAMPLE@EXAMPLE.COM",
                             NormalizedUserName = "EXAMPLE@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBAg+SyzyRZddVImo+tDs8fnb/3lqRJm3UzbUpSL8N/9FcLaizxYoe0b21T/o6iqaA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKcEeTGy3vCDarf6rnHAbXqYd96OuDPPj0ADi/Mrq59UlwLEqEcWUvpkBJzuF0N4tQ==",
                             PhoneNumber = "+905423849022",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "ba72f5df-cd7c-490c-a135-d4966df17745",
+                            SecurityStamp = "12aff23a-c6f6-49e9-9844-bde5e167a7f0",
                             StudentNumber = 653,
                             Surname = "Ünsür",
-                            TermId = new Guid("b50af227-a03d-4366-8a6e-a7c86c080adb"),
+                            TermId = new Guid("989b7b02-7d58-4846-b46a-1e6e715fc07c"),
                             TwoFactorEnabled = false,
                             UserName = "example@example.com"
                         },
                         new
                         {
-                            Id = new Guid("1ced32ba-a37f-4d43-8878-7e90057febf1"),
+                            Id = new Guid("b04cec09-da74-4a41-ba13-2a473a2bdde7"),
                             AccessFailedCount = 0,
-                            BirthDate = new DateTime(2023, 12, 12, 19, 54, 13, 385, DateTimeKind.Utc).AddTicks(5020),
-                            ConcurrencyStamp = "7d374fb5-6136-4b3b-814c-b4dd3194dce7",
+                            BirthDate = new DateTime(2023, 12, 13, 8, 11, 21, 34, DateTimeKind.Utc).AddTicks(9649),
+                            ConcurrencyStamp = "da33ae09-8739-4b87-be01-93349f2b223b",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
@@ -246,19 +246,19 @@ namespace DataAccess.Migrations
                             Name = "Admin",
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAs1C0EX0JqYUu2GLgMBARpQPE3HjX/QykG9bCeUp5PHzmT8BNeNkTJ2BeqsS7+XJg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGsdhraDSfoDgHZh78Z32njPuVGcGlb/n03JDaVooi2Yopsyukhr9GnMpbKWnLm9Yg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3593fe6b-a60b-4f8f-ae6c-f0360f38f1d7",
+                            SecurityStamp = "1e4e95b6-075b-4612-9177-3f073b13ed49",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com"
                         },
                         new
                         {
-                            Id = new Guid("59ac6442-3a6e-412c-83fa-97fdd6ccbbf6"),
+                            Id = new Guid("2c14c6be-e9cf-4798-b755-7d45dda05aea"),
                             AccessFailedCount = 0,
-                            BirthDate = new DateTime(2023, 12, 12, 19, 54, 13, 428, DateTimeKind.Utc).AddTicks(8394),
+                            BirthDate = new DateTime(2023, 12, 13, 8, 11, 21, 80, DateTimeKind.Utc).AddTicks(4938),
                             Branch = "A",
-                            ConcurrencyStamp = "0fed07b2-0b8a-40bb-b55d-7af03de5c3d2",
+                            ConcurrencyStamp = "3fc8abeb-c236-44aa-bda2-333268b9023c",
                             Email = "sabit@sabit.com",
                             EmailConfirmed = true,
                             Grade = 11,
@@ -267,23 +267,23 @@ namespace DataAccess.Migrations
                             Name = "Egemen",
                             NormalizedEmail = "SABIT@SABIT.COM",
                             NormalizedUserName = "SABIT@SABIT.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEE0fbAsBw+7L+pwZV1FZQLQ/jLS0JFmzy27dIMZSuBSHflffSPnR6Jy3l+CBWyeKiA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJgXxYWPeQzeRMvg43VnwQG8ojLODwyxXvpnYBG+3qrhaWnGoShIdBJU4tLlkyxu0g==",
                             PhoneNumber = "+905423849022",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "804cba94-923d-4965-8f90-16513f6bb04d",
+                            SecurityStamp = "268f6d6e-f867-465b-9560-b80dd7ea0b1f",
                             StudentNumber = 1532,
                             Surname = "Ünsür",
-                            TermId = new Guid("9620b3fa-d8c5-4043-8f5a-33e997e47a1b"),
+                            TermId = new Guid("8440f7ea-a8a3-4a84-88c1-8acd2f26f9d4"),
                             TwoFactorEnabled = false,
                             UserName = "sabit@sabit.com"
                         },
                         new
                         {
-                            Id = new Guid("d74315eb-95aa-4813-bf51-f73998e966d4"),
+                            Id = new Guid("e46aaf28-f4aa-4d4d-a4de-784176a20922"),
                             AccessFailedCount = 0,
-                            BirthDate = new DateTime(2023, 12, 12, 19, 54, 13, 473, DateTimeKind.Utc).AddTicks(5085),
+                            BirthDate = new DateTime(2023, 12, 13, 8, 11, 21, 125, DateTimeKind.Utc).AddTicks(2900),
                             Branch = "C",
-                            ConcurrencyStamp = "49da3796-ce72-4b26-ac6c-785c9f2fae4c",
+                            ConcurrencyStamp = "ca134fe3-754f-411d-be4e-1e48bc316ab8",
                             Email = "mikdat@simsek.com",
                             EmailConfirmed = true,
                             Grade = 12,
@@ -292,13 +292,13 @@ namespace DataAccess.Migrations
                             Name = "Mikdat Can",
                             NormalizedEmail = "MIKDAT@MIKDAT.COM",
                             NormalizedUserName = "MIKDAT@MIKDAT.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEITCqCocIll8cT3GJkkMEJU1zQgQEpMT1fJduRqQAkCwovNY8EfkJfQ7PY/ASGg4Ew==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELut/aZX6/xnSlIUekTWXynyEj0pmXimKAlrm0sJhT1mF9EcfsRiF55i0DiNweTChw==",
                             PhoneNumber = "+905397159877",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "362b6f71-43b5-4bce-9a1e-08316d9c8db3",
+                            SecurityStamp = "3728e3be-bbe0-48fe-9598-8a4e1f39566d",
                             StudentNumber = 16,
                             Surname = "Şimşek",
-                            TermId = new Guid("26b98668-212a-4cbc-9239-b083ec36b33a"),
+                            TermId = new Guid("8cc7d348-bd94-4a76-a588-bbc0147e502a"),
                             TwoFactorEnabled = false,
                             UserName = "mikdat@simsek.com"
                         });
@@ -327,7 +327,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 1,
                             EndDate = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
-                            StartDate = new DateTime(2023, 12, 12, 19, 54, 13, 517, DateTimeKind.Utc).AddTicks(9009)
+                            StartDate = new DateTime(2023, 12, 13, 8, 11, 21, 169, DateTimeKind.Utc).AddTicks(3367)
                         });
                 });
 

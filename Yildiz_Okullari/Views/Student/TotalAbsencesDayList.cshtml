@@ -1,5 +1,6 @@
 ﻿@using Business.Concrete
 @using Entities;
+@using Entities.Enums;
 @model List<Entities.Attendance>
 
 @{
@@ -13,7 +14,7 @@
     <tr>
 
         <th>Devamsızlık Tarihi</th>
-        <th>Devamsızlık Ders Saati</th>
+        <th>Toplam Devamsızlık Ders Saati</th>
         <th>Devamsızlık Türü</th>
         <th>Devamsızlık Sebebi</th>
     </tr>
@@ -23,13 +24,13 @@
         <tr>
             <td>@item.Date.ToShortDateString()</td>
             <td>
-                @if (item.AttendanceLectureHour == null)
+                @if (item.AttendanceTotalLectureHour == null)
                 {
                     @:Öğrenci tam gün devamsızlık yapmıştır.
                 }
                 else
                 {
-                    <text>@item.AttendanceLectureHour.ToString() .Ders Saati</text>
+                    <text>@item.AttendanceTotalLectureHour.ToString() .Ders Saati</text>
                 }
             </td>
             <td>

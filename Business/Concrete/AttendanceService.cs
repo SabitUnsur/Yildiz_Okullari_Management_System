@@ -6,6 +6,7 @@ using DataAccess;
 using DataAccess.Abstract;
 using DataAccess.Concrete;
 using Entities;
+using Entities.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace Business.Concrete
 
 		public async Task Add(Attendance entity)
 		{
-			await _attendanceDal.Add(entity);
+			await _attendanceDal.AddAttendanceWithAutomaticType(entity);
 			await _unitOfWork.CommitAsync();
 		}
 
@@ -58,7 +59,12 @@ namespace Business.Concrete
 			return attendance;
 		}
 
-		public void Update(Attendance entity)
+        public Attendance TotalDailyAbsencesLectureHours(List<LectureHours> selectedLectures, Guid userId)
+        {
+			return _attendanceDal.TotalDailyAbsencesLectureHours(selectedLectures,userId);
+        }
+
+        public void Update(Attendance entity)
 		{
 			_attendanceDal.Update(entity);
 			_unitOfWork.Commit();

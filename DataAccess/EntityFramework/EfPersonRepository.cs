@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Entities.Enums;
 
 namespace DataAccess.EntityFramework
 {
@@ -67,7 +68,7 @@ namespace DataAccess.EntityFramework
                     Date = a.Date,
                     Person = p,
                     AttendanceType = a.AttendanceType,
-                    AttendanceLectureHour = a.AttendanceType == AttendanceType.TamGün ? null : a.AttendanceLectureHour,
+                    AttendanceTotalLectureHour = a.AttendanceType == AttendanceType.TamGün ? null : a.AttendanceTotalLectureHour,
                     ExcuseType = a.ExcuseType,
                 })).ToListAsync();
 

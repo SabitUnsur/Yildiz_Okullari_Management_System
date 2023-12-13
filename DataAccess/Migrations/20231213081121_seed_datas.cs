@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class refresh : Migration
+    public partial class seed_datas : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -91,6 +91,7 @@ namespace DataAccess.Migrations
                     TermId = table.Column<Guid>(type: "uuid", nullable: true),
                     TermId1 = table.Column<int>(type: "integer", nullable: true),
                     Grade = table.Column<int>(type: "integer", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "text", nullable: true),
                     Branch = table.Column<string>(type: "text", nullable: true),
                     FamilyInfoId = table.Column<Guid>(type: "uuid", nullable: true),
                     UserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
@@ -101,7 +102,6 @@ namespace DataAccess.Migrations
                     PasswordHash = table.Column<string>(type: "text", nullable: true),
                     SecurityStamp = table.Column<string>(type: "text", nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "text", nullable: true),
-                    PhoneNumber = table.Column<string>(type: "text", nullable: true),
                     PhoneNumberConfirmed = table.Column<bool>(type: "boolean", nullable: false),
                     TwoFactorEnabled = table.Column<bool>(type: "boolean", nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
@@ -214,7 +214,7 @@ namespace DataAccess.Migrations
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Date = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    AttendanceLectureHour = table.Column<int>(type: "integer", nullable: false),
+                    AttendanceTotalLectureHour = table.Column<int>(type: "integer", nullable: true),
                     PersonId = table.Column<Guid>(type: "uuid", nullable: false),
                     AttendanceType = table.Column<int>(type: "integer", nullable: true),
                     ExcuseType = table.Column<int>(type: "integer", nullable: true)
@@ -233,23 +233,23 @@ namespace DataAccess.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { new Guid("6fdd35d5-a48a-42c5-ace3-13acbbcb040d"), "ef36e4c3-a881-4e82-a872-69a767824721", "admin", "ADMIN" });
+                values: new object[] { new Guid("984ff100-d19e-4ce3-9958-0750253e7486"), "611a12fc-da14-480b-ace7-de08a73e6d7c", "admin", "ADMIN" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "BirthDate", "Branch", "ConcurrencyStamp", "Email", "EmailConfirmed", "FamilyInfoId", "Gender", "Grade", "LockoutEnabled", "LockoutEnd", "Name", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "StudentNumber", "Surname", "TermId", "TermId1", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { new Guid("1ced32ba-a37f-4d43-8878-7e90057febf1"), 0, new DateTime(2023, 12, 12, 19, 54, 13, 385, DateTimeKind.Utc).AddTicks(5020), null, "7d374fb5-6136-4b3b-814c-b4dd3194dce7", "admin@admin.com", true, null, null, null, false, new DateTimeOffset(new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), new TimeSpan(0, 3, 0, 0, 0)), "Admin", "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAIAAYagAAAAEAs1C0EX0JqYUu2GLgMBARpQPE3HjX/QykG9bCeUp5PHzmT8BNeNkTJ2BeqsS7+XJg==", null, false, "3593fe6b-a60b-4f8f-ae6c-f0360f38f1d7", null, null, null, null, false, "admin@admin.com" },
-                    { new Guid("59ac6442-3a6e-412c-83fa-97fdd6ccbbf6"), 0, new DateTime(2023, 12, 12, 19, 54, 13, 428, DateTimeKind.Utc).AddTicks(8394), "A", "0fed07b2-0b8a-40bb-b55d-7af03de5c3d2", "sabit@sabit.com", true, null, null, 11, false, new DateTimeOffset(new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), new TimeSpan(0, 3, 0, 0, 0)), "Egemen", "SABIT@SABIT.COM", "SABIT@SABIT.COM", "AQAAAAIAAYagAAAAEE0fbAsBw+7L+pwZV1FZQLQ/jLS0JFmzy27dIMZSuBSHflffSPnR6Jy3l+CBWyeKiA==", "+905423849022", true, "804cba94-923d-4965-8f90-16513f6bb04d", 1532, "Ünsür", new Guid("9620b3fa-d8c5-4043-8f5a-33e997e47a1b"), null, false, "sabit@sabit.com" },
-                    { new Guid("a551377f-85a1-4de9-a697-11e1114c307e"), 0, new DateTime(2023, 12, 12, 19, 54, 13, 344, DateTimeKind.Utc).AddTicks(5134), "B", "e8a5e257-a367-4b3e-95bb-2aa13b78dc4b", "example@example.com", true, null, null, 12, false, new DateTimeOffset(new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), new TimeSpan(0, 3, 0, 0, 0)), "Sabit", "EXAMPLE@EXAMPLE.COM", "EXAMPLE@EXAMPLE.COM", "AQAAAAIAAYagAAAAEBAg+SyzyRZddVImo+tDs8fnb/3lqRJm3UzbUpSL8N/9FcLaizxYoe0b21T/o6iqaA==", "+905423849022", true, "ba72f5df-cd7c-490c-a135-d4966df17745", 653, "Ünsür", new Guid("b50af227-a03d-4366-8a6e-a7c86c080adb"), null, false, "example@example.com" },
-                    { new Guid("d74315eb-95aa-4813-bf51-f73998e966d4"), 0, new DateTime(2023, 12, 12, 19, 54, 13, 473, DateTimeKind.Utc).AddTicks(5085), "C", "49da3796-ce72-4b26-ac6c-785c9f2fae4c", "mikdat@simsek.com", true, null, null, 12, false, new DateTimeOffset(new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), new TimeSpan(0, 3, 0, 0, 0)), "Mikdat Can", "MIKDAT@MIKDAT.COM", "MIKDAT@MIKDAT.COM", "AQAAAAIAAYagAAAAEITCqCocIll8cT3GJkkMEJU1zQgQEpMT1fJduRqQAkCwovNY8EfkJfQ7PY/ASGg4Ew==", "+905397159877", true, "362b6f71-43b5-4bce-9a1e-08316d9c8db3", 16, "Şimşek", new Guid("26b98668-212a-4cbc-9239-b083ec36b33a"), null, false, "mikdat@simsek.com" }
+                    { new Guid("2c14c6be-e9cf-4798-b755-7d45dda05aea"), 0, new DateTime(2023, 12, 13, 8, 11, 21, 80, DateTimeKind.Utc).AddTicks(4938), "A", "3fc8abeb-c236-44aa-bda2-333268b9023c", "sabit@sabit.com", true, null, null, 11, false, new DateTimeOffset(new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), new TimeSpan(0, 3, 0, 0, 0)), "Egemen", "SABIT@SABIT.COM", "SABIT@SABIT.COM", "AQAAAAIAAYagAAAAEJgXxYWPeQzeRMvg43VnwQG8ojLODwyxXvpnYBG+3qrhaWnGoShIdBJU4tLlkyxu0g==", "+905423849022", true, "268f6d6e-f867-465b-9560-b80dd7ea0b1f", 1532, "Ünsür", new Guid("8440f7ea-a8a3-4a84-88c1-8acd2f26f9d4"), null, false, "sabit@sabit.com" },
+                    { new Guid("6f8a7653-fad0-4fbc-82ad-7fbf39a3c279"), 0, new DateTime(2023, 12, 13, 8, 11, 20, 992, DateTimeKind.Utc).AddTicks(2555), "B", "0405b97a-a215-425d-8521-d5fa9c3311be", "example@example.com", true, null, null, 12, false, new DateTimeOffset(new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), new TimeSpan(0, 3, 0, 0, 0)), "Sabit", "EXAMPLE@EXAMPLE.COM", "EXAMPLE@EXAMPLE.COM", "AQAAAAIAAYagAAAAEKcEeTGy3vCDarf6rnHAbXqYd96OuDPPj0ADi/Mrq59UlwLEqEcWUvpkBJzuF0N4tQ==", "+905423849022", true, "12aff23a-c6f6-49e9-9844-bde5e167a7f0", 653, "Ünsür", new Guid("989b7b02-7d58-4846-b46a-1e6e715fc07c"), null, false, "example@example.com" },
+                    { new Guid("b04cec09-da74-4a41-ba13-2a473a2bdde7"), 0, new DateTime(2023, 12, 13, 8, 11, 21, 34, DateTimeKind.Utc).AddTicks(9649), null, "da33ae09-8739-4b87-be01-93349f2b223b", "admin@admin.com", true, null, null, null, false, new DateTimeOffset(new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), new TimeSpan(0, 3, 0, 0, 0)), "Admin", "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAIAAYagAAAAEGsdhraDSfoDgHZh78Z32njPuVGcGlb/n03JDaVooi2Yopsyukhr9GnMpbKWnLm9Yg==", null, false, "1e4e95b6-075b-4612-9177-3f073b13ed49", null, null, null, null, false, "admin@admin.com" },
+                    { new Guid("e46aaf28-f4aa-4d4d-a4de-784176a20922"), 0, new DateTime(2023, 12, 13, 8, 11, 21, 125, DateTimeKind.Utc).AddTicks(2900), "C", "ca134fe3-754f-411d-be4e-1e48bc316ab8", "mikdat@simsek.com", true, null, null, 12, false, new DateTimeOffset(new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), new TimeSpan(0, 3, 0, 0, 0)), "Mikdat Can", "MIKDAT@MIKDAT.COM", "MIKDAT@MIKDAT.COM", "AQAAAAIAAYagAAAAELut/aZX6/xnSlIUekTWXynyEj0pmXimKAlrm0sJhT1mF9EcfsRiF55i0DiNweTChw==", "+905397159877", true, "3728e3be-bbe0-48fe-9598-8a4e1f39566d", 16, "Şimşek", new Guid("8cc7d348-bd94-4a76-a588-bbc0147e502a"), null, false, "mikdat@simsek.com" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Terms",
                 columns: new[] { "Id", "EndDate", "StartDate" },
-                values: new object[] { 1, new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), new DateTime(2023, 12, 12, 19, 54, 13, 517, DateTimeKind.Utc).AddTicks(9009) });
+                values: new object[] { 1, new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), new DateTime(2023, 12, 13, 8, 11, 21, 169, DateTimeKind.Utc).AddTicks(3367) });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

@@ -1,4 +1,5 @@
 ﻿using Entities;
+using Entities.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace Business.Abstract
 {
 	public interface IAttendanceService : IGenericService<Attendance>
 	{
-	}
+        Attendance TotalDailyAbsencesLectureHours(List<LectureHours> selectedLectures, Guid userId);
+    }
 }
