@@ -19,24 +19,34 @@ namespace Core.ViewModels
             Name=name;
             Surname=surname;
             Username=username;
-            
             Email=email;
             Password=password;
             PasswordConfirm=passwordConfirm;
             PhoneNumber=phoneNumber;
         }
+        [Required(ErrorMessage ="İsim alanı boş bırakılamaz")]
         [Display(Name="İsim")]
         public string? Name { get; set; }
+        [Required(ErrorMessage ="Soyisim alanı boş bırakılamaz")]
         [Display(Name="Soyisim")]
         public string? Surname { get; set; }
+        [Required(ErrorMessage ="Kullanıcı adı alanı boş bırakılamaz")]
         [Display(Name="Kullanıcı Adı")]
         public string? Username { get; set; }
+        [DataType(DataType.EmailAddress)]
+        [Required(ErrorMessage ="Email alanı boş bırakılamaz")]
+        [EmailAddress(ErrorMessage ="Lütfen geçerli bir email giriniz.")]
         [Display(Name="Email")]
         public string? Email { get; set; }
+        [Required(ErrorMessage ="Şifre alanı boş bırakılamaz")]
+        [DataType(DataType.Password)]
         [Display(Name="Şifre")]
         public string? Password { get; set; }
+        [Required(ErrorMessage ="Şifre tekrar alanı boş bırakılamaz")]
+        [DataType(DataType.Password)]
         [Display(Name="Şifre Tekrar")]
         public string? PasswordConfirm { get; set; }
+        [Required(ErrorMessage ="Telefon numarası alanı boş bırakılamaz")]
         [Display(Name="Telefon Numarası")]
         public string? PhoneNumber { get; set; }
     }
