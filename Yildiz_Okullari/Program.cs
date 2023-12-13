@@ -15,6 +15,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IRegisterService,RegisterService>();
 builder.Services.AddScoped<ILoginService,LoginService>();
+builder.Services.AddScoped<IRoleService,RoleService>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
