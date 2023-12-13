@@ -163,7 +163,7 @@ namespace Business.Concrete
             return absenceDate;
         }
 
-        public int TotalAbsencesDayCountByStudentNumber(int ?studentNumber)
+        public int TotalAbsencesDayCountByStudentNumber(int? studentNumber)
         {
             string cacheKey = $"total_absences_{studentNumber}";
 
@@ -174,14 +174,14 @@ namespace Business.Concrete
                 totalAbsenceCount = _personDal.TotalAbsencesDayCountByStudentNumber(studentNumber);
                 if (totalAbsenceCount > 0)
                 {
-                    _memoryCache.Set(cacheKey, totalAbsenceCount);
+                    _memoryCache.Set(cacheKey, totalAbsenceCount, TimeSpan.FromHours(1));
                 }
             }
 
             return totalAbsenceCount;
         }
 
-        public async Task<List<Attendance>> TotalAbsencesDayListByStudentNumber(int ?studentNumber)
+        public async Task<List<Attendance>> TotalAbsencesDayListByStudentNumber(int? studentNumber)
         {
             // Cache key oluştur
             string cacheKey = $"absences_list_{studentNumber}";
@@ -198,14 +198,15 @@ namespace Business.Concrete
 
             if (attendanceList.Count == 0)
             {
-                return (List<Attendance>)Enumerable.Empty<Attendance>();
+                IEnumerable<Attendance> emptyAttendanceList = Enumerable.Empty<Attendance>();
+                return emptyAttendanceList.ToList();
             }
             return attendanceList;
         }
 
         public void Update(Person entity)
         {
-            Person cachedPerson =  _memoryCache.Get<Person>($"person_{entity.Id}");
+            Person cachedPerson = _memoryCache.Get<Person>($"person_{entity.Id}");
 
             if (cachedPerson == null)
             {
@@ -215,7 +216,7 @@ namespace Business.Concrete
             cachedPerson.Name = entity.Name;
             cachedPerson.Surname = entity.Surname;
 
-             _memoryCache.Set($"person_{entity.Id}", cachedPerson);
+            _memoryCache.Set($"person_{entity.Id}", cachedPerson);
 
             _personDal.Update(entity);
 

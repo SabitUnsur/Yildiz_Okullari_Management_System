@@ -10,44 +10,46 @@
 
 <h1>Öğrenciye Ait Devamsızlık Bilgileri</h1>
 
-<table class="table table-bordered">
-    <tr>
-
-        <th>Devamsızlık Tarihi</th>
-        <th>Toplam Devamsızlık Ders Saati</th>
-        <th>Devamsızlık Türü</th>
-        <th>Devamsızlık Sebebi</th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+@if (Model.Any())
+{
+    <table class="table table-bordered">
         <tr>
-            <td>@item.Date.ToShortDateString()</td>
-            <td>
-                @if (item.AttendanceTotalLectureHour == null)
-                {
-                    @:Öğrenci tam gün devamsızlık yapmıştır.
-                }
-                else
-                {
-                    <text>@item.AttendanceTotalLectureHour.ToString() .Ders Saati</text>
-                }
-            </td>
-            <td>
-                @if (item.AttendanceType == AttendanceType.TamGün)
-                {
-                    <text>Tam Gün</text>
-                }
-                else if (item.AttendanceType == AttendanceType.YarımGün)
-                {
-                    <text>Yarım Gün</text>
-                }
-            </td>
-            <td>@item.ExcuseType</td>
+            <th>Devamsızlık Tarihi</th>
+            <th>Toplam Devamsızlık Ders Saati</th>
+            <th>Devamsızlık Türü</th>
+            <th>Devamsızlık Sebebi</th>
         </tr>
-    }
-  
-</table>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Date.ToShortDateString()</td>
+                <td>
+                    @if (item.AttendanceTotalLectureHour == null)
+                    {
+                        @:Öğrenci tam gün devamsızlık yapmıştır.
+                    }
+                    else
+                    {
+                        <text>@item.AttendanceTotalLectureHour.ToString() .Ders Saati</text>
+                    }
+                </td>
+                <td>
+                    @if (item.AttendanceType == AttendanceType.TamGün)
+                    {
+                        <text>Tam Gün</text>
+                    }
+                    else if (item.AttendanceType == AttendanceType.YarımGün)
+                    {
+                        <text>Yarım Gün</text>
+                    }
+                </td>
+                <td>@item.ExcuseType</td>
+            </tr>
+        }
+
+    </table>
+
 
 <table class="table table-bordered">
     <tr>
@@ -69,6 +71,5 @@
         <td>@TempData["NonExcusedAttendancesCount"]</td>
     </tr>
 </table>
-
-
+}
 
