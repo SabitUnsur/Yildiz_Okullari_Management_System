@@ -11,6 +11,7 @@
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'>
     <link rel="stylesheet" href="~/css/LoginPageStyle.css">
+
 </head>
 <body>
     <div align="center">
@@ -23,24 +24,26 @@
 
             <div class="screen__content">
 
-                <form asp-controller="Login" asp-action="Login" asp-route-returnUrl="@Context.Request.Query["returnUrl"]" method="post">
+                <form class="login" asp-action="Login" method="post" asp-route-returnUrl="@Context.Request.Query["returnUrl"]">
+
 
                     <div class="login__field">
-                        <i class="login__icon fas fa-user"></i>
-                        <br />
                         <label class="form-label" asp-for="Email" for="Email">Email</label>
-                        <input asp-for="Email"  class="login__input" />
+                        <i class="login__icon fas fa-user"></i>
+                        <input asp-for="Email" class="login__input" />
                         <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
                     <div class="login__field">
                         <label class="form-label" for="Password" asp-for="Password">Şifre</label>
+                        &nbsp;
                         <i class="login__icon fas fa-lock"></i>
                         <input asp-for="Password"  class="login__input" >
                         <span asp-validation-for="Password" class="text-danger"></span>
                     </div>
                     <div class="login__field">
-                        <input asp-for="RememberMe" style="margin-top:10px;" class="form-control-input" type="checkbox" />
-                        <label class="form-check-label" for="RememberMe" asp-for="RememberMe"></label>
+                      <label class="form-check-label" for="RememberMe" asp-for="RememberMe"></label>
+                        <input class="form-control-input" asp-for="RememberMe" style="margin-top:10px;" type="checkbox" />
+                        
                     </div>
                     <br />
                     <button class="button login__submit" type="submit">

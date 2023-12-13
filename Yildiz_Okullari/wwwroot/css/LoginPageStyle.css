@@ -4,11 +4,11 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Raleway, sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 
 body {
-    background: linear-gradient(90deg,#f8f8ff, #2f4f4f);
+    background: linear-gradient(90deg, #f8f8ff, #2f4f4f);
 }
 
 .container {
@@ -69,7 +69,7 @@ body {
 .screen__background__shape3 {
     height: 540px;
     width: 190px;
-    background: linear-gradient(270deg, #696969,#696969);
+    background: linear-gradient(270deg, #696969, #696969);
     top: -24px;
     right: 0;
     border-radius: 32px;
@@ -88,10 +88,11 @@ body {
     width: 320px;
     padding: 30px;
     padding-top: 156px;
+    /* Diðer stil özelliklerini ekleyebilirsiniz */
 }
 
 .login__field {
-    padding: 20px 0px;
+    padding: 20px 10px;
     position: relative;
 }
 
@@ -109,7 +110,7 @@ body {
     padding-left: 24px;
     font-weight: 700;
     width: 75%;
-    transition: .2s;
+    transition: 0.2s;
 }
 
     .login__input:active,
@@ -134,7 +135,7 @@ body {
     color: #4C489D;
     box-shadow: 0px 2px 2px #696969;
     cursor: pointer;
-    transition: .2s;
+    transition: 0.2s;
 }
 
     .login__submit:active,
@@ -148,8 +149,23 @@ body {
     font-size: 24px;
     margin-left: auto;
     color: #696969;
+    text-align:left;
 }
 
 .button__text {
     color: #000000;
+}
+
+.form-check-label {
+    font-weight: bold; /* Örnek: Metni kalýn yapmak */
+    color: #333; /* Örnek: Metin rengi */
+    /* Diðer stil özelliklerini ekleyebilirsiniz */
+}
+
+.form-control-input {
+    margin-top: 10px;
+    /* Diðer stil özelliklerini ekleyebilirsiniz */
+}
+.text-center {
+    text-align: center;
 }
