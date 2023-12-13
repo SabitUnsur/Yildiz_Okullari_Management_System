@@ -6,7 +6,7 @@ using Microsoft.Win32;
 
 namespace UI.Areas.Admin.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    
     [Area("Admin")]
     public class RegisterController : Controller
     {
@@ -46,6 +46,7 @@ namespace UI.Areas.Admin.Controllers
 
         public IActionResult RegisterStudent()
         {
+            ViewBag.genderList=_registerService.GetGenderSelectList();
             return View();
         }
 

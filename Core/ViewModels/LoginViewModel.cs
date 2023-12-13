@@ -12,12 +12,12 @@ namespace Core.ViewModels
         [DataType(DataType.EmailAddress)]
         [EmailAddress(ErrorMessage = "Lütfen geçerli bir email giriniz.")]
         [Required(ErrorMessage = "Email  alanı boş bırakılamaz")]
-        [Display(Name = "Email :")]
+        [Display(Name = "Email:")]
         public string Email { get; set; }
 
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "Şifre alanı boş bırakılamaz")]
-        [Display(Name = "Şifre :")]
+        [Display(Name = "Şifre:")]
         public string Password { get; set; }
 
 

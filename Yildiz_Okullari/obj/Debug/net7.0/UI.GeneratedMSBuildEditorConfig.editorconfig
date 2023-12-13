@@ -16,8 +16,24 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\sabit\source\repos\Yildiz_Okullari\Yildiz_Okullari
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Areas/Admin/Views/Admin/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Areas/Admin/Views/Register/RegisterAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVnaXN0ZXJcUmVnaXN0ZXJBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Areas/Admin/Views/Register/RegisterStudent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVnaXN0ZXJcUmVnaXN0ZXJTdHVkZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Areas/Admin/Views/Shared/_AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Areas/Admin/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Areas/Admin/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Views/Home/Index.cshtml]
@@ -42,10 +58,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Views/Shared/_AdminLayout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Views/Shared/_LoginLayout.cshtml]
