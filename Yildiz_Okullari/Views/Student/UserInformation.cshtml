@@ -5,55 +5,60 @@
     Layout = "~/Views/Shared/_StudentPanelLayout.cshtml";
 }
 
+@if (Model != null)
+{
+    <h2>Öğrenci Bilgileri</h2>
 
-<h2>Öğrenci Bilgileri</h2>
+    <table class="table table-bordered">
+        <tr>
+            <th>Öğrenci Adı</th>
+            <th>Öğrenci Soyadı</th>
+            <th>Öğrenci Numarası</th>
+            <th>Sınıfı</th>
+            <th>Şubesi</th>
+            <th>Cinsiyet</th>
+            <th>Doğum Tarihi</th>
+            <th>Email</th>
+        </tr>
 
-<table class="table table-bordered">
-    <tr>
+        <tr>
+            <td>@Model.Name</td>
+            <td>@Model.Surname</td>
+            <td>@Model.StudentNumber</td>
+            <td>@Model.Grade</td>
+            <td>@Model.Branch</td>
+            <td>@Model.Gender</td>
+            <td>@Model.BirthDate</td>
+            <td>@Model.Email</td>
+        </tr>
+    </table>
 
-        <th>Öğrenci Adı</th>
-        <th>Öğrenci Soyadı</th>
-        <th>Öğrenci Numarası</th>
-        <th> Sınıfı </th>
-        <th> Şubesi </th>
-        <th> Cinsiyet </th>
-        <th>Doğum Tarihi</th>
-        <th>Email</th>
-    </tr>
+    @if (Model.FamilyInfo != null)
+    {
+        <h2>Öğrenci Aile Bilgileri</h2>
 
-    <tr>
-        <td>@Model.Name </td>
-        <td>@Model.Surname</td>
-        <td>@Model.StudentNumber</td>
-        <td>@Model.Grade</td>
-        <td>@Model.Branch</td>
-        <td>@Model.Gender</td>
-        <td>@Model.BirthDate</td>
-        <td>@Model.Email</td>
+        <table class="table table-bordered">
+            <tr>
+                <th>Anne Adı</th>
+                <th>Anne Telefon Numarası</th>
+                <th>Baba Adı</th>
+                <th>Baba Telefon Numarası</th>
+            </tr>
 
-    </tr>
-
-</table>
-
-<br />
-
-<h2>Öğrenci Aile Bilgileri</h2>
-
-<table class="table table-bordered">
-
-    <tr>
-        <th>Anne Adı</th>
-        <th>Anne Telefon Numarası</th>
-        <th>Baba Adı</th>
-        <th>Baba Telefon Numarası</th>
-    </tr>
-
-    <tr>
-        <td>@Model.FamilyInfo.MotherFullName</td>
-        <td>@Model.FamilyInfo.MotherPhoneNumber</td>
-        <td>@Model.FamilyInfo.FatherFullName</td>
-        <td>@Model.FamilyInfo.FatherPhoneNumber</td>
-    </tr>
-
-</table>
-
+            <tr>
+                <td>@Model.FamilyInfo.MotherFullName</td>
+                <td>@Model.FamilyInfo.MotherPhoneNumber</td>
+                <td>@Model.FamilyInfo.FatherFullName</td>
+                <td>@Model.FamilyInfo.FatherPhoneNumber</td>
+            </tr>
+        </table>
+    }
+    else
+    {
+        <p>Öğrenci aile bilgileri bulunamadı.</p>
+    }
+}
+else
+{
+    <p>Öğrenci bilgileri bulunamadı.</p>
+}

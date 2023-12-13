@@ -1,4 +1,5 @@
 ﻿@using Business.Concrete
+@using Entities;
 @model List<Entities.Attendance>
 
 @{
@@ -31,7 +32,16 @@
                     <text>@item.AttendanceLectureHour.ToString() .Ders Saati</text>
                 }
             </td>
-            <td>@item.AttendanceType</td>
+            <td>
+                @if (item.AttendanceType == AttendanceType.TamGün)
+                {
+                    <text>Tam Gün</text>
+                }
+                else if (item.AttendanceType == AttendanceType.YarımGün)
+                {
+                    <text>Yarım Gün</text>
+                }
+            </td>
             <td>@item.ExcuseType</td>
         </tr>
     }

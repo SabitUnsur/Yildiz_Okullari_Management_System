@@ -10,6 +10,7 @@
         "dependencies": {
           "Business": "1.0.0",
           "DataAccess": "1.0.0",
+          "Entities": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "7.0.14",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.14",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "7.0.11"

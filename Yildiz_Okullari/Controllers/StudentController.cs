@@ -4,6 +4,7 @@ using Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Security.Claims;
 
 namespace UI.Controllers
@@ -37,6 +38,14 @@ namespace UI.Controllers
             return View(values);
         }
 
-
+        public async Task<IActionResult> GetStudentsBranchsStudentsList()
+        {
+            var user = await GetUser();
+            TempData["StudentsClass"] = user.Grade.ToString();
+            TempData["StudentsBranch"] = user.Branch.ToString();
+            var values = _personService.GetStudentsBranchsStudentsList(user.Id);
+            return View(values);
+        }
+        
     }
 }

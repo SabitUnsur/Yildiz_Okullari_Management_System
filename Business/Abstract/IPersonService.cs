@@ -19,6 +19,7 @@ namespace Business.Abstract
 		Person GetPersonWithFamilyInfoById(Guid studentId);
 		public int GetExcusedAbsencesCount(int? studentNumber);
 		public int GetNonExcusedAbsencesCount(int? studentNumber);
+		 List<Person> GetStudentsBranchsStudentsList(Guid studentId);
 
     }
 }

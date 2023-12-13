@@ -108,6 +108,20 @@ namespace DataAccess.EntityFramework
             return excusedAbsencesCount;
         }
 
+        public List<Person> GetStudentsBranchsStudentsList(Guid studentId)
+        {
+            var student = _appDbContext.Persons.FirstOrDefault(x => x.Id == studentId);
+            if (student == null)
+            {
+                return new List<Person>();
+            }
+
+            var studentsInSameBranch = _appDbContext.Persons
+                .Where(x => x.Branch == student.Branch && x.Grade == student.Grade )
+                .ToList();
+
+            return studentsInSameBranch;
+        }
     }
 }
 

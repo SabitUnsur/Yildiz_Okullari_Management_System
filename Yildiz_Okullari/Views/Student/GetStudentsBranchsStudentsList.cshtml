@@ -1,0 +1,48 @@
+﻿@model List<Person>
+@using Entities;
+@{
+    ViewData["Title"] = "GetStudentsBranchsStudentsList";
+    Layout = "~/Views/Shared/_StudentPanelLayout.cshtml";
+}
+
+@{
+    string studentsClass = TempData["StudentsClass"] as string;
+    string studentsBranch = TempData["StudentsBranch"] as string;
+}
+
+
+@if (!string.IsNullOrEmpty(studentsClass) && !string.IsNullOrEmpty(studentsBranch))
+{
+    <h2>@studentsClass-@studentsBranch Sınıfı Öğrenci Listesi</h2>
+}
+
+@if (Model != null && Model.Any())
+{
+    <table class="table table-bordered">
+   
+            <tr>
+                <th>Adı</th>
+                <th>Soyadı</th>
+                <th>Email</th>
+                <th>Öğrenci Numarası</th>
+            </tr>
+     
+     
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td>@student.Name</td>
+                    <td>@student.Surname</td>
+                    <td>@student.Email</td>
+                    <td>@student.StudentNumber</td>
+                    
+                </tr>
+            }
+        
+    </table>
+}
+else
+{
+    <p>No other students found in the same branch.</p>
+}
+
