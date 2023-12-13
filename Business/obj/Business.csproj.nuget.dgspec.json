@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Business\\Business.csproj": {}
+    "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\Business\\Business.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Business\\Business.csproj": {
+    "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\Business\\Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Business\\Business.csproj",
+        "projectUniqueName": "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\Business\\Business.csproj",
         "projectName": "Business",
-        "projectPath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Business\\Business.csproj",
-        "packagesPath": "C:\\Users\\sabit\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Business\\obj\\",
+        "projectPath": "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\Business\\Business.csproj",
+        "packagesPath": "C:\\Users\\MikdatCanSimsek\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\Business\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\sabit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\MikdatCanSimsek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,20 +26,21 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Core\\Core.csproj"
+              "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\Core\\Core.csproj"
               },
-              "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\DataAccess\\DataAccess.csproj"
+              "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\DataAccess\\DataAccess.csproj"
               },
-              "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Entities\\Entities.csproj"
+              "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\Entities\\Entities.csproj"
               }
             }
           }
@@ -79,21 +84,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Core\\Core.csproj": {
+    "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\sabit\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Core\\obj\\",
+        "projectPath": "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\MikdatCanSimsek\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\Core\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\sabit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\MikdatCanSimsek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -101,14 +110,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\DataAccess\\DataAccess.csproj"
+              "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\DataAccess\\DataAccess.csproj"
               }
             }
           }
@@ -152,21 +162,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\DataAccess\\DataAccess.csproj": {
+    "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\DataAccess\\DataAccess.csproj",
-        "packagesPath": "C:\\Users\\sabit\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\DataAccess\\obj\\",
+        "projectPath": "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\DataAccess\\DataAccess.csproj",
+        "packagesPath": "C:\\Users\\MikdatCanSimsek\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\sabit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\MikdatCanSimsek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -174,14 +188,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Entities\\Entities.csproj"
+              "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\Entities\\Entities.csproj"
               }
             }
           }
@@ -249,21 +264,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Entities\\Entities.csproj": {
+    "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Entities\\Entities.csproj",
-        "packagesPath": "C:\\Users\\sabit\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Entities\\obj\\",
+        "projectPath": "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\Entities\\Entities.csproj",
+        "packagesPath": "C:\\Users\\MikdatCanSimsek\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MikdatCanSimsek\\Desktop\\Yazılım Mühendisliği\\Yildiz_Okullari_Management_System\\Entities\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\sabit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\MikdatCanSimsek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -271,6 +290,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -314,7 +334,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     }
