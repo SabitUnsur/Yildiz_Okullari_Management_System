@@ -49,7 +49,12 @@ namespace Business.Concrete
 			return _attendanceDal.GetAll(filter);
 		}
 
-		public Attendance GetById(Guid id)
+        public async Task<List<Attendance>> GetAttendanceForTerm(Guid termId, Guid studentId)
+        {
+            return await _attendanceDal.GetAttendanceForTerm(termId, studentId);
+        }
+
+        public Attendance GetById(Guid id)
 		{
 			var attendance = _attendanceDal.GetById(id);
 			if (attendance == null)
@@ -58,6 +63,11 @@ namespace Business.Concrete
 			}
 			return attendance;
 		}
+
+        public async Task<decimal> GetTotalAttendanceDayForStudent(Guid userId)
+        {
+            return await _attendanceDal.GetTotalAttendanceDayForStudent(userId);
+        }
 
         public Attendance TotalDailyAbsencesLectureHours(List<LectureHours> selectedLectures, Guid userId)
         {

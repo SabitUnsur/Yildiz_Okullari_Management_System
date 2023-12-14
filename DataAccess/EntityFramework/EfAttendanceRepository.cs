@@ -3,11 +3,6 @@ using DataAccess.Concrete;
 using Entities;
 using Entities.Enums;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess.EntityFramework
 {
@@ -23,10 +18,10 @@ namespace DataAccess.EntityFramework
             .Where(a => a.Date.Date == entity.Date.Date && a.PersonId == entity.PersonId)
             .FirstOrDefaultAsync();
 
-            if (existingAttendance != null)
+            /*if (existingAttendance != null)
             {
                 throw new Exception("Öğrencinin bugüne ait devamsızlık bilgisi mevcut");
-            }
+            }*/
             CalculateAttendanceType(entity);
            await base.Add(entity);
         }
@@ -43,19 +38,56 @@ namespace DataAccess.EntityFramework
             }
         }
 
+
         public Attendance TotalDailyAbsencesLectureHours(List<LectureHours> selectedLectures,Guid userId)
         {
             int totalLectureHours = selectedLectures.Count();
+            var user = _appDbContext.Persons.Find(userId);
 
             var attendance = new Attendance
             {
                 AttendanceTotalLectureHour = totalLectureHours,
                 Date = DateTime.UtcNow,
                 PersonId = userId,
+                TermId = user.TermId,
             };
 
             return attendance;
 
         }
+
+        public async Task<decimal> GetTotalAttendanceDayForStudent(Guid userId)
+        {
+            var attendances = await _appDbContext.Attendances
+                .Where(a => a.PersonId == userId)
+                .OrderByDescending(a => a.TotalAttendance)
+                .ToListAsync();
+
+            decimal ?totalAttendance = 0; 
+
+            foreach (var attendance in attendances)
+            {
+                totalAttendance += attendance.TotalAttendance; 
+            }
+
+            return (decimal)totalAttendance; 
+        }
+
+        public async Task<List<Attendance>> GetAttendanceForTerm(Guid termId, Guid studentId)
+        {
+            var attendancesForTerm = await _appDbContext.Attendances
+                .Where(a => a.TermId == termId && a.PersonId == studentId)
+                .ToListAsync();
+            if(attendancesForTerm == null)
+            {
+                return Enumerable.Empty<Attendance>().ToList();
+            }
+
+            return attendancesForTerm;
+        }
+
+
+
+
     }
 }

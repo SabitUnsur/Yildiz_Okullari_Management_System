@@ -12,5 +12,7 @@ namespace DataAccess.Abstract
 	{
         Task AddAttendanceWithAutomaticType(Attendance entity);
         Attendance TotalDailyAbsencesLectureHours(List<LectureHours> selectedLectures, Guid userId);
+        Task<List<Attendance>> GetAttendanceForTerm(Guid termId, Guid studentId);
+        Task<decimal> GetTotalAttendanceDayForStudent(Guid userId);
     }
 }

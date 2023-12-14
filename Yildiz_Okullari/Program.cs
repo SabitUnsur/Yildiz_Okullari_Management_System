@@ -36,6 +36,8 @@ builder.Services.AddScoped<IPersonRepository, EfPersonRepository>();
 builder.Services.AddScoped<IAttendanceRepository, EfAttendanceRepository>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<IPersonService, PersonService>();
+builder.Services.AddScoped<ITermBatchRepository, EfTermBatchRepository>();
+builder.Services.AddScoped<ITermService, TermService>();
 
 var app = builder.Build();
 

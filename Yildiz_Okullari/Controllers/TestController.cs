@@ -10,9 +10,9 @@ using System.Security.Claims;
 
 namespace UI.Controllers
 {
-	public class TestController : Controller
-	{
-		/*IScheduledTaskService scheduledTaskService;
+    public class TestController : Controller
+    {
+        /*IScheduledTaskService scheduledTaskService;
 		IPersonService personService;
 
         public TestController(IPersonService personService, IScheduledTaskService scheduledTaskService)
@@ -38,7 +38,7 @@ namespace UI.Controllers
              return View();
          }*/
 
-        IAttendanceService attendanceService;
+       IAttendanceService attendanceService;
         protected readonly UserManager<Person> _userManager;
 
         public TestController(IAttendanceService attendanceService, UserManager<Person> userManager)
@@ -66,5 +66,31 @@ namespace UI.Controllers
             return RedirectToAction("Index");
         }
 
+
+         /*ITermService _termService;
+
+         public TestController(ITermService termService)
+         {
+             _termService = termService;
+         }
+
+         public IActionResult RunCheckAndAddNewTerm()
+         {
+             Term firstTerm = _termService.CheckAndAddNewTerm();
+
+             if (firstTerm != null && firstTerm.EndDate < DateTime.Now)
+             {
+                 ViewBag.ShowButton = true;
+             }
+             else
+             {
+                 ViewBag.ShowButton = false;
+             }
+
+             return View();
+         }*/
+
+
+   
     }
 }

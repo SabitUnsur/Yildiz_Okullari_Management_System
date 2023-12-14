@@ -11,8 +11,10 @@ namespace UI.Controllers
 {
     public class StudentController : StudentBaseController
     {
-        public StudentController(UserManager<Person> userManager, IPersonService service): base(userManager, service)
+        private readonly IAttendanceService attendanceService;
+        public StudentController(UserManager<Person> userManager, IPersonService service, IAttendanceService attendanceService) : base(userManager, service)
         {
+            this.attendanceService = attendanceService;
         }
 
         public async Task<IActionResult> Index()
@@ -31,7 +33,8 @@ namespace UI.Controllers
         public async Task<IActionResult> TotalAbsencesDayList()
         {
             var user = await GetUser();
-            TempData["AttendancesCount"] = _personService.TotalAbsencesDayCountByStudentNumber(user.StudentNumber).ToString();
+            var attendances = await attendanceService.GetTotalAttendanceDayForStudent(user.Id);
+            TempData["AttendancesCount"] = attendances.ToString();
             TempData["ExcusedAttendancesCount"] = _personService.GetExcusedAbsencesCount(user.StudentNumber).ToString();
             TempData["NonExcusedAttendancesCount"] = _personService.GetNonExcusedAbsencesCount(user.StudentNumber).ToString();
             var values = await _personService.TotalAbsencesDayListByStudentNumber(user.StudentNumber);

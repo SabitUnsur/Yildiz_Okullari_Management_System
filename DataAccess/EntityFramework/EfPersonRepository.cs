@@ -123,6 +123,7 @@ namespace DataAccess.EntityFramework
 
             return studentsInSameBranch;
         }
+
     }
 }
 

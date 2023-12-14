@@ -38,10 +38,12 @@ namespace DataAccess
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            SeedData(builder);
+            SeedUsers(builder);
         }
+       
+        
 
-        private void SeedData(ModelBuilder modelBuilder)
+        private void SeedUsers(ModelBuilder modelBuilder)
         {
             // Seed data 
             modelBuilder.Entity<Person>().HasData(
@@ -68,7 +70,7 @@ namespace DataAccess
                     PhoneNumber = "+905423849022",
                     PhoneNumberConfirmed = true,
                     StudentNumber = 653,
-                    TermId = Guid.NewGuid(),
+                    //TermId = Guid.NewGuid(),
                 }
             );
 
@@ -117,7 +119,7 @@ namespace DataAccess
                                PhoneNumber = "+905423849022",
                                PhoneNumberConfirmed = true,
                                StudentNumber = 1532,
-                               TermId = Guid.NewGuid(),
+                              // TermId = Guid.NewGuid(),
                            }
                        );
 
@@ -145,14 +147,14 @@ namespace DataAccess
                               PhoneNumber = "+905397159877",
                               PhoneNumberConfirmed = true,
                               StudentNumber = 16,
-                              TermId = Guid.NewGuid(),
+                             // TermId = Guid.NewGuid(),
                           }
                       );
 
             modelBuilder.Entity<Term>().HasData(
                 new Term
                 {
-                    Id = 1,
+                    Id = Guid.NewGuid(),
                     EndDate = DateTime.MaxValue,
                     StartDate = DateTime.UtcNow,
                 }

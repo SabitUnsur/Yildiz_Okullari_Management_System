@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "RunCheckAndAddNewTerm";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@{
+    bool showButton = ViewBag.ShowButton != null && (bool)ViewBag.ShowButton;
+}
+
+@if (showButton)
+{
+    <form method="post" action="@Url.Action("RunCheckAndAddNewTerm", "YourController")">
+        <input type="submit" value="Yeni Dönem Oluştur" />
+    </form>
+}
+

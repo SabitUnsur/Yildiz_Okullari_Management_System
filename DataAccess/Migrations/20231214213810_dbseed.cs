@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class seed_datas : Migration
+    public partial class dbseed : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -47,8 +47,7 @@ namespace DataAccess.Migrations
                 name: "Terms",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
                     StartDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     EndDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
@@ -89,7 +88,6 @@ namespace DataAccess.Migrations
                     BirthDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
                     Gender = table.Column<int>(type: "integer", nullable: true),
                     TermId = table.Column<Guid>(type: "uuid", nullable: true),
-                    TermId1 = table.Column<int>(type: "integer", nullable: true),
                     Grade = table.Column<int>(type: "integer", nullable: true),
                     PhoneNumber = table.Column<string>(type: "text", nullable: true),
                     Branch = table.Column<string>(type: "text", nullable: true),
@@ -117,8 +115,8 @@ namespace DataAccess.Migrations
                         principalTable: "FamilyInfos",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_AspNetUsers_Terms_TermId1",
-                        column: x => x.TermId1,
+                        name: "FK_AspNetUsers_Terms_TermId",
+                        column: x => x.TermId,
                         principalTable: "Terms",
                         principalColumn: "Id");
                 });
@@ -216,8 +214,10 @@ namespace DataAccess.Migrations
                     Date = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     AttendanceTotalLectureHour = table.Column<int>(type: "integer", nullable: true),
                     PersonId = table.Column<Guid>(type: "uuid", nullable: false),
+                    TotalAttendance = table.Column<decimal>(type: "numeric", nullable: true),
                     AttendanceType = table.Column<int>(type: "integer", nullable: true),
-                    ExcuseType = table.Column<int>(type: "integer", nullable: true)
+                    ExcuseType = table.Column<int>(type: "integer", nullable: true),
+                    TermId = table.Column<Guid>(type: "uuid", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -228,28 +228,33 @@ namespace DataAccess.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Attendances_Terms_TermId",
+                        column: x => x.TermId,
+                        principalTable: "Terms",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { new Guid("984ff100-d19e-4ce3-9958-0750253e7486"), "611a12fc-da14-480b-ace7-de08a73e6d7c", "admin", "ADMIN" });
+                values: new object[] { new Guid("721417b8-b7d2-4e12-b0c6-b647c5b1a592"), "ec75a9d4-5df6-4837-b4c4-7e8ce35e473d", "admin", "ADMIN" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "BirthDate", "Branch", "ConcurrencyStamp", "Email", "EmailConfirmed", "FamilyInfoId", "Gender", "Grade", "LockoutEnabled", "LockoutEnd", "Name", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "StudentNumber", "Surname", "TermId", "TermId1", "TwoFactorEnabled", "UserName" },
+                columns: new[] { "Id", "AccessFailedCount", "BirthDate", "Branch", "ConcurrencyStamp", "Email", "EmailConfirmed", "FamilyInfoId", "Gender", "Grade", "LockoutEnabled", "LockoutEnd", "Name", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "StudentNumber", "Surname", "TermId", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { new Guid("2c14c6be-e9cf-4798-b755-7d45dda05aea"), 0, new DateTime(2023, 12, 13, 8, 11, 21, 80, DateTimeKind.Utc).AddTicks(4938), "A", "3fc8abeb-c236-44aa-bda2-333268b9023c", "sabit@sabit.com", true, null, null, 11, false, new DateTimeOffset(new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), new TimeSpan(0, 3, 0, 0, 0)), "Egemen", "SABIT@SABIT.COM", "SABIT@SABIT.COM", "AQAAAAIAAYagAAAAEJgXxYWPeQzeRMvg43VnwQG8ojLODwyxXvpnYBG+3qrhaWnGoShIdBJU4tLlkyxu0g==", "+905423849022", true, "268f6d6e-f867-465b-9560-b80dd7ea0b1f", 1532, "Ünsür", new Guid("8440f7ea-a8a3-4a84-88c1-8acd2f26f9d4"), null, false, "sabit@sabit.com" },
-                    { new Guid("6f8a7653-fad0-4fbc-82ad-7fbf39a3c279"), 0, new DateTime(2023, 12, 13, 8, 11, 20, 992, DateTimeKind.Utc).AddTicks(2555), "B", "0405b97a-a215-425d-8521-d5fa9c3311be", "example@example.com", true, null, null, 12, false, new DateTimeOffset(new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), new TimeSpan(0, 3, 0, 0, 0)), "Sabit", "EXAMPLE@EXAMPLE.COM", "EXAMPLE@EXAMPLE.COM", "AQAAAAIAAYagAAAAEKcEeTGy3vCDarf6rnHAbXqYd96OuDPPj0ADi/Mrq59UlwLEqEcWUvpkBJzuF0N4tQ==", "+905423849022", true, "12aff23a-c6f6-49e9-9844-bde5e167a7f0", 653, "Ünsür", new Guid("989b7b02-7d58-4846-b46a-1e6e715fc07c"), null, false, "example@example.com" },
-                    { new Guid("b04cec09-da74-4a41-ba13-2a473a2bdde7"), 0, new DateTime(2023, 12, 13, 8, 11, 21, 34, DateTimeKind.Utc).AddTicks(9649), null, "da33ae09-8739-4b87-be01-93349f2b223b", "admin@admin.com", true, null, null, null, false, new DateTimeOffset(new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), new TimeSpan(0, 3, 0, 0, 0)), "Admin", "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAIAAYagAAAAEGsdhraDSfoDgHZh78Z32njPuVGcGlb/n03JDaVooi2Yopsyukhr9GnMpbKWnLm9Yg==", null, false, "1e4e95b6-075b-4612-9177-3f073b13ed49", null, null, null, null, false, "admin@admin.com" },
-                    { new Guid("e46aaf28-f4aa-4d4d-a4de-784176a20922"), 0, new DateTime(2023, 12, 13, 8, 11, 21, 125, DateTimeKind.Utc).AddTicks(2900), "C", "ca134fe3-754f-411d-be4e-1e48bc316ab8", "mikdat@simsek.com", true, null, null, 12, false, new DateTimeOffset(new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), new TimeSpan(0, 3, 0, 0, 0)), "Mikdat Can", "MIKDAT@MIKDAT.COM", "MIKDAT@MIKDAT.COM", "AQAAAAIAAYagAAAAELut/aZX6/xnSlIUekTWXynyEj0pmXimKAlrm0sJhT1mF9EcfsRiF55i0DiNweTChw==", "+905397159877", true, "3728e3be-bbe0-48fe-9598-8a4e1f39566d", 16, "Şimşek", new Guid("8cc7d348-bd94-4a76-a588-bbc0147e502a"), null, false, "mikdat@simsek.com" }
+                    { new Guid("64fab00e-6543-4d2d-88a0-c970ff1c3f80"), 0, new DateTime(2023, 12, 14, 21, 38, 9, 948, DateTimeKind.Utc).AddTicks(9355), "C", "4b0b7028-1467-45a5-a61f-3c2313cd9c33", "mikdat@simsek.com", true, null, null, 12, false, new DateTimeOffset(new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), new TimeSpan(0, 3, 0, 0, 0)), "Mikdat Can", "MIKDAT@MIKDAT.COM", "MIKDAT@MIKDAT.COM", "AQAAAAIAAYagAAAAENt7paubuDZBg5cULa6PBxor2UQldsh9t5QajhCESbInWDFHYj9lNyHKgAipVBnJdA==", "+905397159877", true, "4ecaa236-aeaf-4387-bad7-426f023cc96c", 16, "Şimşek", null, false, "mikdat@simsek.com" },
+                    { new Guid("c4b48cae-1439-4fb4-9a6f-e0ae3bf2f039"), 0, new DateTime(2023, 12, 14, 21, 38, 9, 864, DateTimeKind.Utc).AddTicks(5048), null, "a8cde033-a26e-4f89-9c2b-bfd5eb5a09fc", "admin@admin.com", true, null, null, null, false, new DateTimeOffset(new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), new TimeSpan(0, 3, 0, 0, 0)), "Admin", "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAIAAYagAAAAEA/GZRk8gE5NiKIp90InGUGxUJjshYYLQS7l5ZIQmQGn80fy3MbKzQO8aA8bvefaXg==", null, false, "21ee5afe-ea84-473f-a983-285df567489f", null, null, null, false, "admin@admin.com" },
+                    { new Guid("fb217184-d9aa-4ef0-a1d4-43cfb435f1de"), 0, new DateTime(2023, 12, 14, 21, 38, 9, 821, DateTimeKind.Utc).AddTicks(9708), "B", "0d3223f6-b183-4286-8967-d9a43f7ad8f4", "example@example.com", true, null, null, 12, false, new DateTimeOffset(new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), new TimeSpan(0, 3, 0, 0, 0)), "Sabit", "EXAMPLE@EXAMPLE.COM", "EXAMPLE@EXAMPLE.COM", "AQAAAAIAAYagAAAAEJQuW2geFMR4pYpn8/6hmjgd4VqiDYcVoqum0WTOf9DX45e64QJx/GMhpzpjjutswg==", "+905423849022", true, "4d626afc-93ec-4b44-81be-bd9960abd3f0", 653, "Ünsür", null, false, "example@example.com" },
+                    { new Guid("fddb7619-d482-429f-bbfe-6a540a84af99"), 0, new DateTime(2023, 12, 14, 21, 38, 9, 907, DateTimeKind.Utc).AddTicks(851), "A", "b10235b3-424f-41b6-8b72-9b04d1aee125", "sabit@sabit.com", true, null, null, 11, false, new DateTimeOffset(new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), new TimeSpan(0, 3, 0, 0, 0)), "Egemen", "SABIT@SABIT.COM", "SABIT@SABIT.COM", "AQAAAAIAAYagAAAAEHfaVIP/Qcyht4VWaOyAKKpUb7bw98t2wmsoFlOq+nF05IFZiVvpvSjnjNNEIa3HDA==", "+905423849022", true, "c58cb35e-ebbf-4327-9981-961bd0eabe71", 1532, "Ünsür", null, false, "sabit@sabit.com" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Terms",
                 columns: new[] { "Id", "EndDate", "StartDate" },
-                values: new object[] { 1, new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), new DateTime(2023, 12, 13, 8, 11, 21, 169, DateTimeKind.Utc).AddTicks(3367) });
+                values: new object[] { new Guid("f81dedd7-a7d8-42eb-85b9-c1f6a3977439"), new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), new DateTime(2023, 12, 14, 21, 38, 9, 993, DateTimeKind.Utc).AddTicks(2405) });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -288,9 +293,9 @@ namespace DataAccess.Migrations
                 column: "FamilyInfoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspNetUsers_TermId1",
+                name: "IX_AspNetUsers_TermId",
                 table: "AspNetUsers",
-                column: "TermId1");
+                column: "TermId");
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
@@ -302,6 +307,11 @@ namespace DataAccess.Migrations
                 name: "IX_Attendances_PersonId",
                 table: "Attendances",
                 column: "PersonId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Attendances_TermId",
+                table: "Attendances",
+                column: "TermId");
         }
 
         /// <inheritdoc />
