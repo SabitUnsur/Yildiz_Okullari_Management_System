@@ -1,5 +1,4 @@
-﻿@using Business.Concrete
-@using Entities;
+﻿@using Entities;
 @using Entities.Enums;
 @model List<Entities.Attendance>
 
@@ -7,69 +6,124 @@
     ViewData["Title"] = "TotalAbsencesDayList";
     Layout = "~/Views/Shared/_StudentPanelLayout.cshtml";
 }
+@section CustomHeader{
+    <style>
+        .student-info {
+            font-size: 20px; /* Dilediğiniz boyuta ayarlayabilirsiniz */
+            line-height: 1.4; /* İstenilen satır yüksekliği */
+        }
+    </style>
 
-<h1>Öğrenciye Ait Devamsızlık Bilgileri</h1>
+    <h1>
+        <div class="student-info">
+            <div>
+                <span<strong>Adı Soyadı: </strong>@TempData["StudentName"] @TempData["StudentSurname"]</span><br />
+                <span><strong>Numarası: </strong>@TempData["StudentNumber"]</span><br />
+                <span><strong>Sınıfı: </strong>@TempData["StudentGrade"]</span>
+                <span>@TempData["StudentBranch"]</span>
+            </div>
+        </div>
+    </h1>
+}
+<style>
+    .card {
+        width: 250px;
+        height: 200px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        margin: 20px 10px;
+        float: left;
+    }
+
+    .card-header,
+    .card-header2,
+    .card-header3 {
+        background-color: #3498db;
+        color: #fff;
+        padding: 6px;
+        text-align: center;
+    }
+
+    .card-body {
+        padding: 12px;
+        text-align: center;
+    }
+</style>
+
+<div class="text-center mb-4">
+    <h1 class="display-4 font-weight-bold text-primary">Öğrenci Devamsızlık Bilgileri</h1>
+</div>
 
 @if (Model.Any())
 {
-    <table class="table table-bordered">
-        <tr>
-            <th>Devamsızlık Tarihi</th>
-            <th>Toplam Devamsızlık Ders Saati</th>
-            <th>Devamsızlık Türü</th>
-            <th>Devamsızlık Sebebi</th>
-        </tr>
 
-        @foreach (var item in Model)
-        {
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
             <tr>
-                <td>@item.Date.ToShortDateString()</td>
-                <td>
-                    @if (item.AttendanceTotalLectureHour == null)
-                    {
-                        @:Öğrenci tam gün devamsızlık yapmıştır.
-                    }
-                    else
-                    {
-                        <text>Öğrenci @item.AttendanceTotalLectureHour.ToString() ders saati devamsızlık yapmıştır.</text>
-                    }
-                </td>
-                <td>
-                    @if (item.AttendanceType == AttendanceType.TamGün)
-                    {
-                        <text>Tam Gün</text>
-                    }
-                    else if (item.AttendanceType == AttendanceType.YarımGün)
-                    {
-                        <text>Yarım Gün</text>
-                    }
-                </td>
-                <td>@item.ExcuseType</td>
+                <th scope="col">Devamsızlık Tarihi</th>
+                <th scope="col">Toplam Devamsızlık Ders Saati</th>
+                <th scope="col">Devamsızlık Türü</th>
+                <th scope="col">Devamsızlık Sebebi</th>
             </tr>
-        }
-
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Date.ToShortDateString()</td>
+                    <td>
+                        @if (item.AttendanceTotalLectureHour == null)
+                        {
+                            <span class="text-danger">Öğrenci tam gün devamsızlık yapmıştır.</span>
+                        }
+                        else
+                        {
+                            <span>@item.AttendanceTotalLectureHour.ToString() .Ders Saati</span>
+                        }
+                    </td>
+                    <td>
+                        @if (item.AttendanceType == AttendanceType.TamGün)
+                        {
+                            <span class="text-danger">Tam Gün</span>
+                        }
+                        else if (item.AttendanceType == AttendanceType.YarımGün)
+                        {
+                            <span class="badge badge-warning">Yarım Gün</span>
+                        }
+                    </td>
+                    
+                    <td style="color:red">@item.ExcuseType</td>
+                </tr>
+            }
+        </tbody>
     </table>
 
 
-<table class="table table-bordered">
-    <tr>
-        <th>Toplam Devamsızlık Gün Sayısı</th>
-    </tr>
-    <tr>
-        <td>@TempData["AttendancesCount"]</td>
-    </tr>
-    <tr>
-        <th>Özürlü Devamsızlık Gün Sayısı</th>
-    </tr>
-    <tr>
-        <td>@TempData["ExcusedAttendancesCount"]</td>
-    </tr>
-    <tr>
-        <th>Özürsüz Devamsızlık Gün Sayısı</th>
-    </tr>
-    <tr>
-        <td>@TempData["NonExcusedAttendancesCount"]</td>
-    </tr>
-</table>
-}
 
+    <div class="card">
+        <div class="card-header">
+            <h3>Toplam Devamsızlık</h3>
+        </div>
+        <div class="card-body">
+            <p style="font-weight:bold; font-size:25px">@TempData["AttendancesCount"]</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header2">
+            <h3>Özürlü Devamsızlık</h3>
+        </div>
+        <div class="card-body">
+            <p style="font-weight:bold; font-size:25px">@TempData["ExcusedAttendancesCount"]</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header3">
+            <h3>Özürsüz Devamsızlık</h3>
+        </div>
+        <div class="card-body">
+            <p style="font-weight:bold; font-size:25px">@TempData["NonExcusedAttendancesCount"]</p>
+        </div>
+    </div>
+
+}
