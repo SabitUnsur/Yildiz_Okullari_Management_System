@@ -9,6 +9,27 @@
     string studentsClass = TempData["StudentsClass"] as string;
     string studentsBranch = TempData["StudentsBranch"] as string;
 }
+@section CustomHeader{
+    <style>
+        .student-info {
+            font-size: 20px; /* Dilediğiniz boyuta ayarlayabilirsiniz */
+            line-height: 1.4; /* İstenilen satır yüksekliği */
+        }
+    </style>
+
+    <h1>
+        <div class="student-info">
+            <div>
+                <span<strong>Adı Soyadı: </strong>@TempData["StudentName"] @TempData["StudentSurname"]</span><br />
+                <span><strong>Numarası: </strong>@TempData["StudentNumber"]</span><br />
+                <span><strong>Sınıfı: </strong>@TempData["StudentGrade"]</span>
+                <span>@TempData["StudentBranch"]</span>
+            </div>
+        </div>
+    </h1>
+}
+
+
 
 
 @if (!string.IsNullOrEmpty(studentsClass) && !string.IsNullOrEmpty(studentsBranch))

@@ -25,6 +25,11 @@ namespace UI.Controllers
         {
             var user = await GetUser();
             var values = _personService.GetPersonWithFamilyInfoById(user.Id);
+            TempData["StudentName"] = user.Name.ToString();
+            TempData["StudentSurname"] = user.Surname.ToString();
+            TempData["StudentNumber"] = user.StudentNumber.ToString();
+            TempData["StudentGrade"] = user.Grade.ToString();
+            TempData["StudentBranch"] = user.Branch.ToString();
             return View(values);
         }
 
@@ -35,6 +40,11 @@ namespace UI.Controllers
             TempData["ExcusedAttendancesCount"] = _personService.GetExcusedAbsencesCount(user.StudentNumber).ToString();
             TempData["NonExcusedAttendancesCount"] = _personService.GetNonExcusedAbsencesCount(user.StudentNumber).ToString();
             var values = await _personService.TotalAbsencesDayListByStudentNumber(user.StudentNumber);
+            TempData["StudentName"] = user.Name.ToString();
+            TempData["StudentSurname"] = user.Surname.ToString();
+            TempData["StudentNumber"] = user.StudentNumber.ToString();
+            TempData["StudentGrade"] = user.Grade.ToString();
+            TempData["StudentBranch"] = user.Branch.ToString();
             return View(values);
         }
 
@@ -44,6 +54,11 @@ namespace UI.Controllers
             TempData["StudentsClass"] = user.Grade.ToString();
             TempData["StudentsBranch"] = user.Branch.ToString();
             var values = _personService.GetStudentsBranchsStudentsList(user.Id);
+            TempData["StudentName"] = user.Name.ToString();
+            TempData["StudentSurname"] = user.Surname.ToString();
+            TempData["StudentNumber"] = user.StudentNumber.ToString();
+            TempData["StudentGrade"] = user.Grade.ToString();
+            TempData["StudentBranch"] = user.Branch.ToString();
             return View(values);
         }
         
