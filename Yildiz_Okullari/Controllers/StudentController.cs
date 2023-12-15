@@ -20,18 +20,15 @@ namespace UI.Controllers
         public async Task<IActionResult> Index()
         {
             var user = await GetUser();
-            return View(user);
+            var value = GetUserInfos(user);
+            return View(value);
         }
 
         public async Task<IActionResult> UserInformationAsync()
         {
             var user = await GetUser();
             var values = _personService.GetPersonWithFamilyInfoById(user.Id);
-            TempData["StudentName"] = user.Name.ToString();
-            TempData["StudentSurname"] = user.Surname.ToString();
-            TempData["StudentNumber"] = user.StudentNumber.ToString();
-            TempData["StudentGrade"] = user.Grade.ToString();
-            TempData["StudentBranch"] = user.Branch.ToString();
+            ViewBag.UserInformations = GetUserInfos(user);
             return View(values);
         }
 
@@ -40,14 +37,10 @@ namespace UI.Controllers
             var user = await GetUser();
             var attendances = await attendanceService.GetTotalAttendanceDayForStudent(user.Id);
             TempData["AttendancesCount"] = attendances.ToString();
-            TempData["ExcusedAttendancesCount"] = _personService.GetExcusedAbsencesCount(user.StudentNumber).ToString();
-            TempData["NonExcusedAttendancesCount"] = _personService.GetNonExcusedAbsencesCount(user.StudentNumber).ToString();
+            TempData["ExcusedAttendancesCount"] =  _personService.GetExcusedAbsencesCount(user.StudentNumber).ToString();
+            TempData["NonExcusedAttendancesCount"] =  _personService.GetNonExcusedAbsencesCount(user.StudentNumber).ToString();
             var values = await _personService.TotalAbsencesDayListByStudentNumber(user.StudentNumber);
-            TempData["StudentName"] = user.Name.ToString();
-            TempData["StudentSurname"] = user.Surname.ToString();
-            TempData["StudentNumber"] = user.StudentNumber.ToString();
-            TempData["StudentGrade"] = user.Grade.ToString();
-            TempData["StudentBranch"] = user.Branch.ToString();
+            ViewBag.UserInformations = GetUserInfos(user);
             return View(values);
         }
 
@@ -57,11 +50,7 @@ namespace UI.Controllers
             TempData["StudentsClass"] = user.Grade.ToString();
             TempData["StudentsBranch"] = user.Branch.ToString();
             var values = _personService.GetStudentsBranchsStudentsList(user.Id);
-            TempData["StudentName"] = user.Name.ToString();
-            TempData["StudentSurname"] = user.Surname.ToString();
-            TempData["StudentNumber"] = user.StudentNumber.ToString();
-            TempData["StudentGrade"] = user.Grade.ToString();
-            TempData["StudentBranch"] = user.Branch.ToString();
+            ViewBag.UserInformations = GetUserInfos(user);
             return View(values);
         }
         

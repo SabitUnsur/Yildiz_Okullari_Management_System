@@ -48,7 +48,7 @@ namespace DataAccess.EntityFramework
         // Girilen ogrenci numarasina gore toplam devamsizlik sayisini getirir.
         public int TotalAbsencesDayCountByStudentNumber(int? studentNumber) //SUCCESSFUL
         {
-            var uniqueAbsentDatesCount = _appDbContext.Persons
+            var uniqueAbsentDatesCount = _appDbContext.Users
                 .Where(p => p.StudentNumber == studentNumber)
                 .SelectMany(p => p.Attendances.Select(a => a.Date))
                 .GroupBy(date => date.Date)
@@ -61,7 +61,7 @@ namespace DataAccess.EntityFramework
         //Ogrenciye ait tum devamsizliklari tarih ile birlikte getirir.
         public async Task<List<Attendance>> TotalAbsencesDayListByStudentNumber(int? studentNumber) //SUCCESSFUL
         {
-            var attendances = await _appDbContext.Persons
+            var attendances = await _appDbContext.Users
                 .Where(p => p.StudentNumber == studentNumber)
                 .SelectMany(p => p.Attendances.Select(a => new Attendance
                 {
@@ -70,24 +70,25 @@ namespace DataAccess.EntityFramework
                     AttendanceType = a.AttendanceType,
                     AttendanceTotalLectureHour = a.AttendanceType == AttendanceType.TamGün ? null : a.AttendanceTotalLectureHour,
                     ExcuseType = a.ExcuseType,
-                })).ToListAsync();
+                })).OrderBy(a => a.Date)
+                .ToListAsync();
 
             return attendances;
         }
 
         public List<Person> GetPersonsWithAttendances()
         {
-            return _appDbContext.Persons.Include(p => p.Attendances).ToList();
+            return _appDbContext.Users.Include(p => p.Attendances).ToList();
         }
 
         public Person GetPersonWithFamilyInfoById(Guid studentId)
         {
-            return _appDbContext.Persons.Include(p => p.FamilyInfo).FirstOrDefault(p => p.Id == studentId);
+            return _appDbContext.Users.Include(p => p.FamilyInfo).FirstOrDefault(p => p.Id == studentId);
         }
 
         public int GetExcusedAbsencesCount(int? studentNumber)
         {
-            var excusedAbsencesCount = _appDbContext.Persons
+            var excusedAbsencesCount = _appDbContext.Users
                 .Where(p => p.StudentNumber == studentNumber)
                 .SelectMany(p => p.Attendances.Where(a => a.ExcuseType == ExcuseType.Özürlü))
                 .Select(a => a.Date)
@@ -99,7 +100,7 @@ namespace DataAccess.EntityFramework
 
         public int GetNonExcusedAbsencesCount(int? studentNumber)
         {
-            var excusedAbsencesCount = _appDbContext.Persons
+            var excusedAbsencesCount = _appDbContext.Users
                .Where(p => p.StudentNumber == studentNumber)
                .SelectMany(p => p.Attendances.Where(a => a.ExcuseType == ExcuseType.Özürsüz))
                .Select(a => a.Date)
@@ -111,13 +112,13 @@ namespace DataAccess.EntityFramework
 
         public List<Person> GetStudentsBranchsStudentsList(Guid studentId)
         {
-            var student = _appDbContext.Persons.FirstOrDefault(x => x.Id == studentId);
+            var student = _appDbContext.Users.FirstOrDefault(x => x.Id == studentId);
             if (student == null)
             {
                 return new List<Person>();
             }
 
-            var studentsInSameBranch = _appDbContext.Persons
+            var studentsInSameBranch = _appDbContext.Users
                 .Where(x => x.Branch == student.Branch && x.Grade == student.Grade )
                 .ToList();
 

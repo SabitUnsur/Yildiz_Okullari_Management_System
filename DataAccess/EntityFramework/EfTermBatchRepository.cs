@@ -32,7 +32,7 @@ namespace DataAccess.EntityFramework
         {
             var previousTerm = _appDbContext.Terms.Find(previousTermId);
             Term newTerm = null;
-            var students = _appDbContext.Persons.Where(x => x.TermId == previousTermId).ToList();
+            var students = _appDbContext.Users.Where(x => x.TermId == previousTermId).ToList();
 
             foreach (var student in students)
             {

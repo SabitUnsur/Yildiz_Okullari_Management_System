@@ -14,7 +14,6 @@ namespace Business.Concrete
         private readonly IPersonRepository _personDal;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMemoryCache _memoryCache;
-
         public PersonService(IPersonRepository personDal, IUnitOfWork unitOfWork, IMemoryCache memoryCache)
         {
             _personDal = personDal;
@@ -183,18 +182,7 @@ namespace Business.Concrete
 
         public async Task<List<Attendance>> TotalAbsencesDayListByStudentNumber(int? studentNumber)
         {
-            // Cache key oluştur
-            string cacheKey = $"absences_list_{studentNumber}";
-            List<Attendance> attendanceList = _memoryCache.Get<List<Attendance>>(cacheKey);
-
-            if (attendanceList == null)
-            {
-                // Cache'de yoksa veritabanından oku
-                attendanceList = await _personDal.TotalAbsencesDayListByStudentNumber(studentNumber);
-
-                // Cache'e ekle
-                _memoryCache.Set(cacheKey, attendanceList);
-            }
+            var attendanceList =  await _personDal.TotalAbsencesDayListByStudentNumber(studentNumber);
 
             if (attendanceList.Count == 0)
             {
@@ -203,6 +191,7 @@ namespace Business.Concrete
             }
             return attendanceList;
         }
+
 
         public void Update(Person entity)
         {

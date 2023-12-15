@@ -1,5 +1,6 @@
 ﻿@model List<Person>
 @using Entities;
+@using UI.Models;
 @{
     ViewData["Title"] = "GetStudentsBranchsStudentsList";
     Layout = "~/Views/Shared/_StudentPanelLayout.cshtml";
@@ -17,16 +18,23 @@
         }
     </style>
 
-    <h1>
-        <div class="student-info">
-            <div>
-                <span<strong>Adı Soyadı: </strong>@TempData["StudentName"] @TempData["StudentSurname"]</span><br />
-                <span><strong>Numarası: </strong>@TempData["StudentNumber"]</span><br />
-                <span><strong>Sınıfı: </strong>@TempData["StudentGrade"]</span>
-                <span>@TempData["StudentBranch"]</span>
+    @if (ViewBag.UserInformations != null)
+    {
+        <h1>
+            <div class="student-info">
+                <div>
+                    <span><strong>Adı Soyadı: </strong>@(((StudentViewModel)ViewBag.UserInformations).Name) @(((StudentViewModel)ViewBag.UserInformations).Surname)</span><br />
+                    <span><strong>Numarası: </strong>@(((StudentViewModel)ViewBag.UserInformations).StudentNumber)</span><br />
+                    <span><strong>Sınıfı: </strong>@(((StudentViewModel)ViewBag.UserInformations).Grade)</span>
+                    <span>@(((StudentViewModel)ViewBag.UserInformations).Branch)</span>
+                </div>
             </div>
-        </div>
-    </h1>
+        </h1>
+    }
+    else
+    {
+        <p>Sınıf bilgisi yok.</p>
+    }
 }
 
 

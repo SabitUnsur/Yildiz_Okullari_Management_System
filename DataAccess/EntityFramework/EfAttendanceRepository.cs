@@ -18,10 +18,11 @@ namespace DataAccess.EntityFramework
             .Where(a => a.Date.Date == entity.Date.Date && a.PersonId == entity.PersonId)
             .FirstOrDefaultAsync();
 
-            /*if (existingAttendance != null)
+           /* if (existingAttendance != null)
             {
                 throw new Exception("Öğrencinin bugüne ait devamsızlık bilgisi mevcut");
             }*/
+
             CalculateAttendanceType(entity);
            await base.Add(entity);
         }
@@ -42,7 +43,7 @@ namespace DataAccess.EntityFramework
         public Attendance TotalDailyAbsencesLectureHours(List<LectureHours> selectedLectures,Guid userId)
         {
             int totalLectureHours = selectedLectures.Count();
-            var user = _appDbContext.Persons.Find(userId);
+            var user = _appDbContext.Users.Find(userId);
 
             var attendance = new Attendance
             {

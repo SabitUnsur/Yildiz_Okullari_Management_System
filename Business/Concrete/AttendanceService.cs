@@ -33,6 +33,7 @@ namespace Business.Concrete
 			await _unitOfWork.CommitAsync();
 		}
 
+
 		public void Delete(Attendance entity)
 		{
 			_attendanceDal.Delete(entity);

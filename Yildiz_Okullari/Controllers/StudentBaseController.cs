@@ -3,6 +3,7 @@ using Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using UI.Models;
 
 namespace UI.Controllers
 {
@@ -21,6 +22,18 @@ namespace UI.Controllers
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             return await _userManager.FindByIdAsync(userId);
+        }
+
+        protected StudentViewModel GetUserInfos(Person user)
+        {
+            return new StudentViewModel
+            {
+                Name = user.Name.ToString(),
+                Surname = user.Surname.ToString(),
+                StudentNumber = user.StudentNumber.ToString(),
+                Grade = user.Grade.ToString(),
+                Branch = user.Branch.ToString()
+            };
         }
     }
 }
