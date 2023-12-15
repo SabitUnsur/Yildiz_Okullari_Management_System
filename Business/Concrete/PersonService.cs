@@ -2,6 +2,7 @@
 using Business.Constants;
 using Core.Exceptions;
 using Core.UnitOfWorks;
+using Core.ViewModels;
 using DataAccess.Abstract;
 using Entities;
 using Microsoft.Extensions.Caching.Memory;
@@ -85,6 +86,8 @@ namespace Business.Concrete
                 persons = _personDal.GetAll().ToList();
                 _memoryCache.Set(cacheKey, persons);
             }
+            
+            
             return persons;
         }
 
@@ -101,6 +104,25 @@ namespace Business.Concrete
             }
 
             return persons;
+        }
+        //Çağatay ekledi
+        public List<PersonViewModel> GetAllWithPersonViewModel()
+        {
+            string cacheKey = "all_persons";
+            List<Person> persons = _memoryCache.Get<List<Person>>(cacheKey);
+
+            if (persons == null)
+            {
+                persons = _personDal.GetAll().ToList();
+                _memoryCache.Set(cacheKey, persons);
+            }
+
+            List<PersonViewModel> personViewModels = new List<PersonViewModel>();
+            foreach (Person person in persons)
+            {
+                personViewModels.Add(new PersonViewModel() { Id=person.Id, Branch=person.Branch, Grade=person.Grade, Name=person.Name, StudentNumber=person.StudentNumber, Surname=person.Surname });
+            }
+            return personViewModels;
         }
 
         public Person GetById(Guid id)
@@ -131,6 +153,17 @@ namespace Business.Concrete
         public Person GetPersonWithFamilyInfoById(Guid studentId)
         {
             return _personDal.GetPersonWithFamilyInfoById(studentId);
+        }
+        // çağatay ekledi
+        public List<PersonViewModel> GetStudentsByClassAndSectionWithPersonViewModel(int grade, string branch)
+        {
+            var list= _personDal.GetStudentsByGradeAndBranch(grade, branch);
+            List<PersonViewModel> personViewModels = new List<PersonViewModel>();
+            foreach (Person person in list)
+            {
+                personViewModels.Add(new PersonViewModel() { Id = person.Id, Branch = person.Branch, Grade = person.Grade, Name = person.Name, StudentNumber = person.StudentNumber, Surname = person.Surname });
+            }
+            return personViewModels;
         }
 
         public DateTime? GetTodaysAbsenceDateForStudent(Guid studentId)
@@ -190,21 +223,26 @@ namespace Business.Concrete
 
         public void Update(Person entity)
         {
-            Person cachedPerson =  _memoryCache.Get<Person>($"person_{entity.Id}");
+           
+        }
 
-            if (cachedPerson == null)
-            {
-                cachedPerson = _personDal.GetById(entity.Id);
-            }
+        public Person UpdatePersonUpdateViewToPerson(PersonUpdateViewModel personUpdateViewModel)
+        {
+            var user=_personDal.GetById(personUpdateViewModel.Id);
 
-            cachedPerson.Name = entity.Name;
-            cachedPerson.Surname = entity.Surname;
+            user.Name = personUpdateViewModel.Name;
+            user.Surname = personUpdateViewModel.Surname;
+            user.StudentNumber = personUpdateViewModel.StudentNumber;
+            user.Grade = personUpdateViewModel.Grade;
+            user.Branch = personUpdateViewModel.Branch;
+            user.Email = personUpdateViewModel.Email;
+            user.PhoneNumber = personUpdateViewModel.PhoneNumber;
+            user.FamilyInfo!.MotherPhoneNumber = personUpdateViewModel.MotherNumber;
+            user.FamilyInfo.FatherPhoneNumber = personUpdateViewModel.FatherNumber;
+            user.FamilyInfo.MotherFullName = personUpdateViewModel.MotherFullName;
+            user.FamilyInfo.FatherFullName = personUpdateViewModel.FatherFullName;
 
-             _memoryCache.Set($"person_{entity.Id}", cachedPerson);
-
-            _personDal.Update(entity);
-
-            _unitOfWork.Commit();
+            return user;
         }
     }
 }

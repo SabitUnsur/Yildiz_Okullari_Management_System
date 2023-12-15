@@ -83,6 +83,10 @@ namespace DataAccess.EntityFramework
             return _appDbContext.Persons.Include(p => p.FamilyInfo).FirstOrDefault(p => p.Id == studentId);
         }
 
+        public List<Person> GetStudentsByGradeAndBranch(int grade, string branch)
+        {
+            return _appDbContext.Users.Where(p => p.Grade == grade && p.Branch == branch).AsNoTracking().ToList();
+        }
     }
 }
 
