@@ -1,0 +1,88 @@
+﻿@model List<PersonViewModel>
+@{
+    ViewData["Title"] = "StudentList";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-warning" role="alert">
+        @TempData["ErrorMessage"]
+    </div>
+}
+<form id="filterForm">
+    <label for="gradeInput">Sınıf:</label>
+    <select id="gradeInput" name="gradeInput" class="form-control">
+        <option value="">Sınıf Seçiniz</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+    </select>
+    <label for="branchInput">Şube:</label>
+    <select id="branchInput" name="branchInput" class="form-control">
+        <option value="">Şube Seçiniz</option>
+        <option value="A">A Şubesi</option>
+        <option value="B">B Şubesi</option>
+        <option value="C">C Şubesi</option>
+        <option value="D">D Şubesi</option>
+        <!-- Diğer şube seçenekleri buraya eklenebilir -->
+    </select>
+    <button type="submit" onclick="filterStudents()">Filtrele</button>
+</form>
+
+<div asp-validation-summary="ModelOnly" class="alert-danger"></div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>İsim</th>
+            <th>Soyisim</th>
+            <th>Öğrenci Numarası</th>
+            <th>Sınıf</th>
+            <th>Şube</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Surname</td>
+                <td>@item.StudentNumber</td>
+                <td>@item.Grade</td>
+                <td>@item.Branch</td>
+                <td><a asp-area="Admin" asp-action="DetailsStudent" asp-controller="Admin" asp-route-roleId="@item.Id" class="btn btn-outline-danger"> Detaylar</a></td>
+                <td> <a asp-area="Admin" asp-action="EditStudent" asp-controller="Admin" asp-route-roleId="@item.Id" class="btn btn-outline-success">Güncelle</a></td>
+                <td><a asp-area="Admin" asp-action="DeleteStudent" asp-controller="Admin" asp-route-roleId="@item.Id" class="btn btn-outline-danger"> Sil</a></td>
+                <td><a asp-area="Admin" asp-action="SumbitAttendance" asp-controller="Admin" asp-route-roleId="@item.Id" class="btn btn-outline-danger"> Devamsızlık Gir</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class=" offset-9">
+    <a class="btn btn-outline-secondary " asp-controller="Admin" asp-action="RegisterStudent" asp-area="Admin">Öğrenci Ekle</a>
+</div>
+
+<script>
+    function filterStudents() {
+        var gradeInput = document.getElementById('gradeInput').value;
+        var branchInput = document.getElementById('branchInput').value;
+
+        $.ajax({
+            url: '~/Admin/Admin/FilterStudentList',
+            type: 'POST',
+            data: {
+                grade: gradeInput,
+                branch: branchInput
+            },
+            success: function (data) {
+                    window.location.href= '~/Admin/Admin/FilterStudentList';
+                });
+            }
+        });
+    }
+</script>

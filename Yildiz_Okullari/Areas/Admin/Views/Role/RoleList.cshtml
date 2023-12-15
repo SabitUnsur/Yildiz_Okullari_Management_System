@@ -1,0 +1,39 @@
+﻿@model List<RoleViewModel>
+@{
+    ViewData["Title"] = "RoleList";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Role Listesi</h1>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-info" role="alert">
+        @TempData["SuccessMessage"]
+    </div>
+}
+<div asp-validation-summary="ModelOnly" class="alert-danger"></div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Role Adı</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td> <a asp-area="Admin" asp-action="RoleUpdate" asp-controller="Role" asp-route-roleId="@item.Id" class="btn btn-outline-success">Role Güncelle</a></td>
+                <td><a asp-area="Admin" asp-action="RoleDelete" asp-controller="Role" asp-route-roleId="@item.Id" class="btn btn-outline-danger">Role Silme</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class=" offset-9">
+    <a class="btn btn-outline-secondary " asp-controller="Role" asp-action="RoleCreate" asp-area="Admin">Rol Ekle</a>
+</div>

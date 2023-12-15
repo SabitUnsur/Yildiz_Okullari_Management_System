@@ -125,6 +125,10 @@ namespace DataAccess.EntityFramework
             return studentsInSameBranch;
         }
 
+        public List<Person> GetStudentsByGradeAndBranch(int grade, string branch)
+        {
+            return _appDbContext.Users.Where(p => p.Grade == grade && p.Branch == branch).AsNoTracking().ToList();
+        }
     }
 }
 

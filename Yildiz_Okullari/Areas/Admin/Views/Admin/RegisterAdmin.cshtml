@@ -1,0 +1,73 @@
+﻿@model RegisterAdminViewModel
+@{
+    ViewData["Title"] = "RegisterAdmin";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>RegisterAdmin</h1>
+
+<div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                <div class="card" style="border-radius: 15px;">
+                    <div class="card-body p-5">
+                        @if (TempData["SuccessMessage"]!=null)
+                        {
+                            <div class="alert alert-info" role="alert">@TempData["SuccessMessage"]</div>
+                        }
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                        <form asp-controller="Register" asp-area="Admin" asp-action="RegisterAdmin" method="post">
+
+                            <div class="form-group">
+                                <label class="form-label" for="Name" asp-for="Name"></label>
+                                <input asp-for="Name" class="form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="Surname" asp-for="Surname"></label>
+                                <input asp-for="Surname" class="form-control" />
+                                <span asp-validation-for="Surname" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="Username" asp-for="Username"></label>
+                                <input asp-for="Username" class="form-control" />
+                                <span asp-validation-for="Username" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="Email" asp-for="Email"></label>
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="PhoneNumber" asp-for="PhoneNumber"></label>
+                                <input asp-for="PhoneNumber" class="form-control" />
+                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="Password" asp-for="Password"></label>
+                                <input asp-for="Password" class="form-control" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="PasswordConfirm" asp-for="PasswordConfirm"></label>
+                                <input asp-for="PasswordConfirm" class="form-control" />
+                                <span asp-validation-for="PasswordConfirm" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <button class="btn btn-outline-secondary " style="margin-top:20px;" type="submit">Register</button>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -16,12 +16,44 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\sabit\source\repos\Yildiz_Okullari\Yildiz_Okullari
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Areas/Admin/Views/Register/RegisterAdmin.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVnaXN0ZXJcUmVnaXN0ZXJBZG1pbi5jc2h0bWw=
+[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Areas/Admin/Views/Admin/EditStudent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cRWRpdFN0dWRlbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Areas/Admin/Views/Register/RegisterStudent.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVnaXN0ZXJcUmVnaXN0ZXJTdHVkZW50LmNzaHRtbA==
+[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Areas/Admin/Views/Admin/FilterStudentList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cRmlsdGVyU3R1ZGVudExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Areas/Admin/Views/Admin/RegisterAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cUmVnaXN0ZXJBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Areas/Admin/Views/Admin/RegisterStudent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cUmVnaXN0ZXJTdHVkZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Areas/Admin/Views/Admin/StudentDetailsList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cU3R1ZGVudERldGFpbHNMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Areas/Admin/Views/Admin/StudentList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cU3R1ZGVudExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Areas/Admin/Views/Role/AssignToRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9sZVxBc3NpZ25Ub1JvbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Areas/Admin/Views/Role/RoleCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9sZVxSb2xlQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Areas/Admin/Views/Role/RoleList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9sZVxSb2xlTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Areas/Admin/Views/Role/RoleUpdate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9sZVxSb2xlVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Areas/Admin/Views/Shared/_AdminLayout.cshtml]

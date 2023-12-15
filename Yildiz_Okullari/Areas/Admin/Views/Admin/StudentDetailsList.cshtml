@@ -1,0 +1,46 @@
+﻿@model List<PersonDetailsViewModel>
+@{
+    ViewData["Title"] = "StudentDetailsList";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>StudentDetailsList</h1>
+<div asp-validation-summary="ModelOnly" class="alert-danger"></div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>İsim</th>
+            <th>Soyisim</th>
+            <th>Öğrenci Numarası</th>
+            <th>Sınıf</th>
+            <th>Email</th>
+            <th>Telefon Numarası</th>
+            <th>Anne Telefon Numarası</th>
+            <th>Baba Telefon Numarası</th>
+            <th>Anne İsim</th>
+            <th>Baba İsim</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Surname</td>
+                <td>@item.StudentNumber</td>
+                <td>@item.Grade</td>
+                <td>@item.Branch</td>
+                <td> <a asp-area="Admin" asp-action="EditStudent" asp-controller="Admin" asp-route-roleId="@item.Id" class="btn btn-outline-success">Güncelle</a></td>
+                <td><a asp-area="Admin" asp-action="DeleteStudent" asp-controller="Admin" asp-route-roleId="@item.Id" class="btn btn-outline-danger"> Sil</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class=" offset-9">
+    <a class="btn btn-outline-secondary " asp-controller="Admin" asp-action="StudentList" asp-area="Admin">Öğrenci Listesine Geri Dön</a>
+</div>

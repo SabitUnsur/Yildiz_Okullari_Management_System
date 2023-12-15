@@ -2,6 +2,7 @@
 using Business.Constants;
 using Core.Exceptions;
 using Core.UnitOfWorks;
+using Core.ViewModels;
 using DataAccess.Abstract;
 using Entities;
 using Microsoft.Extensions.Caching.Memory;
@@ -14,6 +15,7 @@ namespace Business.Concrete
         private readonly IPersonRepository _personDal;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMemoryCache _memoryCache;
+
         public PersonService(IPersonRepository personDal, IUnitOfWork unitOfWork, IMemoryCache memoryCache)
         {
             _personDal = personDal;
@@ -84,6 +86,8 @@ namespace Business.Concrete
                 persons = _personDal.GetAll().ToList();
                 _memoryCache.Set(cacheKey, persons);
             }
+            
+            
             return persons;
         }
 
@@ -100,6 +104,25 @@ namespace Business.Concrete
             }
 
             return persons;
+        }
+        //Çağatay ekledi
+        public List<PersonViewModel> GetAllWithPersonViewModel()
+        {
+            string cacheKey = "all_persons";
+            List<Person> persons = _memoryCache.Get<List<Person>>(cacheKey);
+
+            if (persons == null)
+            {
+                persons = _personDal.GetAll().ToList();
+                _memoryCache.Set(cacheKey, persons);
+            }
+
+            List<PersonViewModel> personViewModels = new List<PersonViewModel>();
+            foreach (Person person in persons)
+            {
+                personViewModels.Add(new PersonViewModel() { Id=person.Id, Branch=person.Branch, Grade=person.Grade, Name=person.Name, StudentNumber=person.StudentNumber, Surname=person.Surname });
+            }
+            return personViewModels;
         }
 
         public Person GetById(Guid id)
@@ -122,16 +145,6 @@ namespace Business.Concrete
             return person;
         }
 
-        public int GetExcusedAbsencesCount(int? studentNumber)
-        {
-            return _personDal.GetExcusedAbsencesCount(studentNumber);
-        }
-
-        public int GetNonExcusedAbsencesCount(int? studentNumber)
-        {
-            return _personDal.GetNonExcusedAbsencesCount(studentNumber);
-        }
-
         public List<Person> GetPersonsWithAttendances()
         {
             return _personDal.GetPersonsWithAttendances();
@@ -141,10 +154,16 @@ namespace Business.Concrete
         {
             return _personDal.GetPersonWithFamilyInfoById(studentId);
         }
-
-        public List<Person> GetStudentsBranchsStudentsList(Guid studentId)
+        // çağatay ekledi
+        public List<PersonViewModel> GetStudentsByClassAndSectionWithPersonViewModel(int grade, string branch)
         {
-            return _personDal.GetStudentsBranchsStudentsList(studentId);
+            var list= _personDal.GetStudentsByGradeAndBranch(grade, branch);
+            List<PersonViewModel> personViewModels = new List<PersonViewModel>();
+            foreach (Person person in list)
+            {
+                personViewModels.Add(new PersonViewModel() { Id = person.Id, Branch = person.Branch, Grade = person.Grade, Name = person.Name, StudentNumber = person.StudentNumber, Surname = person.Surname });
+            }
+            return personViewModels;
         }
 
         public DateTime? GetTodaysAbsenceDateForStudent(Guid studentId)
@@ -162,7 +181,7 @@ namespace Business.Concrete
             return absenceDate;
         }
 
-        public int TotalAbsencesDayCountByStudentNumber(int? studentNumber)
+        public int TotalAbsencesDayCountByStudentNumber(int ?studentNumber)
         {
             string cacheKey = $"total_absences_{studentNumber}";
 
@@ -173,43 +192,57 @@ namespace Business.Concrete
                 totalAbsenceCount = _personDal.TotalAbsencesDayCountByStudentNumber(studentNumber);
                 if (totalAbsenceCount > 0)
                 {
-                    _memoryCache.Set(cacheKey, totalAbsenceCount, TimeSpan.FromHours(1));
+                    _memoryCache.Set(cacheKey, totalAbsenceCount);
                 }
             }
 
             return totalAbsenceCount;
         }
 
-        public async Task<List<Attendance>> TotalAbsencesDayListByStudentNumber(int? studentNumber)
+        public async Task<List<Attendance>> TotalAbsencesDayListByStudentNumber(int ?studentNumber)
         {
-            var attendanceList =  await _personDal.TotalAbsencesDayListByStudentNumber(studentNumber);
+            // Cache key oluştur
+            string cacheKey = $"absences_list_{studentNumber}";
+            List<Attendance> attendanceList = _memoryCache.Get<List<Attendance>>(cacheKey);
+
+            if (attendanceList == null)
+            {
+                // Cache'de yoksa veritabanından oku
+                attendanceList = await _personDal.TotalAbsencesDayListByStudentNumber(studentNumber);
+
+                // Cache'e ekle
+                _memoryCache.Set(cacheKey, attendanceList);
+            }
 
             if (attendanceList.Count == 0)
             {
-                IEnumerable<Attendance> emptyAttendanceList = Enumerable.Empty<Attendance>();
-                return emptyAttendanceList.ToList();
+                return (List<Attendance>)Enumerable.Empty<Attendance>();
             }
             return attendanceList;
         }
 
-
         public void Update(Person entity)
         {
-            Person cachedPerson = _memoryCache.Get<Person>($"person_{entity.Id}");
+           
+        }
 
-            if (cachedPerson == null)
-            {
-                cachedPerson = _personDal.GetById(entity.Id);
-            }
+        public Person UpdatePersonUpdateViewToPerson(PersonUpdateViewModel personUpdateViewModel)
+        {
+            var user=_personDal.GetById(personUpdateViewModel.Id);
 
-            cachedPerson.Name = entity.Name;
-            cachedPerson.Surname = entity.Surname;
+            user.Name = personUpdateViewModel.Name;
+            user.Surname = personUpdateViewModel.Surname;
+            user.StudentNumber = personUpdateViewModel.StudentNumber;
+            user.Grade = personUpdateViewModel.Grade;
+            user.Branch = personUpdateViewModel.Branch;
+            user.Email = personUpdateViewModel.Email;
+            user.PhoneNumber = personUpdateViewModel.PhoneNumber;
+            user.FamilyInfo!.MotherPhoneNumber = personUpdateViewModel.MotherNumber;
+            user.FamilyInfo.FatherPhoneNumber = personUpdateViewModel.FatherNumber;
+            user.FamilyInfo.MotherFullName = personUpdateViewModel.MotherFullName;
+            user.FamilyInfo.FatherFullName = personUpdateViewModel.FatherFullName;
 
-            _memoryCache.Set($"person_{entity.Id}", cachedPerson);
-
-            _personDal.Update(entity);
-
-            _unitOfWork.Commit();
+            return user;
         }
     }
 }
