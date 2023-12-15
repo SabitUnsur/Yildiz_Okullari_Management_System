@@ -25,8 +25,8 @@ namespace Core.ViewModels
         public Guid Id { get; set; }
         public string? Name { get; set; }
         public string?  Surname { get; set; }
-        public int   StudentNumber { get; set; }
-        public int Grade { get; set; }
+        public int?  StudentNumber { get; set; }
+        public int? Grade { get; set; }
         public string? Branch { get; set; }
 
         public PersonViewModel personToPersonViewModel(Person person)

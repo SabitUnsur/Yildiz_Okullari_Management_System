@@ -20,7 +20,9 @@ namespace Business.Abstract
 		Person GetPersonWithFamilyInfoById(Guid studentId);
 		List<PersonViewModel> GetAllWithPersonViewModel();
 		List<PersonViewModel> GetStudentsByClassAndSectionWithPersonViewModel(int grade, string branch);
-
-		Person UpdatePersonUpdateViewToPerson(PersonUpdateViewModel personUpdateViewModel);
+		int GetExcusedAbsencesCount(int? studentNumber);
+		int GetNonExcusedAbsencesCount(int? studentNumber);
+		List<Person> GetStudentsBranchsStudentsList(Guid studentId);
+        Person UpdatePersonUpdateViewToPerson(PersonUpdateViewModel personUpdateViewModel);
     }
 }
