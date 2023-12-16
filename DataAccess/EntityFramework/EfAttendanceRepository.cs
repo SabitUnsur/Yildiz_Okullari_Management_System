@@ -48,7 +48,7 @@ namespace DataAccess.EntityFramework
             var attendance = new Attendance
             {
                 AttendanceTotalLectureHour = totalLectureHours,
-                Date = DateTime.UtcNow,
+                Date = DateTime.Now,
                 PersonId = userId,
                 TermId = user.TermId,
             };

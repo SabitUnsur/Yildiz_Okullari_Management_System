@@ -38,7 +38,7 @@ namespace UI.Controllers
              return View();
          }*/
 
-       IAttendanceService attendanceService;
+      /* IAttendanceService attendanceService;
         protected readonly UserManager<Person> _userManager;
 
         public TestController(IAttendanceService attendanceService, UserManager<Person> userManager)
@@ -64,10 +64,10 @@ namespace UI.Controllers
             var attendance = attendanceService.TotalDailyAbsencesLectureHours(selectedLectures, userId.Id);
             await attendanceService.Add(attendance);
             return RedirectToAction("Index");
-        }
+        }*/
 
 
-         /*ITermService _termService;
+         ITermService _termService;
 
          public TestController(ITermService termService)
          {
@@ -88,7 +88,7 @@ namespace UI.Controllers
              }
 
              return View();
-         }*/
+         }
 
 
    

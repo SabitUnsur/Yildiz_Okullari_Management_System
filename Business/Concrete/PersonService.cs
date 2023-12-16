@@ -83,7 +83,7 @@ namespace Business.Concrete
 
             if (persons == null)
             {
-                persons = _personDal.GetAll().ToList();
+                persons = _personDal.GetAll(x=>x.Name !="Admin").ToList();
                 _memoryCache.Set(cacheKey, persons);
             }
 
@@ -232,7 +232,8 @@ namespace Business.Concrete
 
         public void Update(Person entity)
         {
-
+            _personDal.Update(entity);
+            _unitOfWork.Commit();
         }
 
         public Person UpdatePersonUpdateViewToPerson(PersonUpdateViewModel personUpdateViewModel)

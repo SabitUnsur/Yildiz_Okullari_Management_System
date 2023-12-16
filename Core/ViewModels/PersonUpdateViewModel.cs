@@ -9,13 +9,13 @@ namespace Core.ViewModels
 {
     public  class PersonUpdateViewModel
     {
-        public PersonUpdateViewModel(Guid ıd, string? name, string? surname, int studentNumber, int grade, string? branch, string? email, string? phoneNumber, string? motherNumber, string? fatherNumber, string? motherFullName, string? fatherFullName)
+        public PersonUpdateViewModel(Guid ıd, string? name, string? surname, int studentNumber, int? grade, string? branch, string? email, string? phoneNumber, string? motherNumber, string? fatherNumber, string? motherFullName, string? fatherFullName)
         {
             Id=ıd;
             Name=name;
             Surname=surname;
             StudentNumber=studentNumber;
-            Grade=grade;
+            Grade= (int)grade;
             Branch=branch;
             Email=email;
             PhoneNumber=phoneNumber;
@@ -35,8 +35,8 @@ namespace Core.ViewModels
                 Id=person.Id,
                 Name=person.Name,
                 Surname=person.Surname,
-                StudentNumber=person.StudentNumber,
-                Grade=person.Grade,
+                StudentNumber= (int)person.StudentNumber,
+                Grade= (int)person.Grade,
                 Branch=person.Branch,
                 Email=person.Email,
                 PhoneNumber=person.PhoneNumber,
