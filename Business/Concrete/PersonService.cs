@@ -238,7 +238,7 @@ namespace Business.Concrete
 
         public Person UpdatePersonUpdateViewToPerson(PersonUpdateViewModel personUpdateViewModel)
         {
-            var user = _personDal.GetById(personUpdateViewModel.Id);
+            var user = _personDal.GetPersonWithFamilyInfoById(personUpdateViewModel.Id);
 
             user.Name = personUpdateViewModel.Name;
             user.Surname = personUpdateViewModel.Surname;

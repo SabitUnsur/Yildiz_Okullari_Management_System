@@ -41,15 +41,15 @@ namespace Core.ViewModels
         {
             
         }
-        public static  PersonDetailsViewModel personToPersonDetailsViewModel(Person person)
+        public static  PersonDetailsViewModel PersonToPersonDetailsViewModel(Person person)
         {
             return new PersonDetailsViewModel
             {
                 Id=person.Id,
                 Name=person.Name,
                 Surname=person.Surname,
-                StudentNumber= (int)person.StudentNumber,
-                Grade= (int)person.Grade,
+                StudentNumber=(int)person.StudentNumber!,
+                Grade= person.Grade,
                 Branch=person.Branch,
                 Email=person.Email,
                 PhoneNumber=person.PhoneNumber,

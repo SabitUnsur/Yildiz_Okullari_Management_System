@@ -93,7 +93,7 @@ namespace UI.Areas.Admin.Controllers
         public IActionResult StudentDetailsList(Guid id)
         {
             var user=_personService.GetPersonWithFamilyInfoById(id);
-            var personDetailsViewModel=PersonDetailsViewModel.personToPersonDetailsViewModel(user);
+            var personDetailsViewModel=PersonDetailsViewModel.PersonToPersonDetailsViewModel(user);
             return View(personDetailsViewModel);
             
         }
@@ -116,8 +116,8 @@ namespace UI.Areas.Admin.Controllers
         }
         public IActionResult EditStudent(Guid id)
         {
-            var user=_personService.GetById(id);
-            var personViewModel= PersonDetailsViewModel.personToPersonDetailsViewModel(user);
+            var user=_personService.GetPersonWithFamilyInfoById(id);
+            var personViewModel= PersonUpdateViewModel.PersonToPersonUpdateViewModel(user);
             return View(personViewModel);
         }
         [HttpPost]

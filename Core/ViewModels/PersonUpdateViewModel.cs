@@ -15,7 +15,7 @@ namespace Core.ViewModels
             Name=name;
             Surname=surname;
             StudentNumber=studentNumber;
-            Grade= (int)grade;
+            Grade=grade;
             Branch=branch;
             Email=email;
             PhoneNumber=phoneNumber;
@@ -28,15 +28,15 @@ namespace Core.ViewModels
         {
             
         }
-        public static PersonUpdateViewModel personToPersonDetailsViewModel(Person person)
+        public static PersonUpdateViewModel PersonToPersonUpdateViewModel(Person person)
         {
             return new PersonUpdateViewModel
             {
                 Id=person.Id,
                 Name=person.Name,
                 Surname=person.Surname,
-                StudentNumber= (int)person.StudentNumber,
-                Grade= (int)person.Grade,
+                StudentNumber= (int)person.StudentNumber!,
+                Grade= person.Grade,
                 Branch=person.Branch,
                 Email=person.Email,
                 PhoneNumber=person.PhoneNumber,
@@ -44,6 +44,24 @@ namespace Core.ViewModels
                 FatherNumber=person.FamilyInfo.FatherPhoneNumber,
                 MotherFullName=person.FamilyInfo.MotherFullName,
                 FatherFullName=person.FamilyInfo.FatherFullName
+            };
+        }
+        public static PersonUpdateViewModel PersonDetailsToPersonUpdateViewModel(PersonDetailsViewModel personDetailsViewModel)
+        {
+            return new PersonUpdateViewModel
+            {
+                Id=personDetailsViewModel.Id,
+                Name=personDetailsViewModel.Name,
+                Surname=personDetailsViewModel.Surname,
+                StudentNumber=personDetailsViewModel.StudentNumber,
+                Grade=personDetailsViewModel.Grade,
+                Branch=personDetailsViewModel.Branch,
+                Email=personDetailsViewModel.Email,
+                PhoneNumber=personDetailsViewModel.PhoneNumber,
+                MotherNumber=personDetailsViewModel.MotherNumber,
+                FatherNumber=personDetailsViewModel.FatherNumber,
+                MotherFullName=personDetailsViewModel.MotherFullName,
+                FatherFullName=personDetailsViewModel.FatherFullName
             };
         }
 
