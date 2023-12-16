@@ -139,16 +139,17 @@ namespace UI.Areas.Admin.Controllers
         {
             ViewBag.Id = id;
             var lectures = Enum.GetValues(typeof(LectureHours)).Cast<LectureHours>();
+            var excuseTypes = Enum.GetValues(typeof(ExcuseType)).Cast<ExcuseType>();
             ViewBag.Lectures = lectures;
-
+            ViewBag.excuseTypes = excuseTypes;
             return View();
         }
 
        [HttpPost]
-        public async Task<IActionResult> AddAttendance(List<LectureHours> selectedLectures,Guid studentId)
+        public async Task<IActionResult> AddAttendance(List<LectureHours> selectedLectures,ExcuseType excuseType,Guid studentId)
         {
                 var user = _personService.GetById(studentId);
-                var attendance = _attendanceService.TotalDailyAbsencesLectureHours(selectedLectures, user.Id);
+                var attendance = _attendanceService.TotalDailyAbsencesLectureHours(selectedLectures, excuseType, user.Id);
                 await _attendanceService.Add(attendance);
 
             return RedirectToAction("StudentList");

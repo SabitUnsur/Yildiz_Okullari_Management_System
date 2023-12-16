@@ -10,7 +10,7 @@ namespace Business.Abstract
 {
 	public interface IAttendanceService : IGenericService<Attendance>
 	{
-        Attendance TotalDailyAbsencesLectureHours(List<LectureHours> selectedLectures, Guid userId);
+        Attendance TotalDailyAbsencesLectureHours(List<LectureHours> selectedLectures, ExcuseType excuseType, Guid userId);
         Task<List<Attendance>> GetAttendanceForTerm(Guid termId, Guid studentId);
         Task<decimal> GetTotalAttendanceDayForStudent(Guid userId);
     }

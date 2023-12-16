@@ -70,9 +70,9 @@ namespace Business.Concrete
             return await _attendanceDal.GetTotalAttendanceDayForStudent(userId);
         }
 
-        public Attendance TotalDailyAbsencesLectureHours(List<LectureHours> selectedLectures, Guid userId)
+        public Attendance TotalDailyAbsencesLectureHours(List<LectureHours> selectedLectures, ExcuseType excuseType, Guid userId)
         {
-			return _attendanceDal.TotalDailyAbsencesLectureHours(selectedLectures,userId);
+			return _attendanceDal.TotalDailyAbsencesLectureHours(selectedLectures,excuseType,userId);
         }
 
         public void Update(Attendance entity)

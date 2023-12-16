@@ -40,7 +40,7 @@ namespace DataAccess.EntityFramework
         }
 
 
-        public Attendance TotalDailyAbsencesLectureHours(List<LectureHours> selectedLectures,Guid userId)
+        public Attendance TotalDailyAbsencesLectureHours(List<LectureHours> selectedLectures,ExcuseType excuseType,Guid userId)
         {
             int totalLectureHours = selectedLectures.Count();
             var user = _appDbContext.Users.Find(userId);
@@ -50,6 +50,7 @@ namespace DataAccess.EntityFramework
                 AttendanceTotalLectureHour = totalLectureHours,
                 Date = DateTime.Now,
                 PersonId = userId,
+                ExcuseType = excuseType,
                 TermId = user.TermId,
             };
 
