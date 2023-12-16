@@ -18,7 +18,7 @@ namespace Business.Abstract
 		DateTime? GetTodaysAbsenceDateForStudent(Guid studentId);
 		List<Person> GetPersonsWithAttendances();
 		Person GetPersonWithFamilyInfoById(Guid studentId);
-		List<PersonViewModel> GetAllWithPersonViewModel();
+		List<PersonViewModel> GetAllStudentWithPersonViewModel();
 		List<PersonViewModel> GetStudentsByClassAndSectionWithPersonViewModel(int grade, string branch);
 		int GetExcusedAbsencesCount(int? studentNumber);
 		int GetNonExcusedAbsencesCount(int? studentNumber);

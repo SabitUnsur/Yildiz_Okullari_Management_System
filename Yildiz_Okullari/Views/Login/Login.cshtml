@@ -11,7 +11,7 @@
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'>
     <link rel="stylesheet" href="~/css/LoginPageStyle.css">
-
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
     <div align="center">
@@ -23,9 +23,10 @@
         <div class="screen">
 
             <div class="screen__content">
+                
 
-                <form class="login" asp-action="Login" method="post" asp-route-returnUrl="@Context.Request.Query["returnUrl"]">
-
+                <form class="login" asp-action="Login" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                     <div class="login__field">
                         <label class="form-label" asp-for="Email" for="Email">Email</label>

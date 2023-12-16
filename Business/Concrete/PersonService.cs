@@ -106,9 +106,9 @@ namespace Business.Concrete
             return persons;
         }
         //Çağatay ekledi
-        public List<PersonViewModel> GetAllWithPersonViewModel()
+        public List<PersonViewModel> GetAllStudentWithPersonViewModel()
         {
-            var persons = _personDal.GetAll(x => x.Name != "Admin").ToList();
+            var persons = _personDal.GetAll(x=>x.Grade!=null).ToList();
 
             List<PersonViewModel> personViewModels = new List<PersonViewModel>();
             foreach (Person person in persons)

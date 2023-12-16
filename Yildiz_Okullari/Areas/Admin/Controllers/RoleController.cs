@@ -58,7 +58,7 @@ namespace UI.Areas.Admin.Controllers
         public async Task<IActionResult> AssignToRole(Guid id, List<AssignToRoleViewModel> requestList)
         {
             await _roleService.AssignRoleAsync(id, requestList);
-            return RedirectToAction("UserList","Admin");//random yazdım. değişebilir burası
+            return RedirectToAction("StudentList", "Admin");//random yazdım. değişebilir burası
         }
 
         public async Task<IActionResult> RoleUpdate(Guid id)

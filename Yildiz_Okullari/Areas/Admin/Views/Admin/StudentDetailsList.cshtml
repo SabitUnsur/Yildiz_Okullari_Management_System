@@ -1,4 +1,4 @@
-﻿@model List<PersonDetailsViewModel>
+﻿@model PersonDetailsViewModel
 @{
     ViewData["Title"] = "StudentDetailsList";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
@@ -14,6 +14,7 @@
             <th>Soyisim</th>
             <th>Öğrenci Numarası</th>
             <th>Sınıf</th>
+            <th>Şube</th>
             <th>Email</th>
             <th>Telefon Numarası</th>
             <th>Anne Telefon Numarası</th>
@@ -22,23 +23,27 @@
             <th>Baba İsim</th>
             <th></th>
             <th></th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Id</td>
-                <td>@item.Name</td>
-                <td>@item.Surname</td>
-                <td>@item.StudentNumber</td>
-                <td>@item.Grade</td>
-                <td>@item.Branch</td>
-                <td> <a asp-area="Admin" asp-action="EditStudent" asp-controller="Admin" asp-route-roleId="@item.Id" class="btn btn-outline-success">Güncelle</a></td>
-                <td><a asp-area="Admin" asp-action="DeleteStudent" asp-controller="Admin" asp-route-roleId="@item.Id" class="btn btn-outline-danger"> Sil</a></td>
-            </tr>
-        }
+
+        <tr>
+            <td>@Model.Id</td>
+            <td>@Model.Name</td>
+            <td>@Model.Surname</td>
+            <td>@Model.StudentNumber</td>
+            <td>@Model.Grade</td>
+            <td>@Model.Branch</td>
+            <td>@Model.Email</td>
+            <td>@Model.PhoneNumber</td>
+            <td>@Model.MotherNumber</td>
+            <td>@Model.FatherNumber</td>
+            <td>@Model.MotherFullName</td>
+            <td>@Model.FatherFullName</td>
+            <td> <a asp-area="Admin" asp-action="EditStudent" asp-controller="Admin" asp-route-id="@Model.Id" class="btn btn-outline-success">Güncelle</a></td>
+            <td><a asp-area="Admin" asp-action="DeleteStudent" asp-controller="Admin" asp-route-id="@Model.Id" class="btn btn-outline-danger"> Sil</a></td>
+        </tr>
+
     </tbody>
 </table>
 <div class=" offset-9">

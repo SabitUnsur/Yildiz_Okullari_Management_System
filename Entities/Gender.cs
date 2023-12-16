@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public enum Gender
+    public enum Gender:byte
     {
         Kadın=0,Erkek=1
     }

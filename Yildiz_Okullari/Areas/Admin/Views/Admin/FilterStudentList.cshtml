@@ -32,9 +32,9 @@
     <td>@item.StudentNumber</td>
     <td>@item.Grade</td>
     <td>@item.Branch</td>
-    <td><a asp-area="Admin" asp-action="DetailsStudent" asp-controller="Admin" asp-route-roleId="@item.Id" class="btn btn-outline-danger"> Detaylar</a></td>
-    <td> <a asp-area="Admin" asp-action="EditStudent" asp-controller="Admin" asp-route-roleId="@item.Id" class="btn btn-outline-success">Güncelle</a></td>
-    <td><a asp-area="Admin" asp-action="DeleteStudent" asp-controller="Admin" asp-route-roleId="@item.Id" class="btn btn-outline-danger"> Sil</a></td>
+                <td><a asp-area="Admin" asp-action="StudentDetailsList" asp-controller="Admin" asp-route-Id="@item.Id" class="btn btn-outline-danger"> Detaylar</a></td>
+                <td> <a asp-area="Admin" asp-action="EditStudent" asp-controller="Admin" asp-route-Id="@item.Id" class="btn btn-outline-success">Güncelle</a></td>
+                <td><a asp-area="Admin" asp-action="DeleteStudent" asp-controller="Admin" asp-route-Id="@item.Id" class="btn btn-outline-danger"> Sil</a></td>
     </tr>
     }
     </tbody>

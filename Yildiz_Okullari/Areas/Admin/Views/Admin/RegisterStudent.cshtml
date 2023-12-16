@@ -15,7 +15,7 @@
                         }
                         <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
 
-                        <form asp-controller="Register" asp-area="Admin" asp-action="RegisterStudent" method="post">
+                        <form asp-controller="Admin" asp-area="Admin" asp-action="RegisterStudent" method="post">
 
                             <div class="form-group">
                                 <label class="form-label" for="Name" asp-for="Name"></label>
@@ -58,12 +58,6 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="form-label" for="PhoneNumber" asp-for="PhoneNumber"></label>
-                                <input asp-for="PhoneNumber" class="form-control" />
-                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-                            </div>
-
-                            <div class="form-group">
                                 <label class="form-label" for="FatherFullName" asp-for="FatherFullName"></label>
                                 <input asp-for="FatherFullName" class="form-control" />
                                 <span asp-validation-for="FatherFullName" class="text-danger"></span>
@@ -99,10 +93,10 @@
                                 <label class="form-label" for="Grade" asp-for="Grade"></label>
                                 <select asp-for="Grade" class="form-control">
                                     <option value="">Sınıf Seçiniz</option>
-                                    <option value="grade1">9</option>
-                                    <option value="grade2">10</option>
-                                    <option value="grade3">11</option>
-                                    <option value="grade3">12</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
                                 </select>
                                 <span asp-validation-for="Grade" class="text-danger"></span>
                             </div>
@@ -111,12 +105,12 @@
                                 <label class="form-label" for="Branch" asp-for="Branch"></label>
                                 <select asp-for="Branch" class="form-control">
                                     <option value="">Şube Seçiniz</option>
-                                    <option value="branch1">A</option>
-                                    <option value="branch2">B</option>
-                                    <option value="branch3">C</option>
-                                    <option value="branch3">D</option>
-                                    <option value="branch3">E</option>
-                                    <option value="branch3">F</option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                    <option value="E">E</option>
+                                    <option value="F">F</option>
                                 </select>
                                 <span asp-validation-for="Branch" class="text-danger"></span>
                             </div>

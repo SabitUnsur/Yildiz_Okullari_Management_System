@@ -29,6 +29,7 @@ namespace UI.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid)
             {
+                ViewBag.genderList=_registerService.GetGenderSelectList();
                 return View();
             }
 
@@ -40,6 +41,7 @@ namespace UI.Areas.Admin.Controllers
                 {
                     ModelState.AddModelError("", error.Description);
                 }
+                ViewBag.genderList=_registerService.GetGenderSelectList();
                 return View();
             }
             TempData["SuccessMessage"] = "Öğrenci kayıt işlemi başarıyla tamamlanmıştır";
@@ -77,17 +79,17 @@ namespace UI.Areas.Admin.Controllers
 
         public IActionResult StudentList() 
         {
-            var users = _personService.GetAllWithPersonViewModel();
+            var users = _personService.GetAllStudentWithPersonViewModel();
             return View(users);
         }
         public IActionResult StudentDetailsList(Guid id)
         {
-            var user=_personService.GetById(id);
+            var user=_personService.GetPersonWithFamilyInfoById(id);
             var personDetailsViewModel=PersonDetailsViewModel.personToPersonDetailsViewModel(user);
             return View(personDetailsViewModel);
             
         }
-        [Route("Admin/Admin/FilterStudentList")]
+        [HttpGet]
         public IActionResult FilterStudentList(string grade , string branch)
         {
             if(grade==null || branch==null)

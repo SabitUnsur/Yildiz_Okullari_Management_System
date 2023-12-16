@@ -13,7 +13,7 @@ namespace Core.ViewModels
         public string? Name { get; set; }
         public string? Surname { get; set; }
         public int StudentNumber { get; set; }
-        public int Grade { get; set; }
+        public int? Grade { get; set; }
         public string? Branch { get; set; }
         public string? Email { get; set; }
         public string? PhoneNumber { get; set; }

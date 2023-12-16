@@ -15,7 +15,7 @@ namespace Core.ViewModels
 
         }
 
-        public RegisterStudentViewModel(string? name, string? surname, string? username, string? email, string? password, string? passwordConfirm, string? phoneNumber, DateTime birthDate, Gender gender, int studentNumber, string branch, int grade, string fatherFullName, string motherFullName, string fatherPhoneNumber, string motherPhoneNumber)
+        public RegisterStudentViewModel(string? name, string? surname, string? username, string? email, string? password, string? passwordConfirm, string? phoneNumber, DateTime birthDate, Gender gender, int studentNumber, string branch, string grade, string fatherFullName, string motherFullName, string fatherPhoneNumber, string motherPhoneNumber)
         {
             Name=name;
             Surname=surname;
@@ -67,30 +67,30 @@ namespace Core.ViewModels
         public DateTime BirthDate { get; set; }
         [Required(ErrorMessage="Lütfen cinsiyet seçiniz.")]
         [Display(Name="Cinsiyet")]
-        public Gender  Gender { get; set; }
+        public Gender ? Gender { get; set; }
         [Required(ErrorMessage="Lütfen öğrenci numarası giriniz.")]
         [Display(Name="Öğrenci Numarası")]
         public int StudentNumber { get; set; }
         [Required(ErrorMessage="Lütfen şube seçiniz.")]
         [Display(Name="Şube")]
-        public required string Branch { get; set; }
+        public required string ?Branch { get; set; }
         [Required(ErrorMessage="Lütfen sınıf seçiniz.")]
         [Display(Name="Sınıf")]
-        public required int Grade { get; set; }
+        public  string  Grade { get; set; }
         [Required(ErrorMessage ="Lütfen baba adı giriniz.")]
         [Display(Name="Baba Ad-Soyad")]
-        public string FatherFullName { get; set; }
+        public string ? FatherFullName { get; set; }
         [Required(ErrorMessage ="Lütfen anne adı giriniz.")]
         [Display(Name="Anne Ad-Soyad")]
-        public string MotherFullName { get; set; }
+        public string? MotherFullName { get; set; }
         [Required(ErrorMessage ="Lütfen baba telefon numarası giriniz.")]
         [DataType(DataType.PhoneNumber)]
         [Display(Name="Baba Telefon Numarası")]
-        public string FatherPhoneNumber { get; set; }
+        public string? FatherPhoneNumber { get; set; }
         [Required(ErrorMessage ="Lütfen anne telefon numarası giriniz.")]
         [DataType(DataType.PhoneNumber)]
         [Display(Name="Anne Telefon Numarası")]
-        public string MotherPhoneNumber { get; set; }
+        public string? MotherPhoneNumber { get; set; }
 
     }
 }

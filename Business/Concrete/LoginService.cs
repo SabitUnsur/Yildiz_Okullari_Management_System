@@ -23,7 +23,7 @@ namespace Business.Concrete
 
         public async Task<Person> FindByEmailAsync(string email)
         {
-            return await _userManager.FindByEmailAsync(email) ?? throw new ArgumentNullException(nameof(email));
+            return await _userManager.FindByEmailAsync(email);
         }
         public async Task<bool> LoginAsync(LoginViewModel request, Person user)
         {

@@ -24,26 +24,34 @@ namespace UI.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel request,string ? returnUrl = null)
+        public async Task<IActionResult> Login(LoginViewModel request)
         {
             if(!ModelState.IsValid)
             {
                 return View();
             }
 
-            returnUrl=returnUrl ?? Url.Action("Index", "Student");// bu kısım değişebilir random yazdım.
-
             var user= await _loginService.FindByEmailAsync(request.Email!);
 
             if (user==null)
             {
                 ModelState.AddModelError("","Email veya şifre yanluş");
+                return View();
             }
 
             var result=await _loginService.LoginAsync(request,user!);
 
-            if(result)
-                return Redirect(returnUrl!);
+            if (result)
+            {
+                if (await _userManager.IsInRoleAsync(user!, "Admin"))
+                {
+                    return RedirectToAction("StudentList", "Admin",new {  area="Admin"});
+                }
+                else if (await _userManager.IsInRoleAsync(user!, "Student"))
+                {
+                    return RedirectToAction("Index", "Student");
+                }
+            }
 
             ModelState.AddModelError("","Email veya şifre yanlış");
 
@@ -82,7 +90,7 @@ namespace UI.Controllers
             return RedirectToAction(nameof(ForgetPassword));
         }
         //yukarda olusturduğumuz link ile token ve userid yi aldık.
-        public IActionResult ResetPassword(string token,Guid userId)
+        public IActionResult ResetPassword(string token, Guid userId)
         {
             // bunları tempdata ile tuttuk çünkü viewler arası veri taşımamız lazım bunlara ihtiyacımız var.
             //çünkü biz resetpassword un post kısmında bu token ve userid yi kullanacağız.

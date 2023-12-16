@@ -1,5 +1,7 @@
 using Business.Abstract;
 using Business.Concrete;
+using Core.Extensions;
+using Core.OptionsModel;
 using Core.UnitOfWorks;
 using Core.Utils.Helpers.TwilioSmsHelper;
 using DataAccess;
@@ -13,19 +15,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+
 builder.Services.AddScoped<IRegisterService,RegisterService>();
 builder.Services.AddScoped<ILoginService,LoginService>();
 builder.Services.AddScoped<IRoleService,RoleService>();
-
-builder.Services.AddDbContext<AppDbContext>(options =>
-{
-	options.UseNpgsql(builder.Configuration.GetConnectionString("SqlConnection"));
-});
-
-
-AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
-AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
-builder.Services.AddIdentity<Person,AppRole>().AddEntityFrameworkStores<AppDbContext>();
 
 builder.Services.Configure<TwilioSettings>(builder.Configuration.GetSection("Twilio"));
 builder.Services.AddScoped<ISmsService, SmsService>();
@@ -39,6 +34,19 @@ builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<IPersonService, PersonService>();
 builder.Services.AddScoped<ITermBatchRepository, EfTermBatchRepository>();
 builder.Services.AddScoped<ITermService, TermService>();
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+	options.UseNpgsql(builder.Configuration.GetConnectionString("SqlConnection"));
+});
+
+
+AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
+builder.Services.AddIdentityWithExtension();
+
+
 
 var app = builder.Build();
 

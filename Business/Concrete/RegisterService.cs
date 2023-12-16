@@ -5,9 +5,13 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Helpers;
+using System.Xml.Linq;
+using Twilio.Types;
 
 namespace Business.Concrete
 {
@@ -39,22 +43,55 @@ namespace Business.Concrete
 
         public async Task<(bool, IEnumerable<IdentityError>?)> RegisterStudentAsync(RegisterStudentViewModel request)
         {
-            var result= await _userManager.CreateAsync(new Person() { UserName=request.Username,Email=request.Email,PhoneNumber=request.PhoneNumber,Name=request.Name,Surname=request.Surname,
-            Grade = request.Grade, Branch = request.Branch,StudentNumber = request.StudentNumber,BirthDate=request.BirthDate,Gender=request.Gender
-            ,FamilyInfo=new FamilyInfo { FatherFullName=request.FatherFullName,MotherFullName=request.MotherFullName,FatherPhoneNumber=request.FatherPhoneNumber,MotherPhoneNumber=request.MotherPhoneNumber}
-            }
-            ,request.Password!);
-
-            if (!result.Succeeded)
+            int gradeValue;
+            if (Int32.TryParse(request.Grade, out gradeValue) && gradeValue >= 9 && gradeValue <= 12)
             {
-                return (false,result.Errors);
+                var result = await _userManager.CreateAsync(new Person()
+                {
+                    UserName = request.Username,
+                    Email = request.Email,
+                    PhoneNumber = request.PhoneNumber,
+                    Name = request.Name,
+                    Surname = request.Surname,
+                    Grade = gradeValue,
+                    Branch = request.Branch,
+                    StudentNumber = request.StudentNumber,
+                    BirthDate = request.BirthDate,
+                    Gender = request.Gender,
+                    FamilyInfo = new FamilyInfo
+                    {
+                        FatherFullName = request.FatherFullName,
+                        MotherFullName = request.MotherFullName,
+                        FatherPhoneNumber = request.FatherPhoneNumber,
+                        MotherPhoneNumber = request.MotherPhoneNumber
+                    }
+                }, request.Password!);
+
+                if (!result.Succeeded)
+                {
+                    return (false, result.Errors);
+                }
+                else
+                {
+                    var user = await _userManager.FindByNameAsync(request.Username!);
+                    var roleResult = await _userManager.AddToRoleAsync(user!, "student");
+                    if (!roleResult.Succeeded)
+                    {
+                        return (false, roleResult.Errors);
+                    }
+                    else
+                    {
+                        return (true, null);
+                    }
+                }
             }
             else
             {
-                var user=await _userManager.FindByNameAsync(request.Username!);
-                await _userManager.AddToRoleAsync(user!, "student");
-                return (true, null);
+                return (false, new List<IdentityError> { new IdentityError { Description = "Sınıf 9-12 arasında olmalıdır." } });
             }
+
+
+           
         }
         public SelectList GetGenderSelectList()
         {

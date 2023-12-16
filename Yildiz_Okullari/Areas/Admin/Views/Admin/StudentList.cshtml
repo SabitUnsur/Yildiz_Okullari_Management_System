@@ -10,16 +10,16 @@
     </div>
 }
 <form id="filterForm">
-    <label for="gradeInput">Sınıf:</label>
-    <select id="gradeInput" name="gradeInput" class="form-control">
+    <label for="grade">Sınıf:</label>
+    <select id="grade" name="grade" class="form-control">
         <option value="">Sınıf Seçiniz</option>
         <option value="9">9</option>
         <option value="10">10</option>
         <option value="11">11</option>
         <option value="12">12</option>
     </select>
-    <label for="branchInput">Şube:</label>
-    <select id="branchInput" name="branchInput" class="form-control">
+    <label for="branch">Şube:</label>
+    <select id="branch" name="branch" class="form-control">
         <option value="">Şube Seçiniz</option>
         <option value="A">A Şubesi</option>
         <option value="B">B Şubesi</option>
@@ -27,7 +27,7 @@
         <option value="D">D Şubesi</option>
         <!-- Diğer şube seçenekleri buraya eklenebilir -->
     </select>
-    <button type="submit" onclick="filterStudents()">Filtrele</button>
+    <button type="submit" onclick="filterStudents()" onsubmit="return false;" asp-area="Admin" asp-action="FilterStudentList" asp-controller="Admin">Filtrele</button>
 </form>
 
 <div asp-validation-summary="ModelOnly" class="alert-danger"></div>
@@ -55,10 +55,10 @@
                 <td>@item.StudentNumber</td>
                 <td>@item.Grade</td>
                 <td>@item.Branch</td>
-                <td><a asp-area="Admin" asp-action="DetailsStudent" asp-controller="Admin" asp-route-roleId="@item.Id" class="btn btn-outline-danger"> Detaylar</a></td>
-                <td> <a asp-area="Admin" asp-action="EditStudent" asp-controller="Admin" asp-route-roleId="@item.Id" class="btn btn-outline-success">Güncelle</a></td>
-                <td><a asp-area="Admin" asp-action="DeleteStudent" asp-controller="Admin" asp-route-roleId="@item.Id" class="btn btn-outline-danger"> Sil</a></td>
-                <td><a asp-area="Admin" asp-action="SumbitAttendance" asp-controller="Admin" asp-route-roleId="@item.Id" class="btn btn-outline-danger"> Devamsızlık Gir</a></td>
+                <td><a asp-area="Admin" asp-action="StudentDetailsList" asp-controller="Admin" asp-route-id="@item.Id" class="btn btn-outline-danger"> Detaylar</a></td>
+                <td> <a asp-area="Admin" asp-action="EditStudent" asp-controller="Admin" asp-route-id="@item.Id" class="btn btn-outline-success">Güncelle</a></td>
+                <td><a asp-area="Admin" asp-action="DeleteStudent" asp-controller="Admin" asp-route-id="@item.Id" class="btn btn-outline-danger"> Sil</a></td>
+                <td><a asp-area="Admin" asp-action="SumbitAttendance" asp-controller="Admin" asp-route-id="@item.Id" class="btn btn-outline-danger"> Devamsızlık Gir</a></td>
             </tr>
         }
     </tbody>
@@ -69,20 +69,10 @@
 
 <script>
     function filterStudents() {
-        var gradeInput = document.getElementById('gradeInput').value;
-        var branchInput = document.getElementById('branchInput').value;
-
-        $.ajax({
-            url: '~/Admin/Admin/FilterStudentList',
-            type: 'POST',
-            data: {
-                grade: gradeInput,
-                branch: branchInput
-            },
-            success: function (data) {
-                    window.location.href= '~/Admin/Admin/FilterStudentList';
-                });
-            }
-        });
+        var grade = document.getElementById('grade').value;
+        var branch = document.getElementById('branch').value;
+        // console.log('Grade: ' + grade); test için kullandım 
+        // console.log('Branch: ' + branch);
+        window.location.href = '/Admin/Admin/FilterStudentList?grade=' + grade + '&branch=' + branch;
     }
 </script>

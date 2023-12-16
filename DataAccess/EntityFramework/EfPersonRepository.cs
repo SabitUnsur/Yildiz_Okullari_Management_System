@@ -129,6 +129,8 @@ namespace DataAccess.EntityFramework
         {
             return _appDbContext.Users.Where(p => p.Grade == grade && p.Branch == branch).AsNoTracking().ToList();
         }
+
+        
     }
 }
 

@@ -17,7 +17,7 @@ namespace Entities
         public ICollection<Attendance>? Attendances { get; set; }
         public Guid ?TermId { get; set; }
         public Term ?Term { get; set; }
-        public  int Grade { get; set; }
+        public  int ? Grade { get; set; }
         public string? Branch { get; set; }
         public Guid ?FamilyInfoId {  get; set; }
         public FamilyInfo ?FamilyInfo { get; set; }
