@@ -22,6 +22,12 @@
         font-weight: bold;
     }
 
+    .custom-icon {
+        width: 24px; 
+        height: 24px; 
+        margin-right: 8px; 
+    }
+
     .form-control {
         width: 50%;
         padding: 8px;
@@ -54,10 +60,15 @@
     <!-- Sidebar -->
     <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%">
         <h3 class="w3-bar-item">Admin Paneli</h3>
-        <a href="#" class="w3-bar-item w3-button">Sınfılar</a>
-        <a href="#" class="w3-bar-item w3-button">Öğrenciler</a>
-        <a href="#" class="w3-bar-item w3-button">Devamsızlık</a>
-        <a href="~/Login/Index" class="w3-bar-item w3-button">Çıkış</a>
+        <a href="@Url.Action("StudentList", "Admin", new { area = "Admin" })" class="w3-bar-item w3-button">Öğrenci Listele</a>
+        <a href="@Url.Action("RegisterStudent", "Admin", new { area = "Admin" })" class="w3-bar-item w3-button">Öğrenci Ekle</a>
+        <a href="@Url.Action("RegisterAdmin", "Admin", new { area = "Admin" })" class="w3-bar-item w3-button">Admin Ekle</a>
+        <a href="@Url.Action("Login", "Login", new {area = "Login"})" class="w3-bar-item w3-button">
+            <img src="~/img/sign-out-img.png" alt="Çıkış" class="custom-icon" /> Çıkış
+        </a>
+
+
+
     </div>
 
     <!-- Page Content -->

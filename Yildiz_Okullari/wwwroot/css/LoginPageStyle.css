@@ -16,8 +16,8 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    width: 80%; /* Ýstediðin geniþliði ayarla */
-    height: 400px; /* Ýstediðin yüksekliði ayarla */
+    width: 90%; /* Ýstediðin geniþliði ayarla */
+    height: 500px; /* Ýstediðin yüksekliði ayarla */
     margin: 0 auto; /* Sayfa ortasýnda olmasýný saðlamak için */
 }
 

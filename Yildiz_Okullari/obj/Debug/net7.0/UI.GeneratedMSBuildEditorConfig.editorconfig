@@ -9,139 +9,137 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = UI
 build_property.RootNamespace = UI
-build_property.ProjectDir = C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari\
-build_property.EnableComHosting = 
-build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.ProjectDir = C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Yildiz_Okullari\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari
+build_property.MSBuildProjectDirectory = C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Yildiz_Okullari
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/Admin/AddAttendance.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/Admin/AddAttendance.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cQWRkQXR0ZW5kYW5jZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/Admin/EditStudent.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/Admin/EditStudent.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cRWRpdFN0dWRlbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/Admin/FilterStudentList.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/Admin/FilterStudentList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cRmlsdGVyU3R1ZGVudExpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/Admin/RegisterAdmin.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/Admin/RegisterAdmin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cUmVnaXN0ZXJBZG1pbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/Admin/RegisterStudent.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/Admin/RegisterStudent.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cUmVnaXN0ZXJTdHVkZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/Admin/StudentDetailsList.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/Admin/StudentDetailsList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cU3R1ZGVudERldGFpbHNMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/Admin/StudentList.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/Admin/StudentList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cU3R1ZGVudExpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/Role/AssignToRole.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/Role/AssignToRole.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9sZVxBc3NpZ25Ub1JvbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/Role/RoleCreate.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/Role/RoleCreate.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9sZVxSb2xlQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/Role/RoleList.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/Role/RoleList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9sZVxSb2xlTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/Role/RoleUpdate.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/Role/RoleUpdate.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9sZVxSb2xlVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/Shared/_AdminLayout.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/_ViewImports.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/_ViewStart.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Areas/Admin/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Home/Index.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Home/Privacy.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Login/ForgetPassword.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Login/ForgetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cRm9yZ2V0UGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Login/Login.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Login/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Login/ResetPassword.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Login/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cUmVzZXRQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Shared/Error.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Shared/_LoginLayout.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Shared/_LoginLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Shared/_StudentPanelLayout.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Shared/_StudentPanelLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TdHVkZW50UGFuZWxMYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Student/GetStudentsBranchsStudentsList.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Student/GetStudentsBranchsStudentsList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxHZXRTdHVkZW50c0JyYW5jaHNTdHVkZW50c0xpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Student/Index.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Student/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Student/TotalAbsencesDayList.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Student/TotalAbsencesDayList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxUb3RhbEFic2VuY2VzRGF5TGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Student/UserInformation.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Student/UserInformation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxVc2VySW5mb3JtYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Test/Index.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Test/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Test/RunCheckAndAddNewTerm.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Test/RunCheckAndAddNewTerm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxSdW5DaGVja0FuZEFkZE5ld1Rlcm0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/_ViewImports.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/_ViewStart.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cagat/OneDrive/Masaüstü/kodlar/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Shared/_Layout.cshtml]
+[C:/Users/MikdatCanSimsek/Desktop/Yazılım Mühendisliği/Yildiz_Okullari_Management_System/Yildiz_Okullari/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-k1t0mrplc2

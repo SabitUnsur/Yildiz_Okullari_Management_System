@@ -5,10 +5,113 @@
     ViewData["Title"] = "AddAttendance";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+<style>
+    .button-style {
+        background-color: #c7d3dd;
+        color: #0a0a0a;
+        padding: 15px; /* Increased padding for a larger button */
+        border: none;
+        border-radius: 8px; /* Adjusted border-radius for a rounded look */
+        cursor: pointer;
+        margin-bottom: 10px;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: left;
+    }
 
-<h2>Devamsızlık Ekle</h2>
+    .body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 130vh;
+        margin: 0;
+        background-color: #f4f4f4;
+    }
 
-<form asp-action="AddAttendance" method="post">
+    .container {
+        justify-content: space-between;
+        width: 90%; /* Increased container width to 90% */
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align:center;
+    }
+
+    .container2 {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .add-attendance-form {
+        background-color: #ececec;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+    }
+
+    .button {
+        background-color: #3498db;
+        color: #fff;
+        padding: 15px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+
+    .checkbox-group {
+        margin-bottom: 20px;
+    }
+
+    input[type="checkbox"] {
+        margin-right: 10px;
+        transform: scale(1.5);
+    }
+    label{
+        font-size: 16px;
+    }
+</style>
+
+<title>Devamsızlık Ekleme</title>
+<body>
+    <div id="container">
+        <div style="display: flex; margin-top: 20px">
+            <div id="container2">
+                <div class="add-attendance-form">
+                    <h2 class="font-weight-bold">Devamsızlık Ekleme</h2>
+                    <form asp-action="AddAttendance" method="post">
+                        <div class="form-group">
+                            <label class="font-weight-bold">
+                                Devamsızlık Yaptığı Saatler:
+                            </label>
+
+                            @foreach (var lecture in ViewBag.Lectures)
+                            {
+                                <div class="checkbox-group">
+                                    <input type="checkbox" name="selectedLectures" value="@lecture" id="lecture@lecture" />
+                                    <label for="lecture@lecture">@LectureHelper.GetFormattedLecture((LectureHours)lecture)</label>
+                                    <br />
+                                </div>
+                            }
+                        </div>
+                        <input type="hidden" name="studentId" value="@ViewBag.Id" />
+                        <button type="submit" class="btn btn-primary">Ekle</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+@*<form asp-action="AddAttendance" method="post">
     @foreach (var lecture in ViewBag.Lectures)
     {
         <input type="checkbox" name="selectedLectures" value="@lecture" id="lecture@lecture" />
@@ -17,6 +120,6 @@
     }
     <input type="hidden" name="studentId" value="@ViewBag.Id" />
     <input type="submit" value="Devamsızlık Ekle" />
-</form>
+</form>*@
 
 
