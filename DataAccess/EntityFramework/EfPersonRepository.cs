@@ -32,15 +32,18 @@ namespace DataAccess.EntityFramework
             .ToListAsync();
         }
 
-        public DateTime? GetTodaysAbsenceDateForStudent(Guid studentId) //SUCCESSFUL
+        public DateTime? GetTodaysAbsenceDateForStudent(Guid studentId)
         {
             AppDbContext appDbContext = new AppDbContext();
-            var person = appDbContext.Persons.Find(studentId);
 
+            var today = DateTime.Today;
             var attendance = appDbContext.Attendances
-                .Where(x => x.PersonId == studentId)
-                .Where(x => x.Date.Day == DateTime.Today.Day)
+                .Where(x => x.PersonId == studentId &&
+                            x.Date.Year == today.Year &&
+                            x.Date.Month == today.Month &&
+                            x.Date.Day == today.Day)
                 .FirstOrDefault();
+
             return attendance?.Date;
         }
 

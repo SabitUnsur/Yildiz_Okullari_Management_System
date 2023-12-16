@@ -31,7 +31,7 @@ namespace Business.Concrete
         public async Task ScheduleSms(Guid studentId)
         {
             var now = DateTime.Now;
-            var targetTime = new DateTime(now.Year, now.Month, now.Day, 11, 57,20 );
+            var targetTime = new DateTime(now.Year, now.Month, now.Day, 02 , 25 , 10 );
 
             if (now > targetTime)
             {
@@ -82,9 +82,16 @@ namespace Business.Concrete
         {
             try
             {
-                _smsService.Send(phoneNumber, $"{person.Name} {person.Surname} öğrencimiz {attendanceDate.Value.ToShortDateString()} tarihinde {Messages.AttendanceInformation}");
-
-                _timer.Stop();
+                if(person.FamilyInfo.FatherFullName != null)
+                {
+                    _smsService.Send(phoneNumber, $"Sayın {person.FamilyInfo.FatherFullName} , {person.Name} {person.Surname} öğrencimiz {attendanceDate.Value.ToShortDateString()} tarihinde {Messages.AttendanceInformation}");
+                    _timer.Stop();
+                }
+                else
+                {
+                    _smsService.Send(phoneNumber, $"Sayın {person.FamilyInfo.MotherFullName} ,  {person.Name} {person.Surname} öğrencimiz {attendanceDate.Value.ToShortDateString()} tarihinde {Messages.AttendanceInformation}");
+                    _timer.Stop();
+                }
             }
             catch (SmsSendFailedException ex)
             {

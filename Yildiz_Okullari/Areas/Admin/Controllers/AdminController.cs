@@ -1,7 +1,11 @@
 ﻿using Business.Abstract;
+using Business.Concrete;
 using Core.ViewModels;
 using Entities;
+using Entities.Enums;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using Twilio.Http;
 
 namespace UI.Areas.Admin.Controllers
@@ -11,11 +15,15 @@ namespace UI.Areas.Admin.Controllers
 	{
 		private readonly IRegisterService _registerService;
         private readonly IPersonService _personService;
-       
-        public AdminController(IRegisterService registerService, IPersonService personService) 
+        private readonly IAttendanceService _attendanceService;
+        IScheduledTaskService _scheduledTaskService;
+
+        public AdminController(IRegisterService registerService, IPersonService personService, IAttendanceService attendanceService, IScheduledTaskService scheduledTaskService)
         {
-            _personService=personService;
+            _personService = personService;
             _registerService = registerService;
+            _attendanceService = attendanceService;
+            _scheduledTaskService = scheduledTaskService;
         }
 
         //Öğrenci kayıt işlemi
@@ -122,5 +130,46 @@ namespace UI.Areas.Admin.Controllers
             _personService.Update(user);
             return RedirectToAction(nameof(StudentList));
         }
+
+
+        [HttpGet]
+        public IActionResult AddAttendance(Guid id)
+        {
+            ViewBag.Id = id;
+            var lectures = Enum.GetValues(typeof(LectureHours)).Cast<LectureHours>();
+            ViewBag.Lectures = lectures;
+
+            return View();
+        }
+
+       [HttpPost]
+        public async Task<IActionResult> AddAttendance(List<LectureHours> selectedLectures,Guid studentId)
+        {
+                var user = _personService.GetById(studentId);
+                var attendance = _attendanceService.TotalDailyAbsencesLectureHours(selectedLectures, user.Id);
+                await _attendanceService.Add(attendance);
+
+            return RedirectToAction("StudentList");
+        }
+
+        [HttpPost]
+        public IActionResult SendSms()
+        {
+            var students = _personService.GetAll(); 
+
+            foreach (var student in students)
+            {
+                var absenceDates =  _personService.GetTodaysAbsenceDateForStudent(student.Id); 
+                if (absenceDates.HasValue && absenceDates.Value.Date == DateTime.Today)
+                {
+                    _scheduledTaskService.ScheduleSms(student.Id);
+                }
+            }
+
+            return RedirectToAction("StudentList");
+        }
+
+
+
     }
 }

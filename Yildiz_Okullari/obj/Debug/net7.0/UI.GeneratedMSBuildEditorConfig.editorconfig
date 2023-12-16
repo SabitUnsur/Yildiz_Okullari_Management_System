@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\sabit\source\repos\Yildiz_Okullari\Yildiz_Okullari
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Areas/Admin/Views/Admin/AddAttendance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cQWRkQXR0ZW5kYW5jZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/sabit/source/repos/Yildiz_Okullari/Yildiz_Okullari/Areas/Admin/Views/Admin/EditStudent.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cRWRpdFN0dWRlbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

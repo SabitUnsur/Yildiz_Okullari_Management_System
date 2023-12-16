@@ -3,6 +3,11 @@
     ViewData["Title"] = "StudentList";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+@{
+    var disableButton = ViewBag.ShowButton != null && !(bool)ViewBag.ShowButton;
+}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 @if (TempData["ErrorMessage"] != null)
 {
     <div class="alert alert-warning" role="alert">
@@ -58,7 +63,7 @@
                 <td><a asp-area="Admin" asp-action="DetailsStudent" asp-controller="Admin" asp-route-roleId="@item.Id" class="btn btn-outline-danger"> Detaylar</a></td>
                 <td> <a asp-area="Admin" asp-action="EditStudent" asp-controller="Admin" asp-route-roleId="@item.Id" class="btn btn-outline-success">Güncelle</a></td>
                 <td><a asp-area="Admin" asp-action="DeleteStudent" asp-controller="Admin" asp-route-roleId="@item.Id" class="btn btn-outline-danger"> Sil</a></td>
-                <td><a asp-area="Admin" asp-action="SumbitAttendance" asp-controller="Admin" asp-route-roleId="@item.Id" class="btn btn-outline-danger"> Devamsızlık Gir</a></td>
+                <td><a asp-area="Admin" asp-action="AddAttendance" asp-controller="Admin" asp-route-Id="@item.Id" class="btn btn-outline-danger"> Devamsızlık Gir</a></td>
             </tr>
         }
     </tbody>
@@ -66,6 +71,17 @@
 <div class=" offset-9">
     <a class="btn btn-outline-secondary " asp-controller="Admin" asp-action="RegisterStudent" asp-area="Admin">Öğrenci Ekle</a>
 </div>
+
+<div class="offset-2">
+    <div class="offset-2">
+        <input type="checkbox" id="checkboxId">
+        <label for="checkboxId">Devamsızlık bilgileri girildiyse işaretleyiniz </label>
+        <form asp-controller="Admin" asp-action="SendSms" asp-area="Admin" method="post">
+            <button type="submit" id="submitButton" class="btn btn-primary" disabled>Sms Gönder</button>
+        </form>
+    </div>
+</div>
+
 
 <script>
     function filterStudents() {
@@ -86,3 +102,26 @@
         });
     }
 </script>
+
+<script>
+    document.getElementById('checkboxId').addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('submitButton').removeAttribute('disabled');
+        } else {
+            document.getElementById('submitButton').setAttribute('disabled', 'disabled');
+        }
+    });
+</script>
+
+<script>
+    document.getElementById('submitButton').addEventListener('click', function () {
+        Swal.fire({
+            title: 'İşlem Başarılı',
+            text: 'Sms gönderimi planlandı',
+            icon: 'success', 
+            confirmButtonText: 'Tamam' 
+        });
+    });
+</script>
+
+

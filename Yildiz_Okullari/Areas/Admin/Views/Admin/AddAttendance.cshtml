@@ -1,0 +1,22 @@
+﻿@using Core.Utils.Helpers.EnumHelper;
+@using Entities.Enums;
+
+@{
+    ViewData["Title"] = "AddAttendance";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Devamsızlık Ekle</h2>
+
+<form asp-action="AddAttendance" method="post">
+    @foreach (var lecture in ViewBag.Lectures)
+    {
+        <input type="checkbox" name="selectedLectures" value="@lecture" id="lecture@lecture" />
+        <label for="lecture@lecture">@LectureHelper.GetFormattedLecture((LectureHours)lecture)</label>
+        <br />
+    }
+    <input type="hidden" name="studentId" value="@ViewBag.Id" />
+    <input type="submit" value="Devamsızlık Ekle" />
+</form>
+
+
