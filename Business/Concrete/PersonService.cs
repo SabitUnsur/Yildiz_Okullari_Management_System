@@ -83,7 +83,7 @@ namespace Business.Concrete
 
             if (persons == null)
             {
-                persons = _personDal.GetAll(x=>x.Name !="Admin").ToList();
+                persons = _personDal.GetAll(x=>x.Name !="member").ToList();
                 _memoryCache.Set(cacheKey, persons);
             }
 
