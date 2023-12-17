@@ -14,6 +14,19 @@
         @TempData["ErrorMessage"]
     </div>
 }
+
+<div class="text-center mb-8">
+    <h1 class="display-4">
+        @if (ViewBag.CurrentTerm != null)
+        {
+            var userInfo = ViewBag.CurrentTerm;
+            <text>Dönem : @userInfo.StartDate.Year - @userInfo.EndDate.Year</text>
+        }
+
+    </h1>
+</div>
+
+
 <form id="filterForm">
     <label for="grade">Sınıf:</label>
     <select id="grade" name="grade" class="form-control">
@@ -60,10 +73,11 @@
                 <td>@item.StudentNumber</td>
                 <td>@item.Grade</td>
                 <td>@item.Branch</td>
-                <td><a asp-area="Admin" asp-action="StudentDetailsList" asp-controller="Admin" asp-route-Id="@item.Id" class="btn btn-outline-danger"> Detaylar</a></td>
+                <td><a asp-area="Admin" asp-action="StudentDetailsList" asp-controller="Admin" asp-route-Id="@item.Id" class="btn btn-outline-success"> Detaylar</a></td>
                 <td> <a asp-area="Admin" asp-action="EditStudent" asp-controller="Admin" asp-route-Id="@item.Id" class="btn btn-outline-success">Güncelle</a></td>
                 <td><a asp-area="Admin" asp-action="DeleteStudent" asp-controller="Admin" asp-route-Id="@item.Id" class="btn btn-outline-danger"> Sil</a></td>
                 <td><a asp-area="Admin" asp-action="AddAttendance" asp-controller="Admin" asp-route-Id="@item.Id" class="btn btn-outline-danger"> Devamsızlık Gir</a></td>
+                <td><a asp-area="Admin" asp-action="GetAttendancesByStudent" asp-controller="Admin" asp-route-Id="@item.Id" class="btn btn-outline-warning"> Devamsızlık Bilgisi</a></td>
             </tr>
         }
     </tbody>
@@ -73,11 +87,40 @@
         <input type="checkbox" id="checkboxId">
         <label for="checkboxId">Devamsızlık bilgileri girildiyse işaretleyiniz </label>
         <form asp-controller="Admin" asp-action="SendSms" asp-area="Admin" method="post">
-            <button type="submit" id="submitButton" class="btn btn-primary" disabled>Sms Gönder</button>
+            <button type="submit" id="submitButton" class="btn btn-primary button-margin" disabled>Sms Gönder</button>
         </form>
     </div>
 </div>
 
+<br/>
+
+<div class="offset-2">
+    <div class="offset-2">
+        <form asp-controller="Admin" asp-action="RunCheckAndAddNewTerm" method="post">
+            @{
+                string disabledClass = ViewBag.ShowButton != null && !(bool)ViewBag.ShowButton ? "disabled" : "";
+                string endDate = ViewBag.CurrentTerm?.EndDate != null ?
+                ((DateTime)ViewBag.CurrentTerm.EndDate).ToString("yyyy-MM-dd HH:mm") : "";
+            }
+            <button id="newTermButton" type="submit" class="btn btn-primary @disabledClass">Yeni Dönem Oluştur</button>
+            <span id="endDateText"> Dönem Bitiş Tarihi: @endDate</span>
+
+            <script>
+                var endDate = '@endDate';
+                var button = document.getElementById("newTermButton");
+                var endDateText = document.getElementById("endDateText");
+
+                if (endDate && new Date(endDate) < new Date()) {
+                    button.removeAttribute("disabled");
+                    endDateText.innerText = "Dönem sonlanmıştır, yeni dönem oluşturunuz";
+                } else {
+                    button.setAttribute("disabled", "disabled");
+                    endDateText.innerText = "Dönem Bitiş Tarihi: " + endDate;
+                }
+            </script>
+        </form>
+    </div>
+</div>
 
 <script>
     function filterStudents() {
@@ -110,5 +153,6 @@
         });
     });
 </script>
+
 
 

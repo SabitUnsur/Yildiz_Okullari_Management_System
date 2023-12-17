@@ -9,8 +9,8 @@ namespace DataAccess.Abstract
 {
 	public interface IPersonRepository:IGenericRepository<Person>
 	{
-		Task<List<Person>> GetAbsencesByDateRange(DateTime startDate, DateTime endDate);
-		public int TotalAbsencesDayCountByStudentNumber(int ?studentNumber);
+		Task<List<Attendance>> GetAbsencesByTermRange(Guid termId, Guid userId);
+        public int TotalAbsencesDayCountByStudentNumber(int ?studentNumber);
 		Task<List<Attendance>> TotalAbsencesDayListByStudentNumber(int ?studentNumber);
 		public DateTime? GetAbsenceDateForStudent(Person student, DateTime targetDate);
 		DateTime? GetTodaysAbsenceDateForStudent(Guid studentId);
@@ -18,7 +18,7 @@ namespace DataAccess.Abstract
 		List<Person> GetStudentsBranchsStudentsList(Guid studentId);
         Person GetPersonWithFamilyInfoById(Guid studentId);
 		List<Person> GetStudentsByGradeAndBranch(int grade, string branch);
-		int GetNonExcusedAbsencesCount(int? studentNumber);
-		int GetExcusedAbsencesCount(int? studentNumber);
+		decimal? GetNonExcusedAbsencesCount(int? studentNumber);
+		decimal? GetExcusedAbsencesCount(int? studentNumber);
     }
 }

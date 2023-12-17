@@ -12,9 +12,11 @@ namespace UI.Controllers
     public class StudentController : StudentBaseController
     {
         private readonly IAttendanceService attendanceService;
-        public StudentController(UserManager<Person> userManager, IPersonService service, IAttendanceService attendanceService) : base(userManager, service)
+        private readonly ITermService termService;
+        public StudentController(UserManager<Person> userManager, IPersonService service, IAttendanceService attendanceService, ITermService termService) : base(userManager, service,termService)
         {
             this.attendanceService = attendanceService;
+            this.termService = termService;
         }
 
         public async Task<IActionResult> Index()

@@ -11,8 +11,8 @@ namespace Business.Abstract
 {
 	public interface IPersonService:IGenericService<Person>
 	{
-		Task<List<Person>> GetAbsencesByDateRange(DateTime startDate, DateTime endDate);
-		int TotalAbsencesDayCountByStudentNumber(int ?studentNumber);
+		Task<List<Attendance>> GetAbsencesByTermRange(Guid termId, Guid userId);
+        int TotalAbsencesDayCountByStudentNumber(int ?studentNumber);
 		Task<List<Attendance>> TotalAbsencesDayListByStudentNumber(int ?studentNumber);
 		DateTime? GetAbsenceDateForStudent(Person student, DateTime targetDate);
 		DateTime? GetTodaysAbsenceDateForStudent(Guid studentId);
@@ -20,9 +20,9 @@ namespace Business.Abstract
 		Person GetPersonWithFamilyInfoById(Guid studentId);
 		List<PersonViewModel> GetAllStudentWithPersonViewModel();
 		List<PersonViewModel> GetStudentsByClassAndSectionWithPersonViewModel(int grade, string branch);
-		int GetExcusedAbsencesCount(int? studentNumber);
-		int GetNonExcusedAbsencesCount(int? studentNumber);
-		List<Person> GetStudentsBranchsStudentsList(Guid studentId);
+        decimal? GetNonExcusedAbsencesCount(int? studentNumber);
+        decimal? GetExcusedAbsencesCount(int? studentNumber);
+        List<Person> GetStudentsBranchsStudentsList(Guid studentId);
         Person UpdatePersonUpdateViewToPerson(PersonUpdateViewModel personUpdateViewModel);
     }
 }

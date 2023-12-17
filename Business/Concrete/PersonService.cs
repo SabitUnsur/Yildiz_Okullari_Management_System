@@ -4,6 +4,7 @@ using Core.Exceptions;
 using Core.UnitOfWorks;
 using Core.ViewModels;
 using DataAccess.Abstract;
+using DataAccess.EntityFramework;
 using Entities;
 using Microsoft.Extensions.Caching.Memory;
 using System.Linq.Expressions;
@@ -54,23 +55,21 @@ namespace Business.Concrete
             return absenceDate;
         }
 
-        public async Task<List<Person>> GetAbsencesByDateRange(DateTime startDate, DateTime endDate)
+        public async Task<List<Attendance>> GetAbsencesByTermRange(Guid termId, Guid userId)
         {
             // Cache key oluştur
-            string cacheKey = $"absences_{startDate:yyyy-MM-dd}_{endDate:yyyy-MM-dd}";
+            /*string cacheKey = $"absences_{startDate:yyyy-MM-dd}_{endDate:yyyy-MM-dd}";
 
             // Cache'den devamsızlıklı öğrencileri oku
-            List<Person> absences = _memoryCache.Get<List<Person>>(cacheKey);
+            List<Attendance> absences = _memoryCache.Get<List<Attendance>>(cacheKey);*/
 
-            if (absences == null)
-            {
-                absences = await _personDal.GetAbsencesByDateRange(startDate, endDate);
-                _memoryCache.Set(cacheKey, absences);
-            }
+            
+              var absences = await _personDal.GetAbsencesByTermRange(termId,userId);
+                //_memoryCache.Set(cacheKey, absences);
 
             if (absences.Count == 0)
             {
-                return (List<Person>)Enumerable.Empty<Person>();
+                return Enumerable.Empty<Attendance>().ToList();
             }
 
             return absences;
@@ -108,7 +107,9 @@ namespace Business.Concrete
         //Çağatay ekledi
         public List<PersonViewModel> GetAllStudentWithPersonViewModel()
         {
-            var persons = _personDal.GetAll(x=>x.Grade!=null).ToList();
+            var latestTerm = EfTermBatchRepository.GetLatestTerm();
+            var termId = latestTerm?.Id;
+            var persons = _personDal.GetAll(x=>x.Grade!=null && x.TermId == termId).ToList();
 
             List<PersonViewModel> personViewModels = new List<PersonViewModel>();
             foreach (Person person in persons)
@@ -138,12 +139,12 @@ namespace Business.Concrete
             return person;
         }
 
-        public int GetExcusedAbsencesCount(int? studentNumber)
+        public decimal? GetExcusedAbsencesCount(int? studentNumber)
         {
             return _personDal.GetExcusedAbsencesCount(studentNumber);
         }
 
-        public int GetNonExcusedAbsencesCount(int? studentNumber)
+        public decimal? GetNonExcusedAbsencesCount(int? studentNumber)
         {
             return _personDal.GetNonExcusedAbsencesCount(studentNumber);
         }
@@ -210,22 +211,11 @@ namespace Business.Concrete
 
         public async Task<List<Attendance>> TotalAbsencesDayListByStudentNumber(int? studentNumber)
         {
-            // Cache key oluştur
-            string cacheKey = $"absences_list_{studentNumber}";
-            List<Attendance> attendanceList = _memoryCache.Get<List<Attendance>>(cacheKey);
-
-            if (attendanceList == null)
-            {
-                // Cache'de yoksa veritabanından oku
-                attendanceList = await _personDal.TotalAbsencesDayListByStudentNumber(studentNumber);
-
-                // Cache'e ekle
-                _memoryCache.Set(cacheKey, attendanceList);
-            }
+            var attendanceList = await _personDal.TotalAbsencesDayListByStudentNumber(studentNumber);
 
             if (attendanceList.Count == 0)
             {
-                return (List<Attendance>)Enumerable.Empty<Attendance>();
+                return Enumerable.Empty<Attendance>().ToList();
             }
             return attendanceList;
         }

@@ -54,7 +54,7 @@
             <td>@Model.Grade</td>
             <td>@Model.Branch</td>
             <td>@Model.Gender</td>
-            <td>@Model.BirthDate</td>
+            <td>@Model.BirthDate.Value.ToShortDateString()</td>
             <td>@Model.Email</td>
         </tr>
     </table>

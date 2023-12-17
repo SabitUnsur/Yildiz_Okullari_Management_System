@@ -99,6 +99,13 @@
                                     <br />
                                 </div>
                             }
+                            <label for="excuseType">Özür Tipi:</label>
+                            <select id="excuseType" name="excuseType">
+                                @foreach (var excuseType in ViewBag.ExcuseTypes)
+                                {
+                                    <option value="@excuseType">@excuseType</option>
+                                }
+                            </select>
                         </div>
                         <input type="hidden" name="studentId" value="@ViewBag.Id" />
                         <button type="submit" class="btn btn-primary">Ekle</button>
@@ -111,15 +118,5 @@
 
 
 
-@*<form asp-action="AddAttendance" method="post">
-    @foreach (var lecture in ViewBag.Lectures)
-    {
-        <input type="checkbox" name="selectedLectures" value="@lecture" id="lecture@lecture" />
-        <label for="lecture@lecture">@LectureHelper.GetFormattedLecture((LectureHours)lecture)</label>
-        <br />
-    }
-    <input type="hidden" name="studentId" value="@ViewBag.Id" />
-    <input type="submit" value="Devamsızlık Ekle" />
-</form>*@
 
 

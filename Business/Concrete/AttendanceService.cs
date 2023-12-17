@@ -50,7 +50,7 @@ namespace Business.Concrete
 			return _attendanceDal.GetAll(filter);
 		}
 
-        public async Task<List<Attendance>> GetAttendanceForTerm(Guid termId, Guid studentId)
+        public async Task<List<Attendance>> GetAttendanceForTerm(Guid ?termId, Guid studentId)
         {
             return await _attendanceDal.GetAttendanceForTerm(termId, studentId);
         }

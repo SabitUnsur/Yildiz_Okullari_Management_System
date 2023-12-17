@@ -18,10 +18,10 @@ namespace DataAccess.EntityFramework
             .Where(a => a.Date.Date == entity.Date.Date && a.PersonId == entity.PersonId)
             .FirstOrDefaultAsync();
 
-           /* if (existingAttendance != null)
+            if (existingAttendance != null)
             {
                 throw new Exception("Öğrencinin bugüne ait devamsızlık bilgisi mevcut");
-            }*/
+            }
 
             CalculateAttendanceType(entity);
            await base.Add(entity);
@@ -60,8 +60,10 @@ namespace DataAccess.EntityFramework
 
         public async Task<decimal> GetTotalAttendanceDayForStudent(Guid userId)
         {
+            var latestTerm = EfTermBatchRepository.GetLatestTerm();
+            var termId = latestTerm?.Id;
             var attendances = await _appDbContext.Attendances
-                .Where(a => a.PersonId == userId)
+                .Where(a => a.PersonId == userId && a.TermId == termId)
                 .OrderByDescending(a => a.TotalAttendance)
                 .ToListAsync();
 
@@ -75,7 +77,7 @@ namespace DataAccess.EntityFramework
             return (decimal)totalAttendance; 
         }
 
-        public async Task<List<Attendance>> GetAttendanceForTerm(Guid termId, Guid studentId)
+        public async Task<List<Attendance>> GetAttendanceForTerm(Guid ?termId, Guid studentId)
         {
             var attendancesForTerm = await _appDbContext.Attendances
                 .Where(a => a.TermId == termId && a.PersonId == studentId)
@@ -87,9 +89,6 @@ namespace DataAccess.EntityFramework
 
             return attendancesForTerm;
         }
-
-
-
 
     }
 }

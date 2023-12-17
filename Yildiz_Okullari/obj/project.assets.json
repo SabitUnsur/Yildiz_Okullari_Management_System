@@ -12403,19 +12403,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cagat\\.nuget\\packages\\": {}
+    "C:\\Users\\sabit\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cagat\\OneDrive\\Masaüstü\\kodlar\\Yildiz_Okullari_Management_System\\Yildiz_Okullari\\UI.csproj",
+      "projectUniqueName": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Yildiz_Okullari\\UI.csproj",
       "projectName": "UI",
-      "projectPath": "C:\\Users\\cagat\\OneDrive\\Masaüstü\\kodlar\\Yildiz_Okullari_Management_System\\Yildiz_Okullari\\UI.csproj",
-      "packagesPath": "C:\\Users\\cagat\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cagat\\OneDrive\\Masaüstü\\kodlar\\Yildiz_Okullari_Management_System\\Yildiz_Okullari\\obj\\",
+      "projectPath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Yildiz_Okullari\\UI.csproj",
+      "packagesPath": "C:\\Users\\sabit\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Yildiz_Okullari\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\cagat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sabit\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12429,14 +12429,14 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\cagat\\OneDrive\\Masaüstü\\kodlar\\Yildiz_Okullari_Management_System\\Business\\Business.csproj": {
-              "projectPath": "C:\\Users\\cagat\\OneDrive\\Masaüstü\\kodlar\\Yildiz_Okullari_Management_System\\Business\\Business.csproj"
+            "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Business\\Business.csproj": {
+              "projectPath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Business\\Business.csproj"
             },
-            "C:\\Users\\cagat\\OneDrive\\Masaüstü\\kodlar\\Yildiz_Okullari_Management_System\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "C:\\Users\\cagat\\OneDrive\\Masaüstü\\kodlar\\Yildiz_Okullari_Management_System\\DataAccess\\DataAccess.csproj"
+            "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\DataAccess\\DataAccess.csproj"
             },
-            "C:\\Users\\cagat\\OneDrive\\Masaüstü\\kodlar\\Yildiz_Okullari_Management_System\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\Users\\cagat\\OneDrive\\Masaüstü\\kodlar\\Yildiz_Okullari_Management_System\\Entities\\Entities.csproj"
+            "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Users\\sabit\\source\\repos\\Yildiz_Okullari\\Entities\\Entities.csproj"
             }
           }
         }
@@ -12487,7 +12487,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   },

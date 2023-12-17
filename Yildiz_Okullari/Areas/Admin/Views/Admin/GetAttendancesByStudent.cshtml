@@ -1,0 +1,160 @@
+﻿@using Entities;
+@using Entities.Enums;
+@using UI.Models;
+@model List<Entities.Attendance>
+
+@{
+    ViewData["Title"] = "GetAttendancesByStudent";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    var userInfo = ViewBag.UserInformations as StudentViewModel;
+}
+
+
+<style>
+    .card {
+        width: 250px;
+        height: 200px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        margin: 20px 10px;
+        float: left;
+    }
+
+    .card-header,
+    .card-header2,
+    .card-header3 {
+        background-color: #3498db;
+        color: #fff;
+        padding: 6px;
+        text-align: center;
+    }
+
+    .card-body {
+        padding: 12px;
+        text-align: center;
+    }
+</style>
+
+
+<div class="text-center mb-4">
+    <h1 class="display-4 font-weight-bold text-primary"> Öğrenci Devamsızlık Bilgileri</h1>
+</div>
+
+<div class="text-center mb-8">
+    <h1 class="display-4">
+        @if (ViewBag.UserInformations != null)
+        {
+          
+            <text>Dönem : @userInfo.Term.StartDate.Year - @userInfo.Term.EndDate.Year</text>
+        }
+
+    </h1>
+</div>
+
+<div>
+        @if (Model.Any())
+        {
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Devamsızlık Tarihi</th>
+                        <th scope="col">Toplam Devamsızlık Ders Saati</th>
+                        <th scope="col">Devamsızlık Türü</th>
+                        <th scope="col">Devamsızlık Sebebi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Date.ToShortDateString()</td>
+                            <td>
+                                @if (item.AttendanceTotalLectureHour == null)
+                                {
+                                    <span class="text-danger">Öğrenci tam gün devamsızlık yapmıştır.</span>
+                                }
+                                else
+                                {
+                                    <span class="text-success">Öğrenci @item.AttendanceTotalLectureHour.ToString() ders saati devamsızlık yapmıştır. </span>
+                                }
+                            </td>
+                            <td>
+                                @if (item.AttendanceType == AttendanceType.TamGün)
+                                {
+                                    <span class="text-danger">Tam Gün</span>
+                                }
+                                else if (item.AttendanceType == AttendanceType.YarımGün)
+                                {
+                                    <span class="text-success">Yarım Gün</span>
+                                }
+                            </td>
+
+                            <td style="color:red">@item.ExcuseType</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h3>Toplam Devamsızlık</h3>
+    </div>
+    <div class="card-body">
+        <p style="font-weight:bold; font-size:25px">@TempData["AttendancesCount"]</p>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header2">
+        <h3>Özürlü Devamsızlık</h3>
+    </div>
+    <div class="card-body">
+        <p style="font-weight:bold; font-size:25px">@TempData["ExcusedAttendancesCount"]</p>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header3">
+        <h3>Özürsüz Devamsızlık</h3>
+    </div>
+    <div class="card-body">
+        <p style="font-weight:bold; font-size:25px">@TempData["NonExcusedAttendancesCount"]</p>
+    </div>
+</div>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+<div>
+    <h2> Önceki Döneme Ait Devamsızlık Seçimi</h2>
+    <form asp-controller="Admin" asp-action="AbsencesByTermFilter" method="post">
+        <div class="form-group">
+            <label for="termId">Önceki Dönem Seçin:</label>
+            <select id="termId" name="termId" class="form-control">
+                <option value="">-- Önceki Dönem Seç --</option>
+                @foreach (var term in ViewBag.TermList)
+                {
+                    <option value="@term.Value">@term.Text</option>
+                }
+            </select>
+        </div>
+        <input type="hidden" name="userId" value="@userInfo.Id" />
+        <button type="submit" class="btn btn-primary">Seç</button>
+    </form>
+</div>

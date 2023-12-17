@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace Core.ViewModels
             
         }
 
-        public RegisterAdminViewModel(string? name, string? surname, string? username, int grade , string branch ,string? email, string? password, string? passwordConfirm, string? phoneNumber)
+        public RegisterAdminViewModel(string? name, string? surname, string? username, int grade , string branch ,string? email, string? password, string? passwordConfirm, string? phoneNumber, Guid termId)
         {
             Name=name;
             Surname=surname;
@@ -23,6 +24,7 @@ namespace Core.ViewModels
             Password=password;
             PasswordConfirm=passwordConfirm;
             PhoneNumber=phoneNumber;
+            TermId=termId;
         }
         [Required(ErrorMessage ="İsim alanı boş bırakılamaz")]
         [Display(Name="İsim")]
@@ -49,5 +51,6 @@ namespace Core.ViewModels
         [Required(ErrorMessage ="Telefon numarası alanı boş bırakılamaz")]
         [Display(Name="Telefon Numarası")]
         public string? PhoneNumber { get; set; }
+        public Guid? TermId { get; set; }
     }
 }

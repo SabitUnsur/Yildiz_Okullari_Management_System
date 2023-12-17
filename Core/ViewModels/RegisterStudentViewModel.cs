@@ -1,4 +1,6 @@
-﻿using Entities;
+﻿using DataAccess.Abstract;
+using DataAccess.EntityFramework;
+using Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,12 +12,12 @@ namespace Core.ViewModels
 {
     public class RegisterStudentViewModel
     {
+        
         public RegisterStudentViewModel()
         {
-
         }
 
-        public RegisterStudentViewModel(string? name, string? surname, string? username, string? email, string? password, string? passwordConfirm, string? phoneNumber, DateTime birthDate, Gender gender, int studentNumber, string branch, string grade, string fatherFullName, string motherFullName, string fatherPhoneNumber, string motherPhoneNumber)
+        public RegisterStudentViewModel(string? name, string? surname, string? username, string? email, string? password, string? passwordConfirm, string? phoneNumber, DateTime birthDate, Gender gender, int studentNumber, string branch, string grade, string fatherFullName, string motherFullName, string fatherPhoneNumber, string motherPhoneNumber,Guid termId)
         {
             Name=name;
             Surname=surname;
@@ -33,6 +35,7 @@ namespace Core.ViewModels
             MotherFullName=motherFullName;
             FatherPhoneNumber=fatherPhoneNumber;
             MotherPhoneNumber=motherPhoneNumber;
+            TermId=termId;
         }
 
         [Display(Name="İsim")]
@@ -91,6 +94,7 @@ namespace Core.ViewModels
         [DataType(DataType.PhoneNumber)]
         [Display(Name="Anne Telefon Numarası")]
         public string? MotherPhoneNumber { get; set; }
+        public Guid ?TermId { get; set; }
 
     }
 }

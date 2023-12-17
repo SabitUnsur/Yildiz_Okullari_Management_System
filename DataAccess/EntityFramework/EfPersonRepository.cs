@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entities.Enums;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace DataAccess.EntityFramework
 {
@@ -24,12 +25,10 @@ namespace DataAccess.EntityFramework
             return absence?.Date;
         }
 
-        // Girilen dd.mm.yy bilgisine gore devamsiz ogrenci listesini getirir.
-        public async Task<List<Person>> GetAbsencesByDateRange(DateTime startDate, DateTime endDate) //SUCCESSFUL
+        public async Task<List<Attendance>> GetAbsencesByTermRange(Guid termId,Guid userId)
         {
-            return await _appDbContext.Persons.Include(x => x.Attendances)
-            .Where(p => p.Attendances.Any(a => a.Date >= startDate && a.Date <= endDate))
-            .ToListAsync();
+            var x = await _appDbContext.Attendances.Where(x=>x.PersonId == userId && x.TermId ==termId).ToListAsync();
+            return x;
         }
 
         public DateTime? GetTodaysAbsenceDateForStudent(Guid studentId)
@@ -48,11 +47,13 @@ namespace DataAccess.EntityFramework
         }
 
 
-        // Girilen ogrenci numarasina gore toplam devamsizlik sayisini getirir.
+        // Girilen ogrenci numarasina gore dönemdeki toplam devamsizlik sayisini getirir.
         public int TotalAbsencesDayCountByStudentNumber(int? studentNumber) //SUCCESSFUL
         {
+            var latestTerm = EfTermBatchRepository.GetLatestTerm();
+            var termId = latestTerm?.Id;
             var uniqueAbsentDatesCount = _appDbContext.Users
-                .Where(p => p.StudentNumber == studentNumber)
+                .Where(p => p.StudentNumber == studentNumber && p.TermId == termId)
                 .SelectMany(p => p.Attendances.Select(a => a.Date))
                 .GroupBy(date => date.Date)
                 .Select(group => group.Key)
@@ -64,24 +65,35 @@ namespace DataAccess.EntityFramework
         //Ogrenciye ait tum devamsizliklari tarih ile birlikte getirir.
         public async Task<List<Attendance>> TotalAbsencesDayListByStudentNumber(int? studentNumber) //SUCCESSFUL
         {
+            var latestTerm = EfTermBatchRepository.GetLatestTerm();
+            var termId = latestTerm?.Id;
             var attendances = await _appDbContext.Users
                 .Where(p => p.StudentNumber == studentNumber)
-                .SelectMany(p => p.Attendances.Select(a => new Attendance
+                .SelectMany(p => p.Attendances.Where(x=>x.TermId == termId).Select(a => new Attendance
                 {
                     Date = a.Date,
                     Person = p,
                     AttendanceType = a.AttendanceType,
                     AttendanceTotalLectureHour = a.AttendanceType == AttendanceType.TamGün ? null : a.AttendanceTotalLectureHour,
                     ExcuseType = a.ExcuseType,
+
                 })).OrderBy(a => a.Date)
                 .ToListAsync();
 
-            return attendances;
+            if(attendances != null)
+            {
+
+                return attendances;
+            }
+
+            return Enumerable.Empty<Attendance>().ToList();
         }
 
         public List<Person> GetPersonsWithAttendances()
         {
-            return _appDbContext.Users.Include(p => p.Attendances).ToList();
+            var latestTerm = EfTermBatchRepository.GetLatestTerm();
+            var termId = latestTerm?.Id;
+            return _appDbContext.Users.Include(p => p.Attendances).Where(x=>x.TermId==termId).ToList();
         }
 
         public Person GetPersonWithFamilyInfoById(Guid studentId)
@@ -89,32 +101,33 @@ namespace DataAccess.EntityFramework
             return _appDbContext.Users.Include(p => p.FamilyInfo).FirstOrDefault(p => p.Id == studentId);
         }
 
-        public int GetExcusedAbsencesCount(int? studentNumber)
+        public decimal? GetExcusedAbsencesCount(int? studentNumber)
         {
+            var latestTerm = EfTermBatchRepository.GetLatestTerm();
+            var termId = latestTerm?.Id;
             var excusedAbsencesCount = _appDbContext.Users
                 .Where(p => p.StudentNumber == studentNumber)
-                .SelectMany(p => p.Attendances.Where(a => a.ExcuseType == ExcuseType.Özürlü))
-                .Select(a => a.Date)
-                .GroupBy(date => date.Date)
-                .Select(group => group.Key)
-                .Count();
+                .SelectMany(p => p.Attendances.Where(a => a.ExcuseType == ExcuseType.Özürlü && a.TermId == termId))
+               .Sum(a => a.TotalAttendance);
             return excusedAbsencesCount;
         }
 
-        public int GetNonExcusedAbsencesCount(int? studentNumber)
+        public decimal? GetNonExcusedAbsencesCount(int? studentNumber)
         {
-            var excusedAbsencesCount = _appDbContext.Users
-               .Where(p => p.StudentNumber == studentNumber)
-               .SelectMany(p => p.Attendances.Where(a => a.ExcuseType == ExcuseType.Özürsüz))
-               .Select(a => a.Date)
-               .GroupBy(date => date.Date)
-               .Select(group => group.Key)
-               .Count();
-            return excusedAbsencesCount;
+            var latestTerm = EfTermBatchRepository.GetLatestTerm();
+            var termId = latestTerm?.Id;
+            var nonExcusedAbsencesTotal = _appDbContext.Users
+                .Where(p => p.StudentNumber == studentNumber)
+                .SelectMany(p => p.Attendances.Where(a => a.ExcuseType == ExcuseType.Özürsüz && a.TermId == termId))
+                .Sum(a => a.TotalAttendance);
+
+            return nonExcusedAbsencesTotal;
         }
 
         public List<Person> GetStudentsBranchsStudentsList(Guid studentId)
         {
+            var latestTerm = EfTermBatchRepository.GetLatestTerm();
+            var termId = latestTerm?.Id;
             var student = _appDbContext.Users.FirstOrDefault(x => x.Id == studentId);
             if (student == null)
             {
@@ -122,7 +135,7 @@ namespace DataAccess.EntityFramework
             }
 
             var studentsInSameBranch = _appDbContext.Users
-                .Where(x => x.Branch == student.Branch && x.Grade == student.Grade )
+                .Where(x => x.Branch == student.Branch && x.Grade == student.Grade && x.TermId == termId)
                 .ToList();
 
             return studentsInSameBranch;
