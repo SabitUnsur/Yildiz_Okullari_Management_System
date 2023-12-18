@@ -57,13 +57,6 @@ namespace Business.Concrete
 
         public async Task<List<Attendance>> GetAbsencesByTermRange(Guid termId, Guid userId)
         {
-            // Cache key oluştur
-            /*string cacheKey = $"absences_{startDate:yyyy-MM-dd}_{endDate:yyyy-MM-dd}";
-
-            // Cache'den devamsızlıklı öğrencileri oku
-            List<Attendance> absences = _memoryCache.Get<List<Attendance>>(cacheKey);*/
-
-            
               var absences = await _personDal.GetAbsencesByTermRange(termId,userId);
                 //_memoryCache.Set(cacheKey, absences);
 

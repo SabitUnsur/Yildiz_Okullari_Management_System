@@ -27,7 +27,7 @@ namespace Business.Concrete
 
         public async Task<(bool, IEnumerable<IdentityError>?)> RegisterAdminAsync(RegisterAdminViewModel request)
         {
-            var result = await _userManager.CreateAsync(new Person() { UserName=request.Username, Email=request.Email, Name=request.Name, Surname=request.Surname, PhoneNumber=request.PhoneNumber, TermId = request.TermId},request.Password!);
+            var result = await _userManager.CreateAsync(new Person() { UserName=request.Username, Email=request.Email, Name=request.Name, Surname=request.Surname, PhoneNumber=request.PhoneNumber, TermId = request.TermId },request.Password!);
             
             if(!result.Succeeded)
             {

@@ -31,7 +31,7 @@ namespace Business.Concrete
         public async Task ScheduleSms(Guid studentId)
         {
             var now = DateTime.Now;
-            var targetTime = new DateTime(now.Year, now.Month, now.Day, 20 , 37 , 10 );
+            var targetTime = new DateTime(now.Year, now.Month, now.Day, 14, 17, 10);
 
             if (now > targetTime)
             {
@@ -39,15 +39,9 @@ namespace Business.Concrete
             }
 
             var delay = targetTime - now;
-
             await Task.Delay(delay);
-
-            // Örnek bir TimerCallback oluşturun
             Action<object> callback = x => SendDailyAttendanceSmsViaTwilio(studentId);
-
-                // TimerWrapper'ı kullanarak TimerCallback'i başlatın
-                _timer.Start(callback, null, delay, TimeSpan.FromDays(1));
-                //await Task.Delay(TimeSpan.FromDays(1));
+            _timer.Start(callback, null, delay, TimeSpan.FromDays(1));
         }
 
         private void SendDailyAttendanceSmsViaTwilio(Guid studentId)
@@ -63,16 +57,16 @@ namespace Business.Concrete
                 if (personToGetSms.FamilyInfoId != null)
                 {
                     parentPhoneNumber = personToGetSms.FamilyInfo.FatherPhoneNumber;
-                    studentPhoneNumber = personToGetSms.PhoneNumber; 
+                    studentPhoneNumber = personToGetSms.PhoneNumber;
                 }
                 else
                 {
                     parentPhoneNumber = personToGetSms.FamilyInfo.MotherPhoneNumber;
-                    studentPhoneNumber = personToGetSms.PhoneNumber; 
+                    studentPhoneNumber = personToGetSms.PhoneNumber;
                 }
 
                 var attendanceDate = _personService.GetTodaysAbsenceDateForStudent(studentId);
-   
+
                 SmsSenderHelper(personToGetSms, parentPhoneNumber, attendanceDate);
                 SmsSenderHelper(personToGetSms, studentPhoneNumber, attendanceDate);
             }
@@ -82,7 +76,7 @@ namespace Business.Concrete
         {
             try
             {
-                if(person.FamilyInfo.FatherFullName != null)
+                if (person.FamilyInfo.FatherFullName != null)
                 {
                     _smsService.Send(phoneNumber, $"Sayın {person.FamilyInfo.FatherFullName} , {person.Name} {person.Surname} öğrencimiz {attendanceDate.Value.ToShortDateString()} tarihinde {Messages.AttendanceInformation}");
                     _timer.Stop();
