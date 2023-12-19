@@ -47,6 +47,7 @@ namespace Core.ViewModels
         [Required(ErrorMessage ="Şifre tekrar alanı boş bırakılamaz")]
         [DataType(DataType.Password)]
         [Display(Name="Şifre Tekrar")]
+        [System.ComponentModel.DataAnnotations.Compare(nameof(Password), ErrorMessage = "Şifreler Eşleşmiyor")]
         public string? PasswordConfirm { get; set; }
         [Required(ErrorMessage ="Telefon numarası alanı boş bırakılamaz")]
         [Display(Name="Telefon Numarası")]

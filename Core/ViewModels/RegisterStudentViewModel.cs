@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace Core.ViewModels
 {
@@ -56,6 +57,8 @@ namespace Core.ViewModels
         [DataType(DataType.Password)]
         [Display(Name="Şifre")]
         public string ?Password { get; set; }
+
+        [System.ComponentModel.DataAnnotations.Compare(nameof(Password),ErrorMessage ="Şifreler Eşleşmiyor")]
         [Required(ErrorMessage="Lütfen şifre giriniz.")]
         [DataType(DataType.Password)]
         [Display(Name="Şifre Tekrar")]
