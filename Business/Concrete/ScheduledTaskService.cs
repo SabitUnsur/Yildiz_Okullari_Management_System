@@ -31,7 +31,7 @@ namespace Business.Concrete
         public async Task ScheduleSms(Guid studentId)
         {
             var now = DateTime.Now;
-            var targetTime = new DateTime(now.Year, now.Month, now.Day, 14, 17, 10);
+            var targetTime = new DateTime(now.Year, now.Month, now.Day, 10, 56, 10);
 
             if (now > targetTime)
             {
