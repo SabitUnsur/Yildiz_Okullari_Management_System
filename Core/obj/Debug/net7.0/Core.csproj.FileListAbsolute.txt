@@ -50,3 +50,4 @@ C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Manage
 C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Core\obj\Debug\net7.0\refint\Core.dll
 C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Core\obj\Debug\net7.0\Core.pdb
 C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Core\obj\Debug\net7.0\ref\Core.dll
+C:\Users\sabit\source\repos\Yildiz_Okullari\Core\obj\Debug\net7.0\Core.sourcelink.json

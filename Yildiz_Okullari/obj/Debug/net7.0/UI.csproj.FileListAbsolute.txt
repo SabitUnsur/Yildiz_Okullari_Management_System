@@ -800,3 +800,4 @@ C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yild
 C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\Twilio.dll
 C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\Twilio.AspNet.Common.dll
 C:\Users\cagat\OneDrive\Masaüstü\kodlar\Yildiz_Okullari_Management_System\Yildiz_Okullari\bin\Debug\net7.0\Twilio.AspNet.Mvc.dll
+C:\Users\sabit\source\repos\Yildiz_Okullari\Yildiz_Okullari\obj\Debug\net7.0\UI.sourcelink.json

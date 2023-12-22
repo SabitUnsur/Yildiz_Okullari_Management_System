@@ -34,6 +34,8 @@
                 <td><a asp-area="Admin" asp-action="StudentDetailsList" asp-controller="Admin" asp-route-Id="@item.Id" class="btn btn-outline-danger"> Detaylar</a></td>
                 <td> <a asp-area="Admin" asp-action="EditStudent" asp-controller="Admin" asp-route-Id="@item.Id" class="btn btn-outline-success">Güncelle</a></td>
                 <td><a asp-area="Admin" asp-action="DeleteStudent" asp-controller="Admin" asp-route-Id="@item.Id" class="btn btn-outline-danger"> Sil</a></td>
+                <td><a asp-area="Admin" asp-action="AddAttendance" asp-controller="Admin" asp-route-Id="@item.Id" class="btn btn-outline-danger"> Devamsızlık Gir</a></td>
+                <td><a asp-area="Admin" asp-action="GetAttendancesByStudent" asp-controller="Admin" asp-route-Id="@item.Id" class="btn btn-outline-warning"> Devamsızlık Bilgisi</a></td>
     </tr>
     }
     </tbody>

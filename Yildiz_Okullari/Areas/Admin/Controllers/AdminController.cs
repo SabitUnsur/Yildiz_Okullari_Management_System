@@ -155,10 +155,19 @@ namespace UI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> AddAttendance(List<LectureHours> selectedLectures, ExcuseType excuseType, Guid studentId)
         {
-            var user = _personService.GetById(studentId);
-            var attendance = _attendanceService.TotalDailyAbsencesLectureHours(selectedLectures, excuseType, user.Id);
-            await _attendanceService.Add(attendance);
-            return RedirectToAction("StudentList");
+            try
+            {
+                var user = _personService.GetById(studentId);
+                var attendance = _attendanceService.TotalDailyAbsencesLectureHours(selectedLectures, excuseType, user.Id);
+                await _attendanceService.Add(attendance);
+                return RedirectToAction("StudentList");
+            }
+            catch (Exception ex)
+            {
+                string errorMessage = ex.Message;
+                TempData["AttendanceErrorMessage"] = errorMessage;
+                return RedirectToAction("StudentList");
+            }
         }
 
         [HttpPost]

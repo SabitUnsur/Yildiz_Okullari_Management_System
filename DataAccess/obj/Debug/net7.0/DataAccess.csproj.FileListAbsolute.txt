@@ -50,3 +50,4 @@ C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Manage
 C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\DataAccess\obj\Debug\net7.0\DataAccess.pdb
 C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\DataAccess\obj\Debug\net7.0\DataAccess.genruntimeconfig.cache
 C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\DataAccess\obj\Debug\net7.0\ref\DataAccess.dll
+C:\Users\sabit\source\repos\Yildiz_Okullari\DataAccess\obj\Debug\net7.0\DataAccess.sourcelink.json

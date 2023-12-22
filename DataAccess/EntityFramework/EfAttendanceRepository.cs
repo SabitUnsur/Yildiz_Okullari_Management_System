@@ -20,7 +20,7 @@ namespace DataAccess.EntityFramework
 
             if (existingAttendance != null)
             {
-                throw new Exception("Öğrencinin bugüne ait devamsızlık bilgisi mevcut");
+                throw new Exception(message: "Öğrencinin bugüne ait devamsızlık bilgisi mevcut");
             }
 
             CalculateAttendanceType(entity);

@@ -31,7 +31,7 @@ namespace Business.Concrete
         public async Task ScheduleSms(Guid studentId)
         {
             var now = DateTime.Now;
-            var targetTime = new DateTime(now.Year, now.Month, now.Day, 10, 56, 10);
+            var targetTime = new DateTime(now.Year, now.Month, now.Day, 01, 49, 0);
 
             if (now > targetTime)
             {
@@ -72,20 +72,20 @@ namespace Business.Concrete
             }
         }
 
-        private void SmsSenderHelper(Person person, string phoneNumber, DateTime? attendanceDate)
+        private async Task SmsSenderHelper(Person person, string phoneNumber, DateTime? attendanceDate)
         {
             try
             {
                 if (person.FamilyInfo.FatherFullName != null)
                 {
                     _smsService.Send(phoneNumber, $"Sayın {person.FamilyInfo.FatherFullName} , {person.Name} {person.Surname} öğrencimiz {attendanceDate.Value.ToShortDateString()} tarihinde {Messages.AttendanceInformation}");
-                    _timer.Stop();
                 }
                 else
                 {
                     _smsService.Send(phoneNumber, $"Sayın {person.FamilyInfo.MotherFullName} ,  {person.Name} {person.Surname} öğrencimiz {attendanceDate.Value.ToShortDateString()} tarihinde {Messages.AttendanceInformation}");
-                    _timer.Stop();
                 }
+
+                _timer.Stop();
             }
             catch (SmsSendFailedException ex)
             {

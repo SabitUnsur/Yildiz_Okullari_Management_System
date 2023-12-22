@@ -56,3 +56,4 @@ C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Manage
 C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Business\obj\Debug\net7.0\refint\Business.dll
 C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Business\obj\Debug\net7.0\Business.pdb
 C:\Users\MikdatCanSimsek\Desktop\Yazılım Mühendisliği\Yildiz_Okullari_Management_System\Business\obj\Debug\net7.0\ref\Business.dll
+C:\Users\sabit\source\repos\Yildiz_Okullari\Business\obj\Debug\net7.0\Business.sourcelink.json
